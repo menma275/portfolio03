@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 
 export default async function WorkPage({ params }: { params: { id: string } }) {
 
-  const post = works.find((w) => w.path === params.id);
+  const post = works.works.find((w) => w.path === params.id);
   if (!post) return notFound();
 
   return (
