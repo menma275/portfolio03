@@ -107,6 +107,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
               <ExternalLink
                 href={work.link}
                 className="text-fg-secondary font-medium"
+                truncate={true}
               >
                 {work.link}
               </ExternalLink>

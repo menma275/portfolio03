@@ -6,7 +6,8 @@ import { HiChevronRight } from "react-icons/hi";
 export interface InfoItem {
   label: string;
   title: string;
-  description?: string;
+  description?: React.ReactNode;
+  prize?: string;
   url?: string;
   workId?: string;
 }
@@ -29,6 +30,11 @@ export const InfoSection: React.FC<InfoSectionProps> = ({ title, items }) => {
               </p>
             </div>
             <div className="flex flex-col gap-1">
+              {item.prize && (
+                <span className="bg-accent-light px-2 py-0.5 rounded-full text-accent font-medium text-[10px] w-fit">
+                  {item.prize}
+                </span>
+              )}
               {item.url ? (
                 <ExternalLink
                   href={item.url}

@@ -6,7 +6,8 @@ export const Awards: React.FC = () => {
   const items = awards.map((award) => ({
     label: award.date,
     title: award.title,
-    description: `${award.organization}${award.description ? ` - ${award.description}` : ""}`,
+    prize: award.prize,
+    description: award.description,
     url: award.url,
     workId: award.workId,
   }));
