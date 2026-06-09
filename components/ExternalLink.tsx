@@ -23,9 +23,7 @@ export const ExternalLink: React.FC<ExternalLinkProps> = ({
       rel="noopener noreferrer"
       className={`inline-flex items-center max-w-full hover:underline group ${className}`}
     >
-      <span className={`truncate ${colorClass}`}>
-        {children}
-      </span>
+      <span className={`truncate ${colorClass}`}>{children}</span>
       <FiArrowUpRight
         className={`shrink-0 ml-0.5 transition-colors ${colorClass}`}
         size={14}
