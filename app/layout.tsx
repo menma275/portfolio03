@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Kusuke SAKAMURA, a designer, developer and artist based in Tokyo.",
   openGraph: {
-    title: "Kusuke SAKAMURA",
+    title: "Kusuke SAKAMURA / 坂村 空介",
     description:
       "Kusuke SAKAMURA, a designer, developer, artist based in Tokyo.",
     url: "https://sakamura.dev",

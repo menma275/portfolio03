@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
       </div>
       <div className="flex flex-col gap-2">
         <Link href="/" className="hover:opacity-70 transition-opacity">
-          <h1 className="text-fg-primary">Kusuke SAKAMURA</h1>
+          <h1 className="text-fg-primary">Kusuke SAKAMURA / 坂村 空介</h1>
         </Link>
         <p className="text-fg-secondary">go with the flow, like water.</p>
         <SocialLinks />
