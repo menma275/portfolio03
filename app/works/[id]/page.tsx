@@ -60,11 +60,6 @@ export default async function WorkDetailPage({ params }: PageProps) {
       </div>
       <header className="flex flex-wrap w-full justify-between">
         <h1 className="font-bold text-fg-primary">{work.title}</h1>
-        {work.link && (
-          <ExternalLink href={work.link} className="text-primary font-medium">
-            Project Page
-          </ExternalLink>
-        )}
       </header>
 
       {work.imageUrl && (
@@ -91,6 +86,16 @@ export default async function WorkDetailPage({ params }: PageProps) {
                 className="max-w-full max-h-full object-contain"
               />
             )}
+          </div>
+        </div>
+      )}
+      {work.link && (
+        <div className="flex items-center justify-between gap-4 bg-bg-secondary px-4 py-2 rounded-lg">
+          <p className="shrink-0 text-fg-secondary text-sm">Project Page</p>
+          <div className="min-w-0 flex justify-end">
+            <ExternalLink href={work.link} className="text-primary font-medium">
+              {work.link}
+            </ExternalLink>
           </div>
         </div>
       )}

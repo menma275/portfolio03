@@ -32,7 +32,7 @@ export const works: Work[] = [
       "/img/turnie/03.jpg",
       "/img/turnie/04.jpg",
     ],
-    technologies: ["Hardware Design", "BLE", "IoT"],
+    technologies: ["Hardware Design", "BLE", "SwiftUI", "EPS32"],
     link: "https://www.turnie.io/",
     details: {
       overview: {

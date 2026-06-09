@@ -17,11 +17,11 @@ export const ExternalLink: React.FC<ExternalLinkProps> = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline hover:underline group ${className}`}
+      className={`inline-flex items-center max-w-full hover:underline group ${className}`}
     >
-      {children}
+      <span className="truncate">{children}</span>
       <FiArrowUpRight
-        className="inline-block ml-0.5 text-fg-secondary group-hover:text-fg-primary transition-colors align-middle"
+        className="shrink-0 ml-0.5 text-fg-secondary group-hover:text-fg-primary transition-colors"
         size={14}
       />
     </a>
