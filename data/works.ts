@@ -232,6 +232,7 @@ export const works: Work[] = [
     imageUrl: "/img/proofofx_shibuya/01.png",
     images: ["/img/proofofx_shibuya/01.png", "/img/proofofx_shibuya/02.png"],
     technologies: ["Next.js", "Tailwind CSS"],
+    link: "https://proofofx.art/",
     details: {
       overview: {
         ja: "本Webサイトはブロックチェーンに主眼を置いた「Proof of X」のために制作された。イベントの概要や出展作品を紹介するなど、基本的な情報を提供することを目的としている。協力イベントであるDIG SHIBUYAのデザインコンセプトからインスピレーションを受け、直接的でない形でデザインに反映させた。",
@@ -337,7 +338,7 @@ export const works: Work[] = [
     imageUrl: "/img/proofofx_2023/01.png",
     images: ["/img/proofofx_2023/01.png", "/img/proofofx_2023/02.png"],
     technologies: ["Next.js", "Chakra UI"],
-    link: "",
+    link: "https://proofofx.art/2023",
     details: {
       overview: {
         ja: "本Webサイトはブロックチェーンに主眼を置いた「Proof of X」のために制作された。イベントの概要や出展作品を紹介するなど、基本的な情報を提供することを目的としている。ファーストビューには変化し続けるメインビジュアルを配置し、強力な印象を与える。本Webページは数人のメンバーで作成され、絶えず更新される情報とコンテンツへの対応を継続して行った。",
