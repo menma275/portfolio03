@@ -21,6 +21,62 @@ export interface Work {
 
 export const works: Work[] = [
   {
+    id: "ge2026",
+    title:
+      "インダストリアルアート学科・学域 卒業・修了制作研究展2026 Webサイト",
+    category: "Web Content",
+    description: "Official website for the Graduation Exhibition 2026",
+    imageUrl: "/img/ge2026/01.jpeg",
+    images: [
+      "/img/ge2026/01.jpeg",
+      "/img/ge2026/02.jpeg",
+      "/img/ge2026/03.jpeg",
+      "/img/ge2026/04.jpeg",
+    ],
+    technologies: ["Next.js", "Tailwind CSS", "WebGL"],
+    link: "https://industrial-art.sd.tmu.ac.jp/ge2026/ja/",
+    details: {
+      overview: {
+        ja: "東京都立大学インダストリアルアート学科・学域の卒業・修了制作研究展2026の公式Webサイト。フロントエンド実装を担当し、本年度の展示コンセプトである「もや」を表現するため、シェーダーを用いた動的なビジュアル表現を取り入れた。従来のWeb展では外部サービスのNotionを利用していたが、本年度は初の試みとしてサイト内での完全な独自実装を行っている。",
+        en: "The official website for the Tokyo Metropolitan University Industrial Art Graduation/Completion Exhibition 2026. As the lead frontend developer, I incorporated dynamic visual expressions using shaders to convey the exhibition's theme, 'Moya' (haze). While previous online exhibitions relied on external platforms like Notion, this year marked the first attempt at a complete internal implementation within the site.",
+      },
+      concept: {
+        ja: "メインビジュアルのトーンを継承しつつ、実装と並行してデザインのブラッシュアップを行った。独自実装への切り替えにより、作品同士のレコメンド機能、会場地図との動的な連携、高度なソーティングやフィルター機能など、鑑賞体験を向上させる挑戦的な機能を多数盛り込んでいる。情報提供に留まらず、Webサイト自体が展示の質感を伝える一つのインターフェースとなることを目指した。",
+        en: "While maintaining the tone of the main visual, the design was refined in parallel with implementation. By shifting to a custom implementation, we integrated various challenging features to enhance the viewing experience, such as a work recommendation system, dynamic venue map integration, and advanced sorting and filtering functions. The goal was for the website itself to serve as an interface that conveys the tangible quality of the exhibition.",
+      },
+    },
+  },
+  {
+    id: "createdat",
+    title: "createdAt: ",
+    category: "IoT Device",
+    description: "Generative Art Device using E-paper",
+    imageUrl: "/img/createdat/01.jpg",
+    images: [
+      "/img/createdat/01.jpg",
+      "/img/createdat/02.jpg",
+      "/img/createdat/03.jpg",
+      "/img/createdat/04.jpg",
+      "/img/createdat/05.jpg",
+      "/img/createdat/06.jpg",
+      "/img/createdat/07.jpg",
+      "/img/createdat/08.jpg",
+      "/img/createdat/09.jpg",
+    ],
+    technologies: ["Raspberry Pi", "E-paper", "Generative Art"],
+    link: "https://blog.lab.sugimototatsuo.com/entry/2026/03/28/123137",
+    details: {
+      overview: {
+        ja: "実行される環境の情報から、その場限り唯一のビジュアルを生成する装置。表示装置に電子ペーパーを採用し、実行時の「時刻・位置情報・ボタンの押下時間」という最小限のメタデータをシード値として、幾何学的なピクセルパターンを描き出す。最大の特徴は、生成されたビジュアルがマイコン内に画像データとして保存されず、電子ペーパー上にのみ物質化されて残る点にある。電子ペーパーを表示装置としてだけでなく、作品を保持する唯一のメモリとして機能させることで、デジタル作品に物理的な固有性を与えている。本作は東京都立大学の卒業制作として制作され、東京都美術館で開催された「東京都立大学システムデザイン学部・研究科　インダストリアルアート学科・学域 卒業・修了制作研究展2026」にて展示された。",
+        en: "This device generates a unique, one-time visual based on environmental data at the moment of execution. Using electronic paper (e-paper) as the display, it takes minimal metadata—such as time, location, and the duration of a button press—as seed values to create geometric pixel patterns. The core characteristic of this work is that the generated visual is never stored as image data within the microcontroller; instead, it exists solely as a physical manifestation on the e-paper. By utilizing e-paper not just as a display but as the only memory for the work, the project imbues digital art with a sense of physical uniqueness and permanence. This work was created as a graduation project for Tokyo Metropolitan University and exhibited at the 'Tokyo Metropolitan University Faculty of Systems Design Department of Industrial Art Showcase of Graduate and Undergraduate Student Works 2026' held at the Tokyo Metropolitan Art Museum.",
+      },
+      concept: {
+        ja: "デジタルアートが抱える「無限に完璧な複製が可能である」という性質に対し、作品の固有性や唯一性をいかに取り戻すかという問いから出発した。本作では、デジタルデータ（メタデータ）から生成されながらも、特定の場所と時間でしか結実しない仕組みを構築している。あえて配線やコンポーネントを露出させた装置のデザインは、洗練されたデバイスを通じて均質に消費されるデジタル表現への対比であり、デジタルと物質性の境界における新しい作品の在り方を提示している。",
+        en: "The project began with a question regarding the infinite reproducibility of digital art: how can we restore a sense of uniqueness and aura to digital works? While the visuals are generated from digital metadata, the system is designed so that they only materialize at a specific time and place. The intentional exposure of wires and components serves as a contrast to the way digital expressions are homogeneously consumed through overly refined devices. It proposes a new way for digital works to exist at the intersection of data and materiality.",
+      },
+    },
+  },
+  {
     id: "turnie",
     title: "turnie",
     category: "IoT Device",
