@@ -68,6 +68,8 @@
   span,
   a {
     font-size: 0.85rem;
+  }
+  span {
     color: var(--color-fg-secondary);
   }
 }

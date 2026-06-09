@@ -21,32 +21,6 @@ export interface Work {
 
 export const works: Work[] = [
   {
-    id: "ge2026",
-    title:
-      "インダストリアルアート学科・学域 卒業・修了制作研究展2026 Webサイト",
-    category: "Web Content",
-    description: "Official website for the Graduation Exhibition 2026",
-    imageUrl: "/img/ge2026/01.jpeg",
-    images: [
-      "/img/ge2026/01.jpeg",
-      "/img/ge2026/02.jpeg",
-      "/img/ge2026/03.jpeg",
-      "/img/ge2026/04.jpeg",
-    ],
-    technologies: ["Next.js", "Tailwind CSS", "WebGL"],
-    link: "https://industrial-art.sd.tmu.ac.jp/ge2026/ja/",
-    details: {
-      overview: {
-        ja: "東京都立大学インダストリアルアート学科・学域の卒業・修了制作研究展2026の公式Webサイト。フロントエンド実装を担当し、本年度の展示コンセプトである「もや」を表現するため、シェーダーを用いた動的なビジュアル表現を取り入れた。従来のWeb展では外部サービスのNotionを利用していたが、本年度は初の試みとしてサイト内での完全な独自実装を行っている。",
-        en: "The official website for the Tokyo Metropolitan University Industrial Art Graduation/Completion Exhibition 2026. As the lead frontend developer, I incorporated dynamic visual expressions using shaders to convey the exhibition's theme, 'Moya' (haze). While previous online exhibitions relied on external platforms like Notion, this year marked the first attempt at a complete internal implementation within the site.",
-      },
-      concept: {
-        ja: "メインビジュアルのトーンを継承しつつ、実装と並行してデザインのブラッシュアップを行った。独自実装への切り替えにより、作品同士のレコメンド機能、会場地図との動的な連携、高度なソーティングやフィルター機能など、鑑賞体験を向上させる挑戦的な機能を多数盛り込んでいる。情報提供に留まらず、Webサイト自体が展示の質感を伝える一つのインターフェースとなることを目指した。",
-        en: "While maintaining the tone of the main visual, the design was refined in parallel with implementation. By shifting to a custom implementation, we integrated various challenging features to enhance the viewing experience, such as a work recommendation system, dynamic venue map integration, and advanced sorting and filtering functions. The goal was for the website itself to serve as an interface that conveys the tangible quality of the exhibition.",
-      },
-    },
-  },
-  {
     id: "createdat",
     title: "createdAt: ",
     category: "IoT Device",
@@ -102,6 +76,32 @@ export const works: Work[] = [
     },
   },
   {
+    id: "ge2026",
+    title:
+      "インダストリアルアート学科・学域 卒業・修了制作研究展2026 Webサイト",
+    category: "Web Content",
+    description: "Official website for the Graduation Exhibition 2026",
+    imageUrl: "/img/ge2026/01.jpeg",
+    images: [
+      "/img/ge2026/01.jpeg",
+      "/img/ge2026/02.jpeg",
+      "/img/ge2026/03.jpeg",
+      "/img/ge2026/04.jpeg",
+    ],
+    technologies: ["Next.js", "Tailwind CSS", "WebGL"],
+    link: "https://industrial-art.sd.tmu.ac.jp/ge2026/ja/",
+    details: {
+      overview: {
+        ja: "東京都立大学インダストリアルアート学科・学域の卒業・修了制作研究展2026の公式Webサイト。フロントエンド実装を担当し、本年度の展示コンセプトである「もや」を表現するため、シェーダーを用いた動的なビジュアル表現を取り入れた。従来のWeb展では外部サービスのNotionを利用していたが、本年度は初の試みとしてサイト内での完全な独自実装を行っている。",
+        en: "The official website for the Tokyo Metropolitan University Industrial Art Graduation/Completion Exhibition 2026. As the lead frontend developer, I incorporated dynamic visual expressions using shaders to convey the exhibition's theme, 'Moya' (haze). While previous online exhibitions relied on external platforms like Notion, this year marked the first attempt at a complete internal implementation within the site.",
+      },
+      concept: {
+        ja: "メインビジュアルのトーンを継承しつつ、実装と並行してデザインのブラッシュアップを行った。独自実装への切り替えにより、作品同士のレコメンド機能、会場地図との動的な連携、高度なソーティングやフィルター機能など、鑑賞体験を向上させる挑戦的な機能を多数盛り込んでいる。情報提供に留まらず、Webサイト自体が展示の質感を伝える一つのインターフェースとなることを目指した。",
+        en: "While maintaining the tone of the main visual, the design was refined in parallel with implementation. By shifting to a custom implementation, we integrated various challenging features to enhance the viewing experience, such as a work recommendation system, dynamic venue map integration, and advanced sorting and filtering functions. The goal was for the website itself to serve as an interface that conveys the tangible quality of the exhibition.",
+      },
+    },
+  },
+  {
     id: "inpraiseofshadows",
     title: "In Praise of Shadows - Book Cover",
     category: "Class Assignment",
@@ -137,68 +137,6 @@ export const works: Work[] = [
       concept: {
         ja: "テクノロジーが普及し、あらゆる⼈々の考えが受動的・インスタントに流れ込んでくる時代にあって、AIまでもがあらゆる知識を私たちに与えてくる。その恩恵がある⼀⽅で、⾃分⾃⾝の考えを深く再考する時間を失ってはいないだろうかと考え制作した。本アプリケーションは、⾃分のコンピュータにあるファイルを意味をもとに解析し、それらの関係性から3D空間に配置する。このシステムによって、⾃分でも気づかなかった思考やアイデアの種、そのつながりを再考することを期待している。",
         en: "In an era where technology is widespread and everyone's ideas flow in passively and instantaneously, even AI provides us with all kinds of knowledge. While there are benefits to this, I created this application out of a concern that we may be losing the time to deeply rethink our own ideas. This application analyzes files on your computer based on their meaning and arranges them in a 3D space based on the relationships between them. Through this system, I hope to encourage users to rethink their own thoughts, the seeds of their ideas, and their connections, which they may not have even been aware of themselves.",
-      },
-    },
-  },
-  {
-    id: "archetype",
-    title: "archeType",
-    category: "Interactive Art",
-    description: "Interactive Art on the Web",
-    imageUrl: "/img/archetype/01.png",
-    images: [
-      "/img/archetype/01.png",
-      "/img/archetype/02.png",
-      "/img/archetype/03.png",
-    ],
-    technologies: ["HTML", "CSS", "JavaScript", "Three.js"],
-    link: "https://tmu-2023-net-1.github.io/sakamura/",
-    details: {
-      overview: {
-        ja: "archeTypeはWeb上で体験できるインタラクティブアート。作品の構造は非常にシンプルで、入力した文字が立体となって落下していくというもの。この作品は東京都立大学の授業「ネットワーク実習I」の課題として制作された。",
-        en: 'archeType is a Interactive art that you can experience throw the web site.\nThe structure of the experience is so simple. You can input text and it will fall down as 3D object.\nThe project was created as a class assignment for the course "Network Practical Exercises I" at Tokyo Metropolitan University.',
-      },
-      concept: {
-        ja: "本作品はメディアとして圧倒的に普及しつつも、その永続性に確証のないWebという媒体の儚さに着目し、視覚化を試みたもの。構造はいたってシンプルで、入力した文章がその場に留まることなく崩れ、落下していく。Webに託した情報の存在の不確かさを、物質が時間と共に朽ちていく様になぞらえて表現した。タイトルは「原型」を指し、文字が文章から解き放たれ、かたちとして還元される様を表している。機能としてのWebの不完全性を表すと同時に、Webを通じた即時的な情報を、私たちが普段からどう見ているのかを再認識させるような作品を目指した。",
-        en: 'This work focuses on the transience of the medium of the Web, which is overwhelmingly popular as a medium but has no certainty of its permanence, and attempts to visualize it.\n The structure is very simple: the input text is destroyed and falls down without staying in place. The uncertainty of the existence of information entrusted to the Web is expressed as a material that decays and falls over time.\n The title refers to "original form" and represents the release of characters from the text and their reduction to form.\n It aims to express the incompleteness of the Web as a function and at the same time to make us re-recognize how we usually look at the immediate information through the Web.',
-      },
-    },
-  },
-  {
-    id: "soundscape",
-    title: "Soundscape",
-    category: "Interactive Art",
-    description: "Sound Visualization Installation Art",
-    imageUrl: "/img/soundscape/01.png",
-    technologies: ["Processing", "Kinect"],
-    link: "",
-    details: {
-      overview: {
-        ja: "Soundscapeはプロジェクターを用いて展開される、全身で体感するインタラクティブアート。鑑賞者は作品の前を歩くという至ってシンプルな動作によって作品に参加することができ、鑑賞者の位置によって作品が変化していく。本作品はタイトルの通りSoundscapeを題材に、世界の様々な場所、瞬間を光と音によって体験できる。この作品は東京都立大学の授業「インタラクティブアート演習・実習I」の課題として制作された。",
-        en: 'Soundscape is an interactive art that you can experience with your whole body using a projector.\nThe viewer can participate in the work by simply walking in front of it, and the work changes depending on the viewer\'s position.\nAs the title suggests, this work is based on Soundscape, and you can experience various places and moments around the world through light and sound.\nThis work was created as a class assignment for the course "Interactive Art Exercises and Exercises I" at Tokyo Metropolitan University.',
-      },
-      concept: {
-        ja: "本作品は世界に存在する、視覚情報としての光と聴覚情報としての音の縮図として制作。この作品の前に立つことで小さな世界が目の前に立ち現れることを目指した。音と光のインタラクティブアートでありながらも、鑑賞者の能動的な行動は促さない。鑑賞者は作品の前を歩くだけで参加でき、特別なジェスチャーを行う必要はない。それは我々が世界に存在する光や音に対して特別な行動を起こすことなく、ただ存在することでそれらを体験していることに似ている。",
-        en: "This work was created as a miniature of light as visual information and sound as auditory information, aiming to make a small world appear in front of you by standing in front of this work.\nAlthough it is an interactive art of sound and light, it does not encourage the viewer to take active action. The viewer can participate in the work just by walking in front of it, and there is no need to make a special gesture. It is similar to the fact that we experience them by simply existing without taking any special action against the light and sound that exist in the world.",
-      },
-    },
-  },
-  {
-    id: "enlightnment",
-    title: "enLightnment",
-    category: "Interactive Art",
-    description: 'Interactive Art for "not moving"',
-    imageUrl: "/img/enlightnment/01.png",
-    technologies: ["Arduino"],
-    link: "",
-    details: {
-      overview: {
-        ja: "enLightnmentは「何もしない」を主眼に置いたインタラクティブアート。瞑想を促す装置として機能し、集中に応じてオブジェクトの持つ光が強くなっていく。集中力を高めるために必要な「何もしない」を視覚的にもわかりやすく体験することができる。この作品は東京都立大学の授業「インタラクティブアート演習・実習I」の課題として制作された。",
-        en: 'enLightnment is an interactive art that focuses on "Do Nothing". It functions as a device to promote meditation, and the light of the object becomes stronger depending on the concentration, so that you can visually and easily experience the "Do Nothing" necessary to increase your concentration.\n This work was created as a class assignment for the course "Interactive Art Exercise and Practice I" at Tokyo Metropolitan University.',
-      },
-      concept: {
-        ja: "本作品を制作する際に、現代の生活を送る私たちが「何もしない」ことの難しさを感じた。私たちは常に何かをしているという状態にあり、何もしないことが難しい。また、現代は常に何かに注意を惹きつけられるような環境にあり、自分と向き合う時間が少なくなっていると感じた。そこで、私たちが「何もしない」ことを視覚的に体験できるような作品を通して、自分と向き合う時間を作ることができればと考えた。",
-        en: "This work was created as a miniature of light as visual information and sound as auditory information, aiming to make a small world appear in front of you by standing in front of this work. \n Although it is an interactive art of sound and light, it does not encourage the viewer to take active action. The viewer can participate in the work just by walking in front of it, and there is no need to make a special gesture. It is similar to the fact that we experience them by simply existing without taking any special action against the light and sound that exist in the world.",
       },
     },
   },
@@ -408,6 +346,68 @@ export const works: Work[] = [
       concept: {
         ja: "本Webサイト制作はデザインと開発が分離していたため、当初はPSDデータを再現する役割を担当した。しかし、急遽制作しなければならないページが増えたため、それまでのデザインを踏襲しつつ、デザインと開発を同時に一人で行うパートがあった。この経験を通じて、自分だけのデザイン思考法だけでなく、他者の思考法に基づいたデザインを行う経験を得た。",
         en: "Since the design and development were separated, I was in charge of reproducing the PSD data, but there was a part where I had to design and develop at the same time by myself because the number of pages that had to be created in a hurry increased and I had to follow the design up to that point. This experience gave me the experience of designing from the perspective of others, not just my own design thinking.",
+      },
+    },
+  },
+  {
+    id: "archetype",
+    title: "archeType",
+    category: "Interactive Art",
+    description: "Interactive Art on the Web",
+    imageUrl: "/img/archetype/01.png",
+    images: [
+      "/img/archetype/01.png",
+      "/img/archetype/02.png",
+      "/img/archetype/03.png",
+    ],
+    technologies: ["HTML", "CSS", "JavaScript", "Three.js"],
+    link: "https://tmu-2023-net-1.github.io/sakamura/",
+    details: {
+      overview: {
+        ja: "archeTypeはWeb上で体験できるインタラクティブアート。作品の構造は非常にシンプルで、入力した文字が立体となって落下していくというもの。この作品は東京都立大学の授業「ネットワーク実習I」の課題として制作された。",
+        en: 'archeType is a Interactive art that you can experience throw the web site.\nThe structure of the experience is so simple. You can input text and it will fall down as 3D object.\nThe project was created as a class assignment for the course "Network Practical Exercises I" at Tokyo Metropolitan University.',
+      },
+      concept: {
+        ja: "本作品はメディアとして圧倒的に普及しつつも、その永続性に確証のないWebという媒体の儚さに着目し、視覚化を試みたもの。構造はいたってシンプルで、入力した文章がその場に留まることなく崩れ、落下していく。Webに託した情報の存在の不確かさを、物質が時間と共に朽ちていく様になぞらえて表現した。タイトルは「原型」を指し、文字が文章から解き放たれ、かたちとして還元される様を表している。機能としてのWebの不完全性を表すと同時に、Webを通じた即時的な情報を、私たちが普段からどう見ているのかを再認識させるような作品を目指した。",
+        en: 'This work focuses on the transience of the medium of the Web, which is overwhelmingly popular as a medium but has no certainty of its permanence, and attempts to visualize it.\n The structure is very simple: the input text is destroyed and falls down without staying in place. The uncertainty of the existence of information entrusted to the Web is expressed as a material that decays and falls over time.\n The title refers to "original form" and represents the release of characters from the text and their reduction to form.\n It aims to express the incompleteness of the Web as a function and at the same time to make us re-recognize how we usually look at the immediate information through the Web.',
+      },
+    },
+  },
+  {
+    id: "soundscape",
+    title: "Soundscape",
+    category: "Interactive Art",
+    description: "Sound Visualization Installation Art",
+    imageUrl: "/img/soundscape/01.png",
+    technologies: ["Processing", "Kinect"],
+    link: "",
+    details: {
+      overview: {
+        ja: "Soundscapeはプロジェクターを用いて展開される、全身で体感するインタラクティブアート。鑑賞者は作品の前を歩くという至ってシンプルな動作によって作品に参加することができ、鑑賞者の位置によって作品が変化していく。本作品はタイトルの通りSoundscapeを題材に、世界の様々な場所、瞬間を光と音によって体験できる。この作品は東京都立大学の授業「インタラクティブアート演習・実習I」の課題として制作された。",
+        en: 'Soundscape is an interactive art that you can experience with your whole body using a projector.\nThe viewer can participate in the work by simply walking in front of it, and the work changes depending on the viewer\'s position.\nAs the title suggests, this work is based on Soundscape, and you can experience various places and moments around the world through light and sound.\nThis work was created as a class assignment for the course "Interactive Art Exercises and Exercises I" at Tokyo Metropolitan University.',
+      },
+      concept: {
+        ja: "本作品は世界に存在する、視覚情報としての光と聴覚情報としての音の縮図として制作。この作品の前に立つことで小さな世界が目の前に立ち現れることを目指した。音と光のインタラクティブアートでありながらも、鑑賞者の能動的な行動は促さない。鑑賞者は作品の前を歩くだけで参加でき、特別なジェスチャーを行う必要はない。それは我々が世界に存在する光や音に対して特別な行動を起こすことなく、ただ存在することでそれらを体験していることに似ている。",
+        en: "This work was created as a miniature of light as visual information and sound as auditory information, aiming to make a small world appear in front of you by standing in front of this work.\nAlthough it is an interactive art of sound and light, it does not encourage the viewer to take active action. The viewer can participate in the work just by walking in front of it, and there is no need to make a special gesture. It is similar to the fact that we experience them by simply existing without taking any special action against the light and sound that exist in the world.",
+      },
+    },
+  },
+  {
+    id: "enlightnment",
+    title: "enLightnment",
+    category: "Interactive Art",
+    description: 'Interactive Art for "not moving"',
+    imageUrl: "/img/enlightnment/01.png",
+    technologies: ["Arduino"],
+    link: "",
+    details: {
+      overview: {
+        ja: "enLightnmentは「何もしない」を主眼に置いたインタラクティブアート。瞑想を促す装置として機能し、集中に応じてオブジェクトの持つ光が強くなっていく。集中力を高めるために必要な「何もしない」を視覚的にもわかりやすく体験することができる。この作品は東京都立大学の授業「インタラクティブアート演習・実習I」の課題として制作された。",
+        en: 'enLightnment is an interactive art that focuses on "Do Nothing". It functions as a device to promote meditation, and the light of the object becomes stronger depending on the concentration, so that you can visually and easily experience the "Do Nothing" necessary to increase your concentration.\n This work was created as a class assignment for the course "Interactive Art Exercise and Practice I" at Tokyo Metropolitan University.',
+      },
+      concept: {
+        ja: "本作品を制作する際に、現代の生活を送る私たちが「何もしない」ことの難しさを感じた。私たちは常に何かをしているという状態にあり、何もしないことが難しい。また、現代は常に何かに注意を惹きつけられるような環境にあり、自分と向き合う時間が少なくなっていると感じた。そこで、私たちが「何もしない」ことを視覚的に体験できるような作品を通して、自分と向き合う時間を作ることができればと考えた。",
+        en: "This work was created as a miniature of light as visual information and sound as auditory information, aiming to make a small world appear in front of you by standing in front of this work. \n Although it is an interactive art of sound and light, it does not encourage the viewer to take active action. The viewer can participate in the work just by walking in front of it, and there is no need to make a special gesture. It is similar to the fact that we experience them by simply existing without taking any special action against the light and sound that exist in the world.",
       },
     },
   },

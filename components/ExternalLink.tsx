@@ -12,6 +12,10 @@ export const ExternalLink: React.FC<ExternalLinkProps> = ({
   children,
   className = "",
 }) => {
+  // classNameからtext-で始まるカラークラスを探す（!付きも考慮）
+  const colorMatch = className.match(/text-[^\s!]+!?/);
+  const colorClass = colorMatch ? colorMatch[0] : "text-fg-secondary";
+
   return (
     <a
       href={href}
@@ -19,9 +23,11 @@ export const ExternalLink: React.FC<ExternalLinkProps> = ({
       rel="noopener noreferrer"
       className={`inline-flex items-center max-w-full hover:underline group ${className}`}
     >
-      <span className="truncate">{children}</span>
+      <span className={`truncate ${colorClass}`}>
+        {children}
+      </span>
       <FiArrowUpRight
-        className="shrink-0 ml-0.5 text-fg-secondary group-hover:text-fg-primary transition-colors"
+        className={`shrink-0 ml-0.5 transition-colors ${colorClass}`}
         size={14}
       />
     </a>

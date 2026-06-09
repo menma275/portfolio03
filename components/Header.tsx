@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
         <Link href="/" className="hover:opacity-70 transition-opacity">
           <h1 className="text-fg-primary">Kusuke SAKAMURA</h1>
         </Link>
-        <p>go with the flow, like a river.</p>
+        <p className="text-fg-secondary">go with the flow, like water.</p>
         <SocialLinks />
       </div>
     </div>

@@ -93,7 +93,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
         <div className="flex items-center justify-between gap-4 bg-bg-secondary px-4 py-2 rounded-lg">
           <p className="shrink-0 text-fg-secondary text-sm">Project Page</p>
           <div className="min-w-0 flex justify-end">
-            <ExternalLink href={work.link} className="text-primary font-medium">
+            <ExternalLink href={work.link} className="text-fg-secondary font-medium">
               {work.link}
             </ExternalLink>
           </div>
