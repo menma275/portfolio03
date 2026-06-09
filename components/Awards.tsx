@@ -8,6 +8,7 @@ export const Awards: React.FC = () => {
     title: award.title,
     description: `${award.organization}${award.description ? ` - ${award.description}` : ""}`,
     url: award.url,
+    workId: award.workId,
   }));
 
   return <InfoSection title="Awards" items={items} />;

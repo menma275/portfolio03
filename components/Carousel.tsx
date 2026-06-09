@@ -96,7 +96,7 @@ export function Carousel({ images, title, id }: CarouselProps) {
       {/* Left Arrow */}
       <button
         onClick={goToPrevious}
-        className="absolute top-[50%] -translate-y-[50%] left-4 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/40 transition-colors z-20"
+        className="absolute top-1/2 -translate-y-1/2 left-2 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/40 transition-colors z-20"
         aria-label="Previous slide"
       >
         <HiChevronLeft size={24} />
@@ -105,7 +105,7 @@ export function Carousel({ images, title, id }: CarouselProps) {
       {/* Right Arrow */}
       <button
         onClick={goToNext}
-        className="absolute top-[50%] -translate-y-[50%] right-4 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/40 transition-colors z-20"
+        className="absolute top-1/2 -translate-y-1/2 right-2 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/40 transition-colors z-20"
         aria-label="Next slide"
       >
         <HiChevronRight size={24} />

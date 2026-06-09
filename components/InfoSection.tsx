@@ -1,11 +1,14 @@
 import React from "react";
 import { ExternalLink } from "./ExternalLink";
+import Link from "next/link";
+import { HiChevronRight } from "react-icons/hi";
 
 export interface InfoItem {
   label: string;
   title: string;
   description?: string;
   url?: string;
+  workId?: string;
 }
 
 interface InfoSectionProps {
@@ -40,6 +43,18 @@ export const InfoSection: React.FC<InfoSectionProps> = ({ title, items }) => {
                 <p className="text-fg-secondary text-sm whitespace-pre-wrap">
                   {item.description}
                 </p>
+              )}
+              {item.workId && (
+                <Link
+                  href={`/works/${item.workId}`}
+                  className="text-fg-primary text-xs font-medium hover:underline inline-flex items-center gap-0 w-fit mt-1 group/work"
+                >
+                  View Project
+                  <HiChevronRight
+                    size={16}
+                    className="transition-transform group-hover/work:translate-x-0.5"
+                  />
+                </Link>
               )}
             </div>
           </div>

@@ -1,0 +1,21 @@
+import { Education } from "@/components/Education";
+import { Experience } from "@/components/Experience";
+import { Awards } from "@/components/Awards";
+import { Exhibitions } from "@/components/Exhibitions";
+import { TabNavigation } from "@/components/TabNavigation";
+
+export default function ProfilePage() {
+  return (
+    <div className="flex flex-col gap-6">
+      <TabNavigation activeTab="profile" />
+      <div className="transition-all duration-300">
+        <div className="flex flex-col gap-16">
+          <Education />
+          <Experience />
+          <Awards />
+          <Exhibitions />
+        </div>
+      </div>
+    </div>
+  );
+}

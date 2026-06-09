@@ -5,6 +5,7 @@ export interface Award {
   date: string;
   description?: string;
   url?: string;
+  workId?: string;
 }
 
 export const awards: Award[] = [
@@ -23,6 +24,7 @@ export const awards: Award[] = [
     date: "2025/06",
     description: "DesignShip賞",
     url: "https://hack-1.com/",
+    workId: "moss",
   },
   {
     id: "2",
@@ -39,5 +41,6 @@ export const awards: Award[] = [
     date: "2023/11",
     description: "ファイナリスト",
     url: "https://hack2023.wired.jp/",
+    workId: "gundi",
   },
 ];

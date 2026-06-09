@@ -41,11 +41,9 @@ export const WorkCard: React.FC<WorkCardProps> = ({
           {title}
         </h3>
         <div className="flex flex-wrap gap-x-2">
-          {technologies.map((tech) => (
-            <span key={tech} className="text-fg-secondary text-xs font-mono">
-              {tech}
-            </span>
-          ))}
+          <span className="text-fg-secondary text-xs font-mono">
+            {technologies.join(", ")}
+          </span>
         </div>
       </div>
     </Link>
