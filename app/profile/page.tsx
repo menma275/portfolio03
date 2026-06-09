@@ -3,6 +3,11 @@ import { Experience } from "@/components/Experience";
 import { Awards } from "@/components/Awards";
 import { Exhibitions } from "@/components/Exhibitions";
 import { TabNavigation } from "@/components/TabNavigation";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Profile",
+};
 
 export default function ProfilePage() {
   return (

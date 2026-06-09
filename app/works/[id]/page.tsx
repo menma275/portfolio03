@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { works } from "@/data";
+import { Metadata } from "next";
 import { ExternalLink } from "@/components/ExternalLink";
 import { WorkDetailSection } from "@/components/WorkDetailSection";
 import { Carousel } from "@/components/Carousel";
@@ -9,6 +10,24 @@ import { HiChevronLeft } from "react-icons/hi";
 
 interface PageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const work = works.find((w) => w.id === id);
+
+  if (!work) return {};
+
+  return {
+    title: work.title,
+    openGraph: {
+      title: work.title,
+      description: work.description,
+      images: [work.imageUrl],
+    },
+  };
 }
 
 export async function generateStaticParams() {

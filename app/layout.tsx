@@ -2,10 +2,42 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
-  title: "Kusuke SAKAMURA",
-  description: "Kusuke SAKAMURA, a designder, developer, artist",
+  title: {
+    default: "Kusuke SAKAMURA",
+    template: "%s | Kusuke SAKAMURA",
+  },
+  description: "Kusuke SAKAMURA, a designer, developer, artist based in Tokyo.",
+  openGraph: {
+    title: "Kusuke SAKAMURA",
+    description:
+      "Kusuke SAKAMURA, a designer, developer, artist based in Tokyo.",
+    url: "https://sakamura.dev",
+    siteName: "Kusuke SAKAMURA",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: "/bg.png",
+        width: 1200,
+        height: 630,
+        alt: "Kusuke SAKAMURA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kusuke SAKAMURA",
+    description:
+      "Kusuke SAKAMURA, a designer, developer, artist based in Tokyo.",
+    images: ["/bg.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -13,9 +45,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="ja" className="h-full antialiased">
       <body className="h-full flex flex-col md:flex-row overflow-hidden">
+        {gaId && <GoogleAnalytics gaId={gaId} />}
         <aside className="w-full md:w-80 h-auto md:h-full p-6 md:p-8 shrink-0 overflow-y-auto">
           <Header />
         </aside>
