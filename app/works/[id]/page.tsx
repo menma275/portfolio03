@@ -26,7 +26,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
   }
 
   return (
-    <article className="max-w-2xl mx-auto flex flex-col gap-6">
+    <article className="max-w-2xl mx-auto flex flex-col gap-3 md:gap-6 p-0 md:pt-8">
       <Link
         href="/"
         className="flex items-center gap-1 text-fg-secondary hover:text-fg-primary transition-colors w-fit -ml-1 text-xs font-mono"
@@ -34,17 +34,15 @@ export default async function WorkDetailPage({ params }: PageProps) {
         <HiChevronLeft size={20} />
         Back to Home
       </Link>
-      <header className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-x-3 gap-y-1">
+        {work.technologies.map((tech) => (
+          <span key={tech} className="text-fg-secondary text-xs font-mono">
+            {tech}
+          </span>
+        ))}
+      </div>
+      <header className="flex flex-wrap w-full justify-between">
         <h1 className="font-bold text-fg-primary">{work.title}</h1>
-
-        <div className="flex flex-wrap gap-x-3 gap-y-1">
-          {work.technologies.map((tech) => (
-            <span key={tech} className="text-fg-secondary text-xs font-mono">
-              {tech}
-            </span>
-          ))}
-        </div>
-
         {work.link && (
           <ExternalLink href={work.link} className="text-primary font-medium">
             Project Page
@@ -79,7 +77,6 @@ export default async function WorkDetailPage({ params }: PageProps) {
           </div>
         </div>
       )}
-
       <div className="flex flex-col gap-12">
         {work.details?.overview && (
           <WorkDetailSection

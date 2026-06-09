@@ -16,10 +16,10 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-6">
       <div className="sticky top-0 z-30 bg-bg-primary py-4 -mx-4 px-4 sm:mx-0 sm:px-0">
-        <div className="flex gap-3 w-full sm:w-fit">
+        <div className="flex gap-6 w-full sm:w-fit p-0 md:pt-6">
           <button
             onClick={() => setActiveTab("works")}
-            className={`flex-1 sm:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
+            className={`cursor-pointer flex-1 sm:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
               activeTab === "works"
                 ? "text-fg-primary"
                 : "text-fg-secondary hover:text-fg-primary"
@@ -29,7 +29,7 @@ export default function Home() {
           </button>
           <button
             onClick={() => setActiveTab("profile")}
-            className={`flex-1 sm:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
+            className={`cursor-pointer flex-1 sm:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
               activeTab === "profile"
                 ? "text-fg-primary"
                 : "text-fg-secondary hover:text-fg-primary"

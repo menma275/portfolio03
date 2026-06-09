@@ -20,7 +20,7 @@ export default function RootLayout({
           <Header />
         </aside>
         <main className="flex-1 h-full overflow-y-auto  flex flex-col">
-          <div className="flex-1 p-6 md:p-8">{children}</div>
+          <div className="flex-1 p-6 md:p-8 md:pt-0 pt-0">{children}</div>
           <Footer />
         </main>
       </body>
