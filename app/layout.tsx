@@ -9,7 +9,8 @@ export const metadata: Metadata = {
     default: "Kusuke SAKAMURA",
     template: "%s | Kusuke SAKAMURA",
   },
-  description: "Kusuke SAKAMURA, a designer, developer, artist based in Tokyo.",
+  description:
+    "Kusuke SAKAMURA, a designer, developer and artist based in Tokyo.",
   openGraph: {
     title: "Kusuke SAKAMURA",
     description:
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/bg.png",
+        url: "/ogp.png",
         width: 1200,
         height: 630,
         alt: "Kusuke SAKAMURA",
@@ -31,8 +32,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kusuke SAKAMURA",
     description:
-      "Kusuke SAKAMURA, a designer, developer, artist based in Tokyo.",
-    images: ["/bg.png"],
+      "Kusuke SAKAMURA, a designer, developer and artist based in Tokyo.",
+    images: ["/ogp.png"],
   },
   robots: {
     index: true,
