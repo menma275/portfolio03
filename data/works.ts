@@ -21,6 +21,37 @@ export interface Work {
 
 export const works: Work[] = [
   {
+    id: "michi",
+    title: "michi - Moon Media Gallery",
+    category: "Web Content",
+    description: "Digital Media Gallery based on Moon Phases",
+    imageUrl: "/img/michi/01.png",
+    images: [
+      "/img/michi/01.png",
+      "/img/michi/02.png",
+      "/img/michi/03.png",
+      "/img/michi/04.png",
+    ],
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "iTunes API",
+      "Google Books API",
+      "TMDB API",
+    ],
+    link: "https://michi-gallery.vercel.app/",
+    details: {
+      overview: {
+        ja: "「月の満ち欠け」をメタファーとして、情報の受け取り方や他者との関係性を再構築するデジタル・メディア・ギャラリー。散策するようにコンテンツ（音楽、本、映画など）と出会い、自分だけの「月の表情」として記録・共有することができる。東京都立大学の「研究プロジェクト演習」の一環として制作された。",
+        en: "A digital media gallery that reconstructs how we receive information and relate to others, using 'moon phases' as a metaphor. Users can encounter content (music, books, movies, etc.) as if they were taking a walk, and record and share them as their own 'facial expressions of the moon.' Created as part of the 'Research Project Seminar' at Tokyo Metropolitan University.",
+      },
+      concept: {
+        ja: "「共有された多義性」や「他人の中の未知」をテーマに、情報過多な現代において、あえて情報を限定・抽象化することで、偶然の出会いに価値を見出す体験を目指した。普段意識しない月の満ち欠けにお気に入りのコンテンツを投影することで、自分にとっても新しい視点を得るためのインターフェースを提案している。",
+        en: "With the themes of 'shared ambiguity' and 'the unknown within others,' this project aims to create an experience that finds value in accidental encounters by intentionally limiting and abstracting information in today's information-overloaded world. It proposes an interface for gaining new perspectives by projecting favorite content onto the moon's phases, which we usually don't pay much attention to.",
+      },
+    },
+  },
+  {
     id: "createdat",
     title: "createdAt: ",
     category: "IoT Device",

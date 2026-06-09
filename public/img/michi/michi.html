@@ -1,0 +1,4293 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>研究プロジェクト演習 michi</title>
+    <style>
+      /* cspell:disable-file */
+      /* webkit printing magic: print all background colors */
+      html {
+        -webkit-print-color-adjust: exact;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      @media only screen {
+        body {
+          margin: 2em auto;
+          max-width: 900px;
+          color: rgb(55, 53, 47);
+        }
+      }
+
+      body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      a,
+      a.visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+
+      .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+      }
+
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      /* Override strong tags inside headings to maintain consistent weight */
+      h1 strong,
+      h2 strong,
+      h3 strong {
+        font-weight: 600;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+      }
+
+      .callout {
+        border-radius: 10px;
+        padding: 1rem;
+      }
+
+      figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+      }
+
+      figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+      }
+
+      mark {
+        background-color: transparent;
+      }
+
+      .indented {
+        padding-left: 1.5em;
+      }
+
+      hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      @media only print {
+        img {
+          max-height: 100vh;
+          object-fit: contain;
+        }
+
+        table.collection-content {
+          width: 100%;
+          table-layout: fixed;
+        }
+
+        table.collection-content th,
+        table.collection-content td {
+          overflow-wrap: anywhere;
+        }
+
+        table.collection-content td > .user,
+        table.collection-content td > time {
+          white-space: pre-wrap;
+        }
+      }
+
+      @page {
+        margin: 1in;
+      }
+
+      .collection-content-wrapper {
+        overflow-x: auto;
+      }
+
+      @media only print {
+        .collection-content-wrapper {
+          overflow-x: visible;
+        }
+      }
+
+      .collection-content {
+        font-size: 0.875rem;
+      }
+
+      .collection-content td {
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .column-list {
+        display: flex;
+        gap: 46px;
+      }
+
+      .column {
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .column > *:first-child {
+        margin-top: 0;
+      }
+
+      .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+      }
+
+      .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+      }
+
+      .table_of_contents-indent-2 {
+        margin-left: 3rem;
+      }
+
+      .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+      }
+
+      .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+      }
+
+      table {
+        border-collapse: collapse;
+        border-left: none;
+        border-right: none;
+      }
+
+      th,
+      td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+      }
+
+      th {
+        color: rgba(55, 53, 47, 0.6);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+      }
+
+      li > ol:first-child,
+      li > ul:first-child {
+        margin-block-start: 0.6em;
+      }
+
+      ul > li {
+        list-style: disc;
+      }
+
+      ul.to-do-list {
+        padding-inline-start: 0;
+      }
+
+      ul.to-do-list > li {
+        list-style: none;
+      }
+
+      .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+      }
+
+      ul.toggle > li {
+        list-style: none;
+      }
+
+      ul {
+        padding-inline-start: 1.7em;
+      }
+
+      ul > li {
+        padding-left: 0.1em;
+      }
+
+      ol {
+        padding-inline-start: 1.6em;
+      }
+
+      ol.numbered-list.numbered-list-digits-2 {
+        padding-inline-start: 2em;
+      }
+
+      ol.numbered-list.numbered-list-digits-3plus {
+        padding-inline-start: 2.4em;
+      }
+
+      ol > li {
+        padding-left: 0.2em;
+      }
+
+      .mono ol {
+        padding-inline-start: 2em;
+      }
+
+      .mono ol > li {
+        text-indent: -0.4em;
+      }
+
+      .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+      }
+
+      /* Indent toggle children */
+      .toggle > li > details {
+        padding-left: 1.7em;
+      }
+
+      .toggle > li > details > summary {
+        margin-left: -1.1em;
+      }
+
+      .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+      }
+
+      .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+      }
+
+      .page-description {
+        margin-bottom: 2em;
+      }
+
+      .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+      }
+      .simple-table td {
+        height: 29px;
+        min-width: 120px;
+      }
+
+      .simple-table th {
+        height: 29px;
+        min-width: 120px;
+      }
+
+      .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+      }
+      .simple-table-header {
+        font-weight: 500;
+      }
+
+      time {
+        opacity: 0.5;
+      }
+
+      .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+      }
+
+      img.icon {
+        border-radius: 3px;
+      }
+
+      .callout img.notion-static-icon {
+        width: 1em;
+        height: 1em;
+      }
+
+      .callout p {
+        margin: 0;
+      }
+
+      .callout h1,
+      .callout h2,
+      .callout h3 {
+        margin: 0 0 0.6rem;
+      }
+
+      .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon-inner {
+        font-size: 0.8em;
+      }
+
+      .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+      }
+
+      .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+      }
+
+      .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+      }
+
+      .page-header-icon img {
+        border-radius: 3px;
+      }
+
+      .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+      }
+
+      p > .user {
+        opacity: 0.5;
+      }
+
+      td > .user,
+      td > time {
+        white-space: nowrap;
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .code,
+      code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+      }
+
+      code {
+        color: #eb5757;
+      }
+
+      .code {
+        padding: 1.5em 1em;
+      }
+
+      .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+      }
+
+      blockquote {
+        font-size: 1em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+      }
+
+      blockquote.quote-large {
+        font-size: 1.25em;
+      }
+
+      .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+      }
+
+      .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+      }
+
+      .bookmark-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+      }
+
+      .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+      }
+
+      .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+      }
+
+      .sans {
+        font-family:
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI Variable Display",
+          "Segoe UI",
+          Helvetica,
+          "Apple Color Emoji",
+          "Noto Sans Arabic",
+          "Noto Sans Hebrew",
+          Arial,
+          sans-serif,
+          "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+      .code {
+        font-family:
+          "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono",
+          Courier, monospace;
+      }
+      .serif {
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+      }
+      .mono {
+        font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+      }
+      .pdf .sans {
+        font-family:
+          Inter,
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI Variable Display",
+          "Segoe UI",
+          Helvetica,
+          "Apple Color Emoji",
+          "Noto Sans Arabic",
+          "Noto Sans Hebrew",
+          Arial,
+          sans-serif,
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans CJK JP";
+      }
+      .pdf:lang(zh-CN) .sans {
+        font-family:
+          Inter,
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI Variable Display",
+          "Segoe UI",
+          Helvetica,
+          "Apple Color Emoji",
+          "Noto Sans Arabic",
+          "Noto Sans Hebrew",
+          Arial,
+          sans-serif,
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans CJK SC";
+      }
+      .pdf:lang(zh-TW) .sans {
+        font-family:
+          Inter,
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI Variable Display",
+          "Segoe UI",
+          Helvetica,
+          "Apple Color Emoji",
+          "Noto Sans Arabic",
+          "Noto Sans Hebrew",
+          Arial,
+          sans-serif,
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans CJK TC";
+      }
+      .pdf:lang(ko-KR) .sans {
+        font-family:
+          Inter,
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI Variable Display",
+          "Segoe UI",
+          Helvetica,
+          "Apple Color Emoji",
+          "Noto Sans Arabic",
+          "Noto Sans Hebrew",
+          Arial,
+          sans-serif,
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans CJK KR";
+      }
+      .pdf .code {
+        font-family:
+          Source Code Pro,
+          "SFMono-Regular",
+          Menlo,
+          Consolas,
+          "PT Mono",
+          "Liberation Mono",
+          Courier,
+          monospace,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans Mono CJK JP";
+      }
+      .pdf:lang(zh-CN) .code {
+        font-family:
+          Source Code Pro,
+          "SFMono-Regular",
+          Menlo,
+          Consolas,
+          "PT Mono",
+          "Liberation Mono",
+          Courier,
+          monospace,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans Mono CJK SC";
+      }
+      .pdf:lang(zh-TW) .code {
+        font-family:
+          Source Code Pro,
+          "SFMono-Regular",
+          Menlo,
+          Consolas,
+          "PT Mono",
+          "Liberation Mono",
+          Courier,
+          monospace,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans Mono CJK TC";
+      }
+      .pdf:lang(ko-KR) .code {
+        font-family:
+          Source Code Pro,
+          "SFMono-Regular",
+          Menlo,
+          Consolas,
+          "PT Mono",
+          "Liberation Mono",
+          Courier,
+          monospace,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans Mono CJK KR";
+      }
+      .pdf .serif {
+        font-family:
+          PT Serif,
+          Lyon-Text,
+          Georgia,
+          ui-serif,
+          serif,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Serif CJK JP";
+      }
+      .pdf:lang(zh-CN) .serif {
+        font-family:
+          PT Serif,
+          Lyon-Text,
+          Georgia,
+          ui-serif,
+          serif,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Serif CJK SC";
+      }
+      .pdf:lang(zh-TW) .serif {
+        font-family:
+          PT Serif,
+          Lyon-Text,
+          Georgia,
+          ui-serif,
+          serif,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Serif CJK TC";
+      }
+      .pdf:lang(ko-KR) .serif {
+        font-family:
+          PT Serif,
+          Lyon-Text,
+          Georgia,
+          ui-serif,
+          serif,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Serif CJK KR";
+      }
+      .pdf .mono {
+        font-family:
+          PT Mono,
+          iawriter-mono,
+          Nitti,
+          Menlo,
+          Courier,
+          monospace,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans Mono CJK JP";
+      }
+      .pdf:lang(zh-CN) .mono {
+        font-family:
+          PT Mono,
+          iawriter-mono,
+          Nitti,
+          Menlo,
+          Courier,
+          monospace,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans Mono CJK SC";
+      }
+      .pdf:lang(zh-TW) .mono {
+        font-family:
+          PT Mono,
+          iawriter-mono,
+          Nitti,
+          Menlo,
+          Courier,
+          monospace,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans Mono CJK TC";
+      }
+      .pdf:lang(ko-KR) .mono {
+        font-family:
+          PT Mono,
+          iawriter-mono,
+          Nitti,
+          Menlo,
+          Courier,
+          monospace,
+          "Twemoji",
+          "Noto Color Emoji",
+          "Noto Sans Mono CJK KR";
+      }
+      .highlight-default {
+        color: rgba(44, 44, 43, 1);
+      }
+      .highlight-gray {
+        color: rgba(125, 122, 117, 1);
+        fill: rgba(125, 122, 117, 1);
+      }
+      .highlight-brown {
+        color: rgba(159, 118, 90, 1);
+        fill: rgba(159, 118, 90, 1);
+      }
+      .highlight-orange {
+        color: rgba(210, 123, 45, 1);
+        fill: rgba(210, 123, 45, 1);
+      }
+      .highlight-yellow {
+        color: rgba(203, 148, 52, 1);
+        fill: rgba(203, 148, 52, 1);
+      }
+      .highlight-teal {
+        color: rgba(80, 148, 110, 1);
+        fill: rgba(80, 148, 110, 1);
+      }
+      .highlight-blue {
+        color: rgba(56, 125, 201, 1);
+        fill: rgba(56, 125, 201, 1);
+      }
+      .highlight-purple {
+        color: rgba(154, 107, 180, 1);
+        fill: rgba(154, 107, 180, 1);
+      }
+      .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+      .highlight-red {
+        color: rgba(207, 81, 72, 1);
+        fill: rgba(207, 81, 72, 1);
+      }
+      .highlight-default_background {
+        color: rgba(44, 44, 43, 1);
+      }
+      .highlight-gray_background {
+        background: rgba(42, 28, 0, 0.07);
+      }
+      .highlight-brown_background {
+        background: rgba(139, 46, 0, 0.086);
+      }
+      .highlight-orange_background {
+        background: rgba(224, 101, 1, 0.129);
+      }
+      .highlight-yellow_background {
+        background: rgba(211, 168, 0, 0.137);
+      }
+      .highlight-teal_background {
+        background: rgba(0, 100, 45, 0.09);
+      }
+      .highlight-blue_background {
+        background: rgba(0, 124, 215, 0.094);
+      }
+      .highlight-purple_background {
+        background: rgba(102, 0, 178, 0.078);
+      }
+      .highlight-pink_background {
+        background: rgba(197, 0, 93, 0.086);
+      }
+      .highlight-red_background {
+        background: rgba(223, 22, 0, 0.094);
+      }
+      .block-color-default {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray {
+        color: rgba(125, 122, 117, 1);
+        fill: rgba(125, 122, 117, 1);
+      }
+      .block-color-brown {
+        color: rgba(159, 118, 90, 1);
+        fill: rgba(159, 118, 90, 1);
+      }
+      .block-color-orange {
+        color: rgba(210, 123, 45, 1);
+        fill: rgba(210, 123, 45, 1);
+      }
+      .block-color-yellow {
+        color: rgba(203, 148, 52, 1);
+        fill: rgba(203, 148, 52, 1);
+      }
+      .block-color-teal {
+        color: rgba(80, 148, 110, 1);
+        fill: rgba(80, 148, 110, 1);
+      }
+      .block-color-blue {
+        color: rgba(56, 125, 201, 1);
+        fill: rgba(56, 125, 201, 1);
+      }
+      .block-color-purple {
+        color: rgba(154, 107, 180, 1);
+        fill: rgba(154, 107, 180, 1);
+      }
+      .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+      }
+      .block-color-red {
+        color: rgba(207, 81, 72, 1);
+        fill: rgba(207, 81, 72, 1);
+      }
+      .block-color-default_background {
+        color: inherit;
+        fill: inherit;
+      }
+      .block-color-gray_background {
+        background: rgba(240, 239, 237, 1);
+      }
+      .block-color-brown_background {
+        background: rgba(245, 237, 233, 1);
+      }
+      .block-color-orange_background {
+        background: rgba(251, 235, 222, 1);
+      }
+      .block-color-yellow_background {
+        background: rgba(249, 243, 220, 1);
+      }
+      .block-color-teal_background {
+        background: rgba(232, 241, 236, 1);
+      }
+      .block-color-blue_background {
+        background: rgba(229, 242, 252, 1);
+      }
+      .block-color-purple_background {
+        background: rgba(243, 235, 249, 1);
+      }
+      .block-color-pink_background {
+        background: rgba(250, 233, 241, 1);
+      }
+      .block-color-red_background {
+        background: rgba(252, 233, 231, 1);
+      }
+      .select-value-color-default {
+        background-color: rgba(42, 28, 0, 0.07);
+      }
+      .select-value-color-gray {
+        background-color: rgba(28, 19, 1, 0.11);
+      }
+      .select-value-color-brown {
+        background-color: rgba(127, 51, 0, 0.156);
+      }
+      .select-value-color-orange {
+        background-color: rgba(196, 88, 0, 0.203);
+      }
+      .select-value-color-yellow {
+        background-color: rgba(209, 156, 0, 0.282);
+      }
+      .select-value-color-green {
+        background-color: rgba(0, 96, 38, 0.156);
+      }
+      .select-value-color-blue {
+        background-color: rgba(0, 118, 217, 0.203);
+      }
+      .select-value-color-purple {
+        background-color: rgba(92, 0, 163, 0.141);
+      }
+      .select-value-color-pink {
+        background-color: rgba(183, 0, 78, 0.152);
+      }
+      .select-value-color-red {
+        background-color: rgba(206, 24, 0, 0.164);
+      }
+
+      .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+      }
+
+      .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+
+      .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+    </style>
+  </head>
+  <body>
+    <article id="345ba93b-d450-80f9-8718-e55660d82905" class="page sans">
+      <header>
+        <h1 class="page-title" dir="auto">研究プロジェクト演習 michi</h1>
+        <p class="page-description" dir="auto"></p>
+      </header>
+      <div class="page-body">
+        <div style="display: contents" dir="auto">
+          <h1 id="345ba93b-d450-80c7-8078-dc5940fd0a00" class="">資料たち</h1>
+        </div>
+        <div style="display: contents" dir="ltr">
+          <figure
+            id="361ba93b-d450-8074-8862-d9154d801ce5"
+            class="link-to-page"
+          >
+            <a
+              href="https://app.notion.com/p/361ba93bd45080748862d9154d801ce5?pvs=21"
+              ><span class="icon">📝</span>最終報告書</a
+            >
+          </figure>
+        </div>
+        <div style="display: contents" dir="ltr">
+          <figure
+            class="block-color-gray_background callout"
+            style="white-space: pre-wrap; display: flex"
+            id="361ba93b-d450-80de-aeb2-dd7d457a5a53"
+          >
+            <div style="font-size: 1.5em"><span class="icon">💡</span></div>
+            <div style="width: 100%">
+              <div style="display: contents" dir="auto">
+                <p id="361ba93b-d450-8077-94cf-ff533cfade90" class="">
+                  <a href="https://www.figma.com/slides/qAhDP2KlphPzcFV9eLhZOW"
+                    >最終発表スライド</a
+                  >
+                </p>
+              </div>
+            </div>
+          </figure>
+        </div>
+        <div style="display: contents" dir="ltr">
+          <figure
+            class="block-color-gray_background callout"
+            style="white-space: pre-wrap; display: flex"
+            id="361ba93b-d450-8059-a004-e292b17c4ef2"
+          >
+            <div style="font-size: 1.5em"><span class="icon">💡</span></div>
+            <div style="width: 100%">
+              <div style="display: contents" dir="auto">
+                <p id="361ba93b-d450-80cd-ba7f-ee77f4832749" class="">
+                  <a href="https://michi-gallery.vercel.app/"
+                    >https://michi-gallery.vercel.app/</a
+                  >
+                </p>
+              </div>
+            </div>
+          </figure>
+        </div>
+        <div style="display: contents" dir="ltr">
+          <figure id="345ba93b-d450-808b-a735-c2e4b19b7eb6">
+            <div class="source">
+              https://tmpuc.box.com/s/yzoxouep7r827tzk8i2zb2v7n7mtwy3x
+            </div>
+          </figure>
+        </div>
+        <div style="display: contents" dir="ltr">
+          <figure id="35eba93b-d450-80b2-97f4-f17215c39c46">
+            <div class="source">
+              https://docs.google.com/spreadsheets/d/1bQPiDv3eBsuKKO-LkU0IEbtcKV8x-ci4MdJ0QblYjZo/edit?usp=sharing
+            </div>
+          </figure>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="345ba93b-d450-8067-8159-ea54f1514ca5" class="">メンバー</h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="345ba93b-d450-8088-b45e-f9f9fec38a93" class="">
+            <span class="user">@Kusuke Sakamura</span> 坂村空介 インダスM1
+            ネットワークデザインスタジオ<br /><span class="user"
+              >@kana horie</span
+            >
+            堀江香菜　インダスM2 インタフェースデザインスタジオ<br /><span
+              class="user"
+              >@大塚舜斗</span
+            >
+            大塚舜斗　航空M1 材料研究室<br /><span class="user">@田中聖司</span>
+            航空M1 材料研究室<br /><span class="user">@Yuta Katsumata</span>
+            勝又悠匠　航空M1 圧縮性流体力学 katsumata-yuta@ed.tmu.ac.jp
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="349ba93b-d450-809e-a3f3-f7bf944e2857" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="368ba93b-d450-80d9-a149-f335f8a74ae6" class="">2026/05/22</h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="368ba93b-d450-808b-99d6-ddc6e36bb3bd" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Webの改善・アップデートについて
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-80a1-af31-c4a1d9e3fc3e"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    修正予定
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="368ba93b-d450-80f2-b15a-da1a6cf665d1"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          投稿するときの月の選択
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="368ba93b-d450-807b-a254-f57ac8bc7a99"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          作品ページの、他ユーザーによるコメントがある場合の表示
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="368ba93b-d450-802c-ba5b-f00c72f4e2e3"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          色の月つくってなかった！
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-8020-9581-f53756a699c7"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    お願い
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="368ba93b-d450-8038-ad9e-f42f784d9102"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          サイトが圧倒的説明不足なので、投稿欄のテキストとか、サイト周りのテキストとか考えて欲しい！
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="368ba93b-d450-8009-95d5-d0dbe8d94457"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">その他あれば！</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="368ba93b-d450-8055-b744-ec9d069f2305" class="bulleted-list">
+            <li style="list-style-type: disc">
+              発表までに他の人にも使ってもらう？：当日みんなに使ってもらう方向性で
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h4 id="368ba93b-d450-804d-9328-c5dbb41258ae" class="">
+            授業内話し合い
+          </h4>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="368ba93b-d450-8057-9a89-da85d6919df0" class="bulleted-list">
+            <li style="list-style-type: disc">
+              実装面でのアイデア・修正？
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-808e-84e9-def27ce29406"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    投稿のモチベーションについて：投稿頻度によって月の明るさが変わったらいいよね
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-8080-8029-fce969057d0f"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    半月（上弦・下弦）と満月の画像違うかも
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-8054-bd84-ea1c352bb228"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    自分の投稿の修正がしたい
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-8082-9d1f-e7febeabd1eb"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    マイページの場所がわかりにくいかも
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-804a-96fd-c6be99309c83"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">チュートリアル欲しい</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="368ba93b-d450-8073-9f73-eb474cfd5a96" class="bulleted-list">
+            <li style="list-style-type: disc">
+              スライド・サイトで使うことば
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-80a7-9a42-f0fcc8d0164c"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    ひとこと説明：候補
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="368ba93b-d450-804b-b83b-f89991b54773"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          「お気に入りの作品を月の満ち欠けになぞらえて記録・共有できるWebアプリ」
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="368ba93b-d450-80de-af6d-d30e806e225e"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          「月の満ち欠けになぞらえたコンテンツ探索ができるWebアプリ」
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="368ba93b-d450-8020-bc74-faa92b39a8c6" class="bulleted-list">
+            <li style="list-style-type: disc">
+              発表する人：前半➡大塚，後半➡田中
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="368ba93b-d450-8081-92a2-c343cdb75972" class="bulleted-list">
+            <li style="list-style-type: disc">
+              ポスター作って印刷したい（
+              <span class="user">@kana horie</span> ）
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="368ba93b-d450-803a-8c80-d708bebc4187" class="bulleted-list">
+            <li style="list-style-type: disc">
+              サイト周りのテキスト
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-80d0-8409-fe200396b0f2"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">投稿画面</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-8041-a60e-e762f29d7f4b"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="368ba93b-d450-8059-802c-ea4e7098029d"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          何を書いたらいいか
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="368ba93b-d450-806b-a217-e1e14812e4b9"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">michiとは：</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="361ba93b-d450-8041-8fc2-ea740d2b2ab2" class="">2026/05/15</h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="361ba93b-d450-8093-ac1a-e07f6a6bd22a" class="toggle">
+            <li>
+              <details open="">
+                <summary>サービスの概要</summary>
+                <div style="display: contents" dir="auto">
+                  <ul
+                    id="361ba93b-d450-80a7-a411-cfb02047eff5"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: disc">
+                      コンセプト
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-8008-94be-d2575736d213"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            未知の月を知る
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <ul
+                    id="361ba93b-d450-808a-bd3f-eb59159e90bf"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: disc">
+                      概要
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-809b-b0b6-e70fbaf5111c"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            私的な愛好対象（音楽、書籍、映画、その他）を、その時々の「月の満ち欠け」の状態と紐づけて記録・共有するWebギャラリー
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <ul
+                    id="361ba93b-d450-8066-ac7f-fb205325928a"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: disc">
+                      なにが得られるのか
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-80d4-a45f-d4f287d33713"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            新たな視点で知らないものを知るきっかけを得られる
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-80a3-b6dd-d89f1a21bfa2"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            自分の趣味嗜好の共有・アーカイブ
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-8045-ae5d-da3deab2e485"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            同じものの異なる視点を得られる
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-8025-8dae-f7a5a1bffd1a"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            自分が好きな作品を月の満ち欠けになぞらえて考えることによって，異なる側面が見えることがある．
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <ul id="361ba93b-d450-80c5-b2af-c119102e5efe" class="toggle">
+                    <li>
+                      <details open="">
+                        <summary>できること</summary>
+                        <div style="display: contents" dir="auto">
+                          <ul
+                            id="361ba93b-d450-807f-93ed-e9d4f223002d"
+                            class="bulleted-list"
+                          >
+                            <li style="list-style-type: disc">
+                              投稿
+                              <div style="display: contents" dir="auto">
+                                <ul
+                                  id="361ba93b-d450-8077-b664-c8a099e4dcf7"
+                                  class="bulleted-list"
+                                >
+                                  <li style="list-style-type: circle">
+                                    ラベリング
+                                    <div style="display: contents" dir="auto">
+                                      <ul
+                                        id="361ba93b-d450-80dc-90a0-d13b7daaf649"
+                                        class="bulleted-list"
+                                      >
+                                        <li style="list-style-type: square">
+                                          投稿時に「新月」から「二十六夜」までの月相を選択
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div style="display: contents" dir="auto">
+                                <ul
+                                  id="361ba93b-d450-80b4-83e5-f6f6a5a1f55e"
+                                  class="bulleted-list"
+                                >
+                                  <li style="list-style-type: circle">
+                                    コメント
+                                    <div style="display: contents" dir="auto">
+                                      <ul
+                                        id="361ba93b-d450-801f-b31a-f88c5fd26b3d"
+                                        class="bulleted-list"
+                                      >
+                                        <li style="list-style-type: square">
+                                          自分の投稿に対してのみ、テキストによる感想
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div style="display: contents" dir="auto">
+                          <ul
+                            id="361ba93b-d450-800f-b9ec-cb3ef5e97ed8"
+                            class="bulleted-list"
+                          >
+                            <li style="list-style-type: disc">
+                              閲覧
+                              <div style="display: contents" dir="auto">
+                                <ul
+                                  id="361ba93b-d450-805d-9d45-c14426879728"
+                                  class="bulleted-list"
+                                >
+                                  <li style="list-style-type: circle">
+                                    グローバルフィード
+                                    <div style="display: contents" dir="auto">
+                                      <ul
+                                        id="361ba93b-d450-80e2-ad9a-d009a076b133"
+                                        class="bulleted-list"
+                                      >
+                                        <li style="list-style-type: square">
+                                          全ユーザーの投稿を時系列で表示。
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div style="display: contents" dir="auto">
+                                <ul
+                                  id="361ba93b-d450-8043-a8e6-cbb8dd33167f"
+                                  class="bulleted-list"
+                                >
+                                  <li style="list-style-type: circle">
+                                    月相フィルタリング
+                                    <div style="display: contents" dir="auto">
+                                      <ul
+                                        id="361ba93b-d450-804f-a0ef-d3c27394118a"
+                                        class="bulleted-list"
+                                      >
+                                        <li style="list-style-type: square">
+                                          現在の実際の月相、あるいは特定の月相に合致する投稿のみを抽出。
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div style="display: contents" dir="auto">
+                                <ul
+                                  id="361ba93b-d450-80d2-9e41-ed0f68748798"
+                                  class="bulleted-list"
+                                >
+                                  <li style="list-style-type: circle">
+                                    作品別アーカイブ
+                                    <div style="display: contents" dir="auto">
+                                      <ul
+                                        id="361ba93b-d450-8013-92e6-cdded65f0aac"
+                                        class="bulleted-list"
+                                      >
+                                        <li style="list-style-type: square">
+                                          同一コンテンツに対する他者のコメントおよび月相ラベリングの閲覧。
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div style="display: contents" dir="auto">
+                                <ul
+                                  id="361ba93b-d450-8099-a757-c5e436cac067"
+                                  class="bulleted-list"
+                                >
+                                  <li style="list-style-type: circle">
+                                    パーソナルページ
+                                    <div style="display: contents" dir="auto">
+                                      <ul
+                                        id="361ba93b-d450-80aa-9d49-edef1755c5f9"
+                                        class="bulleted-list"
+                                      >
+                                        <li style="list-style-type: square">
+                                          各ユーザーが過去に投稿した全コンテンツの参照。
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </details>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="361ba93b-d450-8064-bc8e-e6f1a6ca99bd" class="bulleted-list">
+            <li style="list-style-type: disc">月を歩く =</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="361ba93b-d450-80bc-85a1-e1549447e635" class=""></p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="361ba93b-d450-8037-a33f-f9e0e1de8f5e" class="toggle">
+            <li>
+              <details open="">
+                <summary>気づいたら月面を歩いていた．</summary>
+                <div style="display: contents" dir="auto">
+                  <p id="361ba93b-d450-805b-ae0f-f578ee9a9679" class="">
+                    歩いていたら<strong
+                      ><span style="border-bottom: 0.05em solid"
+                        >偶然</span
+                      ></strong
+                    >「月」を見つける．
+                  </p>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <p id="361ba93b-d450-8046-be3b-effbee81e88a" class="">
+                    「月」は「共有された多義性」「他人の中の未知」「見知らぬ引力」
+                  </p>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <p id="361ba93b-d450-80f7-b38b-ca4efcab3d39" class="">
+                    見つけたならば，それらを知りたくなる．
+                  </p>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <p id="361ba93b-d450-80c9-bf2f-f55019968a66" class="">
+                    気づいたら月面を歩いていることになる．
+                  </p>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <p id="361ba93b-d450-80a3-a06b-f97587e31730" class=""></p>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="361ba93b-d450-80ec-a56b-cbcebc9fcf04" class="toggle">
+            <li>
+              <details open="">
+                <summary>こじつけたいこと</summary>
+                <div style="display: contents" dir="auto">
+                  <ul
+                    id="361ba93b-d450-80ed-b3a1-f5181cdc27d9"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: disc">
+                      こじつけよう月「月 = 」
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-8089-984b-d60a0ab6ce55"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            月は未知なる存在
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-80ee-983a-c0478230f787"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            見えてはいるし，人類が到達している場所でありながら遠い存在．詳細を知ることのない存在．
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-8045-8a37-ceecd7f003be"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            探そうと思えばそこにあるけど、自分から探しに行かない
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-80f4-866c-e767864c51a5"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            物理的な月
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="361ba93b-d450-80f3-bed7-f521b0fd51fc"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  天体としての客観的な変化
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-806f-b51f-f917b4300ba3"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            主観的な月
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="361ba93b-d450-8004-acc6-c0a669111b4b"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  自分だけに現れる月の表情
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="361ba93b-d450-8004-8224-dd55413243aa"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  個人によって託すストーリーが異なる
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <p
+                                id="361ba93b-d450-80dc-ae86-f2a49c8b1d6d"
+                                class=""
+                              ></p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <ul
+                    id="361ba93b-d450-8033-8594-ecf1fa2a8022"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: disc">
+                      こじつけよう「歩く = 散策による発見」
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-80c0-9c8a-da2986c74724"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            歩くといえば散歩，散歩での楽しみは鳥や綺麗な花の発見や新しい道の開拓，建物の工事に気づくなどのふとしたことである．散歩の目的として鳥を観たいとか工事現場に行きたいとかはないが，偶然の出会いに価値を見出すものである．
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-80c2-87f7-d9c9fcfd3a48"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            好きな芸術（本や絵画，音楽や映画アニメなど）を思い浮かべてほしい．その出会いはどのようなものであっただろうか
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-80fa-8553-f83d690bf2ca"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            好きな音楽を見つけたい！好きなアニメを作りたい！で作るだろうか
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-8002-b96e-c4bec62998e4"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            ふとした出会いを未知なる月とともに感じられたらロマンチックなんじゃないすかね
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="361ba93b-d450-80b3-8d81-e4e3ce4e6c7f"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">散策</li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="361ba93b-d450-8060-a039-fe92ad1de29b" class="bulleted-list">
+            <li style="list-style-type: disc">
+              なんで月の満ち欠けを媒体にするのか？
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="361ba93b-d450-80f4-b6da-f8917fa17b0e"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    メタファーとして、誰でも知っているもので、うつり変わるもの
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="361ba93b-d450-802a-8818-f9a0ffd930e8"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    普段あまり意識しない月の満ち欠けにお気に入りのものを投影することで、自分にとっても知らない視点を得る
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="361ba93b-d450-8099-b3da-fdd3e386047a"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    大きく抽象化したものを指標にすることで、アルゴリズムとは異なる指標で作品が閲覧できる
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="361ba93b-d450-804b-90f3-c6b002f80456" class=""></p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="361ba93b-d450-8069-adff-e41367108467" class="bulleted-list">
+            <li style="list-style-type: disc">
+              課題のこじつけ
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="361ba93b-d450-809a-be0f-e6b1d0a9120e"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">いらない</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="361ba93b-d450-806f-84b6-fbc95c5903ef"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    表立っていう必要はないけど，情報を限定的にすることによって，情報に溢れていて見逃してしまっていたこと（←課題点）を見てみようという何かそーゆーやつ
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="361ba93b-d450-80ca-844c-f61629cd6ab8" class="bulleted-list">
+            <li style="list-style-type: disc">
+              やること
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="361ba93b-d450-80bc-bbe1-e571f96ea3aa"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    最終発表スライド　<a
+                      href="https://www.figma.com/slides/qAhDP2KlphPzcFV9eLhZOW"
+                      >https://www.figma.com/slides/qAhDP2KlphPzcFV9eLhZOW</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="361ba93b-d450-8008-b37a-ce48f32c6041"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    <a
+                      href="https://app.notion.com/p/361ba93bd45080748862d9154d801ce5?pvs=21"
+                      ><span class="icon">📝</span>最終報告書</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="361ba93b-d450-80f8-af7c-c566a7633c40"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle"></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="35eba93b-d450-8074-97a1-e1b585694bd9" class="">2026/05/12</h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="35eba93b-d450-8070-9e2d-dffa94639bec" class="bulleted-list">
+            <li style="list-style-type: disc">
+              予定
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="35eba93b-d450-8020-8a3f-f98c52f28d76"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    5/22までに実際に動作しているとハッピー
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="35eba93b-d450-8014-8af0-cb63a063f435"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    名前
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-80d2-bafc-cc2e28723b26"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          MICHI / michi (満ちると未知)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-8070-b202-eaecdef9ace3"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          Marea (潮の満ち引きを表すことば)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-80f8-ba0a-f73fadd8e685"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">tide (潮)</li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-8058-a60a-d2c43d9e2d81"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          Lichtwechsel (光の交換)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-804f-84ed-d5e2ae2be555"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          Mare Quietis (静かな海)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-80c9-b022-f1ddf63fcf20"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          Tkitter (Twitter)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-8018-9aa3-ce0c990b32b8"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          Selene (月の女神)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-809a-a763-f2baf0f2018b"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          万華月 mangez (万華鏡と満月のがっちゃんこ)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="35eba93b-d450-8069-9be6-e623bf0601d6"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">月刊・未満</li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="361ba93b-d450-8046-b9d2-e725c7807213"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">逢月</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="35eba93b-d450-80c9-bfe2-c7463a2a7168" class=""></p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="35eba93b-d450-80d1-af95-cec2b4bdbfce" class="toggle">
+            <li>
+              <details open="">
+                <summary>Webアプリでできること</summary>
+                <div style="display: contents" dir="auto">
+                  <ul
+                    id="35eba93b-d450-801f-b4e3-f56fd1ab8105"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: disc">
+                      投稿
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="35eba93b-d450-80ce-b630-e10c0b57b009"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            コンテンツ
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-807f-95bd-f6c136b616f1"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  🟣 音楽
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-802c-a45a-e6ade99d6c8c"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        Spotifyの埋め込み
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-8027-b0ad-db4e77aacf18"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  🟡 本
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-806d-9438-d987dd15fdf1"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        表紙画像と詳細: Google Books API
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-8089-9072-d3c13f1b2409"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  🟥 映画
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-8083-bd83-f1acfe691600"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        映画のジャケと詳細: TMDB
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-807c-a0fd-cd3082ff99e3"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  自由投稿
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-804b-b3b2-fd27eed57a07"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        Webサイトのリンク等:
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-801e-b9ff-e801886bc0fe"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        例: 絵画のWikiとか
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="35eba93b-d450-80c3-a4f1-c0f7e15f9377"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            コメント
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-8084-839a-e6d793e833ec"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  いいね・レスなし
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="35eba93b-d450-808c-89a2-c4e9a8574ee9"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            満ち欠けのラベリング
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-808c-afdd-eb816edb2311"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  バリエーションの段階、どうするか
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-8095-85d3-f38105d751a9"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  <a href="https://www.weatherapi.com/"
+                                    >https://www.weatherapi.com/</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-80a9-8d9b-e93b0142f777"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  今日の状態じゃなくても、ラベリングして投稿はできる
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <ul
+                    id="35eba93b-d450-80d0-bcc2-fb90e3686bdc"
+                    class="bulleted-list"
+                  >
+                    <li style="list-style-type: disc">
+                      閲覧
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="35eba93b-d450-8041-ae21-e6fcdc9365c6"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            全ユーザの投稿一覧
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-8049-976b-ecd234dec916"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  「投稿」されたものの一覧
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-80d5-923a-f3a0a1bcda9b"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        今日の満ち欠けに応じたフィルタリング
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-80fe-90cf-dc2db3b5e60b"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  一覧
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-8040-94d8-e4e737ac7984"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        メディアの形式はミックス
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-8003-8597-c42aed0ff55e"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        コンテンツごと
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="35eba93b-d450-8010-a725-e37808e6c61e"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            個人の投稿一覧
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-80e5-87e4-fcb4fbdb736d"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  自分が投稿したもの一覧
+                                  <div style="display: contents" dir="auto">
+                                    <ul
+                                      id="35eba93b-d450-8066-8b8c-deeba0b30b78"
+                                      class="bulleted-list"
+                                    >
+                                      <li style="list-style-type: disc">
+                                        全部
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <ul
+                          id="35eba93b-d450-806a-bbbe-efc7c685be45"
+                          class="bulleted-list"
+                        >
+                          <li style="list-style-type: circle">
+                            作品ごとのみんなのレビュー
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-8081-a9f3-f5f3c434d9bd"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  ラベリング
+                                </li>
+                              </ul>
+                            </div>
+                            <div style="display: contents" dir="auto">
+                              <ul
+                                id="35eba93b-d450-8072-9997-fbd0199b8e46"
+                                class="bulleted-list"
+                              >
+                                <li style="list-style-type: square">
+                                  コメント
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div style="display: contents" dir="auto">
+                        <p
+                          id="35eba93b-d450-8095-9841-c5e12907f86d"
+                          class=""
+                        ></p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <ul id="35eba93b-d450-80e9-8147-fb8be95a7f93" class="toggle">
+                    <li>
+                      <details open="">
+                        <summary>参考・似たもの</summary>
+                        <div style="display: contents" dir="auto">
+                          <ul
+                            id="b5a26a68-1658-4afd-a749-9708a841f602"
+                            class="bulleted-list"
+                          >
+                            <li style="list-style-type: disc">
+                              天気から音楽プレイリストを提案してくれる<br /><a
+                                href="https://devpost.com/software/weatherify"
+                                >https://devpost.com/software/weatherify</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div style="display: contents" dir="auto">
+                          <ul
+                            id="d48b63dc-4f70-45a8-a590-3fa7ff8d2547"
+                            class="bulleted-list"
+                          >
+                            <li style="list-style-type: disc">
+                              様々なコンテンツの管理<br /><a
+                                href="https://apps.apple.com/us/app/sofa-downtime-organizer/id1276554886"
+                                >https://apps.apple.com/us/app/sofa-downtime-organizer/id1276554886</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div style="display: contents" dir="auto">
+                          <ul
+                            id="9f7bbe09-ade9-4377-8966-faa7030ced1b"
+                            class="bulleted-list"
+                          >
+                            <li style="list-style-type: disc">
+                              東京のあらゆるコンテンツの一覧表示<br /><a
+                                href="https://www.timeout.jp/tokyo/ja"
+                                >https://www.timeout.jp/tokyo/ja</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div style="display: contents" dir="auto">
+                          <ul
+                            id="354a34ce-fee8-444e-8686-f7a0e6af4c20"
+                            class="bulleted-list"
+                          >
+                            <li style="list-style-type: disc">
+                              観た映画の記録<br /><a
+                                href="https://letterboxd.com/"
+                                >https://letterboxd.com/</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </details>
+                    </li>
+                  </ul>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <p id="35eba93b-d450-8092-bd54-dcc09e2dbbbb" class=""></p>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <div
+                    id="35eba93b-d450-8089-865a-c9701a4d122c"
+                    class="column-list"
+                  >
+                    <div style="display: contents" dir="auto">
+                      <div
+                        id="35eba93b-d450-8030-8b6f-cb27642208d0"
+                        style="width: 50%"
+                        class="column"
+                      >
+                        <div style="display: contents" dir="ltr">
+                          <figure
+                            id="35eba93b-d450-80b0-9699-c99a7d8ae638"
+                            class="image"
+                          >
+                            <a
+                              href="%E7%A0%94%E7%A9%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%BC%94%E7%BF%92%20michi/image.png"
+                              ><img
+                                style="width: 628px"
+                                src="%E7%A0%94%E7%A9%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%BC%94%E7%BF%92%20michi/image.png"
+                            /></a>
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <div
+                        id="35eba93b-d450-8058-b1ca-c98a07bc58e1"
+                        style="width: 50%"
+                        class="column"
+                      >
+                        <div style="display: contents" dir="ltr">
+                          <figure
+                            id="35eba93b-d450-80d1-a00a-dfa0e0fb7d1c"
+                            class="image"
+                          >
+                            <a
+                              href="%E7%A0%94%E7%A9%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%BC%94%E7%BF%92%20michi/moon-phases-explained.png"
+                              ><img
+                                style="width: 628px"
+                                src="%E7%A0%94%E7%A9%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%BC%94%E7%BF%92%20michi/moon-phases-explained.png"
+                            /></a>
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: contents" dir="ltr">
+                  <table
+                    id="ac0c2363-c7d5-4bcb-9eb1-70fcb992ee2a"
+                    class="simple-table"
+                  >
+                    <tbody>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="a2699171-de4f-49dd-ab12-b1ea32a96e23">
+                          <td id=";b];" class=""><strong>日本語</strong></td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>英語</strong>
+                          </td>
+                        </tr>
+                      </div>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="d6338cd3-7eec-4af1-89a3-9ab9ec02691d">
+                          <td id=";b];" class="">新月</td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>New Moon</strong>
+                          </td>
+                        </tr>
+                      </div>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="5a63528f-d5e5-4195-8b54-49d9ee2ec893">
+                          <td id=";b];" class="">三日月</td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>Waxing Crescent</strong>
+                          </td>
+                        </tr>
+                      </div>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="ef353764-fd95-4eb4-ba1f-f3b3ee06bccd">
+                          <td id=";b];" class="">上弦の月</td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>First Quarter</strong>
+                          </td>
+                        </tr>
+                      </div>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="dc112c9c-0378-4a49-9aa0-98a049b770c0">
+                          <td id=";b];" class="">十三夜の月</td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>Waxing Gibbous</strong>
+                          </td>
+                        </tr>
+                      </div>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="f62c43a0-9ee4-4907-9431-d426db2f4017">
+                          <td id=";b];" class="">満月</td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>Full Moon</strong>
+                          </td>
+                        </tr>
+                      </div>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="b28c1efe-c04c-447c-91dc-afcde24bbfc2">
+                          <td id=";b];" class="">更待月</td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>Waning Gibbous</strong>
+                          </td>
+                        </tr>
+                      </div>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="3d339b87-4bec-4bd6-97eb-bf73ec052347">
+                          <td id=";b];" class="">下弦の月</td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>Third Quarter</strong>
+                          </td>
+                        </tr>
+                      </div>
+                      <div style="display: contents" dir="ltr">
+                        <tr id="968ee416-3dbf-4131-99fa-a774b05da2cd">
+                          <td id=";b];" class="">有明月</td>
+                          <td id="V^F_" class="" style="width: 178.953125px">
+                            <strong>Waning Crescent</strong>
+                          </td>
+                        </tr>
+                      </div>
+                    </tbody>
+                  </table>
+                </div>
+                <div style="display: contents" dir="auto">
+                  <p id="35eba93b-d450-802d-8312-e528548f0cda" class="">
+                    <a
+                      href="https://sorae.info/astronomy/20201130-moon-collection.html"
+                      >https://sorae.info/astronomy/20201130-moon-collection.html</a
+                    ><br />
+                  </p>
+                </div>
+                <div style="display: contents" dir="ltr">
+                  <figure
+                    id="35eba93b-d450-8016-a8e8-f520853e46c3"
+                    class="image"
+                  >
+                    <a
+                      href="https://sorae.info/wp-content/uploads/2020/11/202011_MoonColors_Pace_960.jpg"
+                      ><img
+                        src="https://sorae.info/wp-content/uploads/2020/11/202011_MoonColors_Pace_960.jpg"
+                    /></a>
+                  </figure>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="35aba93b-d450-8042-94ef-d8a30a95d682" class="">2026/05/08</h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="35aba93b-d450-80de-8327-f8669520880a" class="bulleted-list">
+            <li style="list-style-type: disc">
+              発表資料
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="35aba93b-d450-80e8-96c3-fa32b3b5183a"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    <a
+                      href="https://www.figma.com/slides/njQFDPprIh2AIIi7F4q41Q"
+                      >https://www.figma.com/slides/njQFDPprIh2AIIi7F4q41Q</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="358ba93b-d450-805e-a7e7-d824b56aedb2" class="">2026/05/06</h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="358ba93b-d450-804b-b355-d5c3567d2caf" class="">
+            今日決めたいこと
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="358ba93b-d450-80a1-bef2-ff23a7369486" class="bulleted-list">
+            <li style="list-style-type: disc">
+              具体的な案→方向性だけ決めればいっか
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="358ba93b-d450-8034-948c-c611b9937801"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    「ツキ」の日記
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-80e5-add2-f5970d1d6b86"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          ダジャレではあるが新しい視点，理由づけについては前回話せた
+                          <div style="display: contents" dir="auto">
+                            <p
+                              id="358ba93b-d450-8089-bd5e-d119c7f3a437"
+                              class=""
+                            >
+                              (一応ダジャレではないらしい)
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-8037-8b10-e82c7c047100"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          欠けるとネガティブなイメージになってしまう．
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-809a-8af9-d439325a232d"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          満ちることを「蓄積」かけることを「放出」ととらえるとか
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-80a3-9f35-c02843b2c73b"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          これに関係なく、「ツキがまわってきた」はタイトルになったら素敵
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="358ba93b-d450-80ee-8a05-f052c87af9fc"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    大学構内に集まって一つの「大きな月」になるものを作る
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-80e5-ae27-e72431ffcb04"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          視覚的にわかりやすく面白い
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-8098-a6f8-c3ca212d1f80"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          理由付けが弱いところがあるかも？
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-807c-a72c-ff9d20520290"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          大学に来るモチベーション、みたいな話はあった
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="358ba93b-d450-8049-958a-cce9b9e92749"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    プロトタイプで作ってくれたアプリ
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-80ba-bdbe-ef0b78e8e7ce"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          上記2つにみんなの月、自分の月、的な要素が共通点にあるから、それを簡単な動く形にしてみたので、これは無視してもらって🙆（坂村)
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="358ba93b-d450-80f2-b1c9-cc25b6748ca9"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                これの拡張的なアイデアで、自分の現在の状況（位置情報的な半受動的な情報、スマホでとれるモノ）を反映した月、みんなの月
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="358ba93b-d450-807c-a741-c2d2fbf6540f"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                ただウィジェットに出る、みたいな
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="358ba93b-d450-8041-bb1b-eaf326b6cdcd"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    他の案
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-8001-ba9a-ebacd236e9b1"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          DUO
+                          LingoとかSpotifyとかみたいに一年の振り返りとかができたらどんなふうに満ち欠けしてたか見れて面白そう(具体的な案だから今話し合わなくても良いかも)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-8096-96c6-f31eab946339"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          実際の月の満ち欠けと、何か他の満ち欠けを組み合わせたい
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="358ba93b-d450-8073-aba4-d4458345c3e1"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                <mark class="highlight-red"
+                                  >これはマストでやりたいかも</mark
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-8040-8de4-edaee4bcf54b"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          ご褒美要素があるとやりたくないことをやりたくなるという心理学があるらしい(←大学で研究をしたくなるための何かの参考)
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-80e7-b035-e08be5743b5e"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          大学院生って不健康な人多くない？
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-805a-9568-fea7b4b3609c"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          その日の天気や雰囲気によって周囲や大学全体のムードが変わる気がする
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-80af-91fb-c4dee17e9040"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          関係ないかもしれないけど、部屋の人口密度が月の満ち欠けで表されていたら素敵だと思った
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-8058-b9a6-eee0e110d389"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          家にいる時(アプリ上)と大学にいる時(プロダクト)で異なる側面が見えたら面白そう
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-806c-b8b7-ef92a4d5857d"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          満ち欠けで詰まったらツキをテーマにしてもいい
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="358ba93b-d450-80f0-ad08-ce812e68e395" class=""></p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="358ba93b-d450-80fa-889b-f9d11963f1de" class="bulleted-list">
+            <li style="list-style-type: disc">
+              スライド作る人
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="358ba93b-d450-8029-b051-fd97e6416ff5"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    共同作業する時間ないから一人に任せたい，，，金曜午前に集まって練習するなら発表者は別でいいかも
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-806b-8e2d-f4289fa288f2"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          基本はテキストでまとめる→スライドに配置、くらいでよいと思う
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="358ba93b-d450-80d6-a72c-df4391dc90a4"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">Figmaでやろう</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="358ba93b-d450-8045-a7de-d7cf0d86b2a7" class="bulleted-list">
+            <li style="list-style-type: disc">
+              月のストーリー（これまで出たもの）
+              <div style="display: contents" dir="auto">
+                <ol
+                  type="1"
+                  id="358ba93b-d450-80dc-9896-ce0d6c8a072e"
+                  class="numbered-list"
+                  start="1"
+                >
+                  <li>常に見えているけど、わからないもの</li>
+                </ol>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ol
+                  type="1"
+                  id="358ba93b-d450-8054-96c8-f82d29f0a1b1"
+                  class="numbered-list"
+                  start="2"
+                >
+                  <li>
+                    人それぞれ、月に投影・持っているイメージ、ストーリーがある
+                  </li>
+                </ol>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ol
+                  type="1"
+                  id="358ba93b-d450-80f2-a256-fbc13cc095fa"
+                  class="numbered-list"
+                  start="3"
+                >
+                  <li>月面を歩く→未知のものを自分事化する</li>
+                </ol>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="358ba93b-d450-8000-a306-e1f487e7dfda" class="bulleted-list">
+            <li style="list-style-type: disc">
+              発表の内容（3分、みじかい）
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="358ba93b-d450-8019-83ff-f631e3b641d6"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    問題点抽出および課題設定の妥当性、を聞かれる
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="358ba93b-d450-80d4-877b-f0eabc22e496"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    流れ
+                    <div style="display: contents" dir="auto">
+                      <ol
+                        type="1"
+                        id="358ba93b-d450-80e9-9380-fd9ee5e4d060"
+                        class="numbered-list"
+                        start="1"
+                      >
+                        <li>「月面を歩く」</li>
+                      </ol>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ol
+                        type="1"
+                        id="358ba93b-d450-80f4-b222-ca7842472675"
+                        class="numbered-list"
+                        start="2"
+                      >
+                        <li>
+                          月のストーリー（上記）から、テーマの再解釈を行なった
+                        </li>
+                      </ol>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ol
+                        type="1"
+                        id="358ba93b-d450-808b-9106-f6907ceae82f"
+                        class="numbered-list"
+                        start="3"
+                      >
+                        <li>
+                          コンセプト（下記、前回の内容）の提示
+                          <div style="display: contents" dir="auto">
+                            <ol
+                              type="a"
+                              id="358ba93b-d450-8064-8041-ffe4442b8710"
+                              class="numbered-list"
+                              start="1"
+                            >
+                              <li>
+                                Webサイト、関係なくてもプロトタイプつくってみて検証しました、みたいなことは言える
+                              </li>
+                            </ol>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ol
+                              type="a"
+                              id="358ba93b-d450-80bb-a357-d180f45652b1"
+                              class="numbered-list"
+                              start="2"
+                            >
+                              <li>
+                                具体的なプロダクトは言わなくてもいいかもしれない
+                              </li>
+                            </ol>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ol
+                              type="a"
+                              id="358ba93b-d450-80e5-b17b-d9e3a7d5f394"
+                              class="numbered-list"
+                              start="3"
+                            >
+                              <li>課題：大学院生学校来るの憂鬱問題(？)</li>
+                            </ol>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ol
+                        type="1"
+                        id="358ba93b-d450-8064-97d8-cb7ad25a314d"
+                        class="numbered-list"
+                        start="4"
+                      >
+                        <li>テーマとの連関の提示</li>
+                      </ol>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="358ba93b-d450-8044-8819-fc9223450896" class=""></p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="358ba93b-d450-806c-b4ac-dbbff02f6cf5" class="bulleted-list">
+            <li style="list-style-type: disc">
+              前回の内容
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="358ba93b-d450-806b-8019-dea4e98a3bf2"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    コンセプトとしては「月の満ち欠けを人の状態・時間・関係性として再構築するプロジェクト」
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="358ba93b-d450-802c-a700-c59c66bccebc" class=""></p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="372ba93b-d450-8027-abf0-f0e35015496d" class=""></p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="901f547b-a3ad-4cb5-8e82-3884a62b91cd" class="">2026/05/01</h1>
+        </div>
+        <div style="display: contents" dir="ltr">
+          <figure id="353ba93b-d450-8073-acad-fffc6dc133ac" class="image">
+            <a
+              href="%E7%A0%94%E7%A9%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%BC%94%E7%BF%92%20michi/IMG_0084.jpeg"
+              ><img
+                style="width: 600px"
+                src="%E7%A0%94%E7%A9%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%BC%94%E7%BF%92%20michi/IMG_0084.jpeg"
+            /></a>
+          </figure>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="d03de67c-d606-4974-90c7-e9cabc13440a" class="">
+            <strong>① 前提・方向性の整理</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="1760b375-ee60-4504-a420-be48a2c46b79" class="bulleted-list">
+            <li style="list-style-type: disc">
+              <strong>非現実的な方向は避ける</strong>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="c623c2b1-8233-4974-afa0-0228ee195f9f"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">実際に月へ行く</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="79822844-9a58-468b-b920-1d4ebf0a2d9c"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">大規模すぎるもの</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="0f654f75-6dd7-4cf9-aa44-e9c3972311f1"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">AR・VR</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="34b9bd4d-44de-49cc-af23-f8dff4956bfc"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">月に住むための装置</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="01fa980f-f7c3-44d9-878c-d0c019ad0657" class="bulleted-list">
+            <li style="list-style-type: disc">
+              <strong>重視する方向</strong>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="d8340315-1635-46c9-9c8d-30d1a7c8577b"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">今できること</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="60822b14-046e-46c5-86eb-999af3191223"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">身近でリアルな体験</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="a7541986-cd04-43b2-9faf-7ff7405cd755"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    五感（触覚・視覚・嗅覚など）に関わる
+                  </li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="2751ad59-eab2-40a4-ac49-c5a1735fe6f9"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">地上で「月を感じる」</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="5d37ad41-0e7a-497c-80af-1186b043a88e" class="">
+            <strong>② 「月」というテーマの捉え直し</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="07f913de-318b-4879-be96-4c85e11ae8f9" class="">
+            議論の中核になっている視点：
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="e37a9289-ae04-4a2e-9279-7deda4f9d251" class="bulleted-list">
+            <li style="list-style-type: disc">見えるのに遠い存在</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="4bb6ff3e-eed0-4d8d-84d6-f13b0d51ad6c" class="bulleted-list">
+            <li style="list-style-type: disc">人それぞれの「月」がある</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="2c7c0aee-52e9-4866-802a-f652740bb2b5" class="bulleted-list">
+            <li style="list-style-type: disc">知らない感覚への憧れ</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="2f26c5ad-8c87-44ca-a289-611869991e3e" class="bulleted-list">
+            <li style="list-style-type: disc">
+              ロマンと意味性（文化・占い・物語）
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="ab73b5fa-1c26-46ab-91fe-048edcc8e411" class="">
+            👉 特に重要な問い：
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="cce3f3f1-c33b-468c-83cf-eb3cf97ac62f" class="">
+            <strong>なぜ月は他の星より強く感じられるのか？</strong>
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="8d42a92c-e58a-4ffc-9fa4-a601261c618a" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="f719e021-663c-4ab6-94ee-bea790e456f9" class="">
+            <strong>③ キーコンセプト（かなり重要）</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="c7d9994e-4b73-4527-b68f-0c9b4886caa5" class="">
+            複数のアイデアが一つの流れにまとまっている：
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="3e8cd1e4-2d65-4da8-870e-9f39df262037" class="">月を感じる</p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="818ef1af-456b-4d94-9c6a-b2787e786711" class="">→ 満ち欠け</p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="b9bc2c48-c6ce-44c0-8375-087ad59c5c24" class="">
+            → ツキ（運・チャンス）
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="ee0eddaf-8435-4a64-b713-e742c3860d6d" class="">
+            → 知らない感覚を知る
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="8e1835df-ca6e-4924-a484-adf6c41a70b2" class="">
+            👉 この流れは今後の設計の軸になりそう
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="1ff62cf1-73d0-4e17-b12c-fcf9b3fce659" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="f3d5dec0-fb16-42ad-a918-a9a26a652210" class="">
+            <strong>④ 満ち欠けの再解釈</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h3 id="9d9d5d0b-ab64-4e66-a6ed-7c6362422ad8" class="">
+            <strong>● 2つの視点</strong>
+          </h3>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="f09c8502-1973-4bf3-b808-717bd119a913" class="bulleted-list">
+            <li style="list-style-type: disc">
+              <strong>受動的な満ち欠け</strong>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="daf03852-6b28-4ec8-bffd-d3d2a6ba1933"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    実際の月（自然に変化）
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="7479abf8-9740-40b6-8e6b-17b41135f575" class="bulleted-list">
+            <li style="list-style-type: disc">
+              <strong>能動的な満ち欠け</strong>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="630a3b85-18e3-4fc3-8e00-8c8cda0e42ac"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    自分の行動・感情で変化させる
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="7a9f70b8-f7e0-4601-83af-98ed392e17c2" class="">
+            👉 この対比がかなり強いコンセプト
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="5b66c529-bd24-47ff-8ce3-816280fbb111" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="29e8c056-0571-44cd-b38c-087b4b0c51e4" class="">
+            <strong>⑤ アイデアの具体化方向</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h3 id="09f6ba06-aefa-46f6-8c49-564455cb18f1" class="">
+            <strong>1. 記録・可視化系</strong>
+          </h3>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="35a69e4d-c2b5-4c46-9882-e8509233d1fb" class="bulleted-list">
+            <li style="list-style-type: disc">
+              気分や運を「月の満ち欠け」で記録
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="e5238c0e-7ceb-49d2-9a01-dc9141c968d9" class="bulleted-list">
+            <li style="list-style-type: disc">メンタル状態の可視化</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="529ca9d5-13b3-44d0-928b-fa4f4dada777" class="bulleted-list">
+            <li style="list-style-type: disc">14日サイクルで達成を記録</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="cb9cfac8-2a5b-499e-a2ba-7ba2624ff37f" class="">
+            👉 ポイント：
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="ebb19f2f-548b-4e2e-a738-a391f5fd2f00" class="bulleted-list">
+            <li style="list-style-type: disc">ネガティブをそのまま扱わない</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="3bb58ce4-80e2-44ea-b4e9-2355be914778" class="bulleted-list">
+            <li style="list-style-type: disc">「欠ける＝放出」と再解釈</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="90ed306d-40ce-43c0-8780-ee2d08ed7366" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h3 id="0b889d3f-e52e-4e71-8309-8637712e3ff3" class="">
+            <strong>2. 共有・つながり系</strong>
+          </h3>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="d2ccc041-83e4-40cc-9d38-7d13940144a9" class="bulleted-list">
+            <li style="list-style-type: disc">みんなの「月」を共有</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="486128df-57ee-4799-902b-2e98addfb6eb" class="bulleted-list">
+            <li style="list-style-type: disc">
+              全員の状態が合わさって満月になる
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="e062662c-d32f-4ee8-90f1-f4c0eb2ee816" class="bulleted-list">
+            <li style="list-style-type: disc">
+              SNS的だが、既存アプリとは差別化が必要
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="5db5dc4c-a912-4b6a-9c3a-8a53b7c17957" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h3 id="27b50583-296a-4339-ae63-59d362e5a20f" class="">
+            <strong>3. 物語・ゲーム系</strong>
+          </h3>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="9befbf6d-8c07-4c6f-a615-2c0c97f21216" class="bulleted-list">
+            <li style="list-style-type: disc">起承転結 × 満ち欠け</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="c5437eae-8329-4959-b455-7391f65b501b" class="bulleted-list">
+            <li style="list-style-type: disc">
+              パラメータ化して多様なストーリー生成
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="7cf28f46-0d74-4967-aa93-8eba21fc2b72" class="bulleted-list">
+            <li style="list-style-type: disc">ゲーム化の可能性あり</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="a8c7cfd7-fdf9-4508-bc50-fc9a288f531d" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h3 id="e4d1fa5c-d397-4ea9-9476-7e51945ea2f7" class="">
+            <strong>4. 時間・占い系</strong>
+          </h3>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="a45839e3-44cf-433b-b21f-4ec050760748" class="bulleted-list">
+            <li style="list-style-type: disc">月齢 × 運勢</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="86375ff4-c469-493a-9d05-ddc74e003f52" class="bulleted-list">
+            <li style="list-style-type: disc">誕生日・時間と組み合わせ</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="951240c5-1e28-427b-a142-3eeb7321e9dc" class="bulleted-list">
+            <li style="list-style-type: disc">「ツキ」の蓄積という概念</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="c07f32d5-f8c0-4ed8-bb26-83ea29b67eda" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h3 id="777e8922-364d-482f-a365-5ddb04ed4b97" class="">
+            <strong>5. 体験・プロダクト系</strong>
+          </h3>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="1357576b-f669-4f6a-8c67-331a6ff8777b" class="bulleted-list">
+            <li style="list-style-type: disc">
+              月を見る・記録する（例：コーヒーパスポート的）
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="e03ae02c-9784-4143-acdc-18ffd27a8ca0" class="bulleted-list">
+            <li style="list-style-type: disc">触覚や視覚で月を感じる物体</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="d07ea040-2fe5-4386-b1c9-c749e080e1b5" class="bulleted-list">
+            <li style="list-style-type: disc">システム＋物体の組み合わせ</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="dca6deca-560f-4403-822c-50dc87882036" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="394c04b5-4974-4b19-b5e8-96c4235f80f6" class="">
+            <strong>⑥ 「歩く」の扱い</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="7d2f6b54-1b11-4f0e-8af8-2b45b6414f7f" class="bulleted-list">
+            <li style="list-style-type: disc">
+              本質ではなく<strong>後付け可能な要素</strong>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="8dc43184-5e09-4343-ab92-711db843aae9" class="bulleted-list">
+            <li style="list-style-type: disc">無理に中心にしなくてよい</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="43063c4b-2fb5-4406-8cb6-3f7f7f29e64d" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="23e551a2-af3a-4455-baff-161412774eed" class="">
+            <strong>⑦ 設計思想（かなり重要）</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h3 id="b2da0b68-027e-47a8-9226-1e56e3214632" class="">
+            <strong>やりたいこと</strong>
+          </h3>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="3c72740b-a8b8-4c16-9839-8ce84eea9e53" class="bulleted-list">
+            <li style="list-style-type: disc">緩やかに影響・比較する</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="2fa4dc09-1b0f-423a-b2b1-5d04c00c38dd" class="bulleted-list">
+            <li style="list-style-type: disc">焦らし（情報の小出し）</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="fc3b54f2-bdce-4a4c-a92d-756d5365f941" class="bulleted-list">
+            <li style="list-style-type: disc">明日が楽しみになる仕組み</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="d559dacd-256f-4b92-8303-12af404e375b" class="bulleted-list">
+            <li style="list-style-type: disc">つながり・発信</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="b59988aa-b2fa-4557-b820-f94ffa6eb7b4" class="bulleted-list">
+            <li style="list-style-type: disc">現実の体験に結びつく</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="73e44716-a27a-4084-ade5-228e76c5eae7" class="bulleted-list">
+            <li style="list-style-type: disc">視界に入る存在</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="bafddc37-e4d5-4c4c-8638-c6bc873a46dd" class="bulleted-list">
+            <li style="list-style-type: disc">システム＋物体の融合</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h3 id="fa9ea950-ca61-4a96-8b22-278c90da6932" class="">
+            <strong>やりたくないこと</strong>
+          </h3>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="00be4b05-84ee-46f4-9435-fa0504a5bcdc" class="bulleted-list">
+            <li style="list-style-type: disc">単なる既存技術の組み合わせ</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="ef6218bd-1d9a-4570-8aff-604d19a30252" class="bulleted-list">
+            <li style="list-style-type: disc">無理にネガティブを扱う</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="34416e75-19fc-4445-a5f6-6e8b138b3f47" class="bulleted-list">
+            <li style="list-style-type: disc">個人だけで完結</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="816319db-d9ed-4cdf-8b2b-78b77ca55f1f" class="bulleted-list">
+            <li style="list-style-type: disc">画面内だけで終わる</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="d9d6f95a-e1be-4ac9-9f9c-e42c8aa27b76" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="685f96c0-234f-43d2-b801-76f4b87d1607" class="">
+            <strong>⑧ 「焦らし」という強いアイデア</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="05ae1c80-d6a2-4dc9-8dc1-2939747d864c" class="bulleted-list">
+            <li style="list-style-type: disc">情報を段階的に開示</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="54ffbeac-989f-483a-9a63-c044985319a4" class="bulleted-list">
+            <li style="list-style-type: disc">月の満ち欠けと相性が良い</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="60a5af0d-c02c-4f6f-a056-1fbe5166e2aa" class="bulleted-list">
+            <li style="list-style-type: disc">
+              例：
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="f22aade9-f56a-44f1-a1a2-4e098df16227"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">音楽</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="66d88dde-5395-4c32-841f-48aab972208c"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">物語</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="cd42923d-c7c4-4347-9f5f-8fc7edf64f0c"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">告知</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="fefc1942-1a2d-434f-bde2-dabcc6642d54"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">ジェットコースター</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="6d9fd4e4-948d-4856-adeb-3b93fd4ffd0a" class="">
+            👉 <strong>満ちる＝期待が高まる構造</strong>
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="87b222d5-d6b0-48c6-bc2a-95e5526cc8c6" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="26f6ead6-e909-4486-a060-0bb6b58fdd40" class="">
+            <strong>⑨ システム構造案</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="30692e6c-e0f2-4b26-8bc6-d292dfab19b9" class="bulleted-list">
+            <li style="list-style-type: disc">
+              <strong>個人</strong>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="ab5f8dca-11ad-4e9e-90ae-783f0604f41c"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    月（状態）を記録・操作
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="cff03b2c-39b5-45ef-a6f5-d82bbd8181b1" class="bulleted-list">
+            <li style="list-style-type: disc">
+              <strong>全体</strong>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="c11aa2ac-d63a-44ef-b5db-132b7653ae3a"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    集まって一つの「大きな月（物体）」になる
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="44a8596b-50be-4f32-a9d2-61fd667f5d26" class="">
+            👉 個人と集団の両方を扱う設計
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="c5bd8b98-93c2-407f-a9be-f4e53efd38d7" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h2 id="d1d5d640-0a68-43f0-8bd3-b4096db3a475" class="">
+            <strong>⑩ その他の発想</strong>
+          </h2>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="b490f321-f9c8-423d-a722-2ca45e738dec" class="bulleted-list">
+            <li style="list-style-type: disc">中世的・天体観の演出</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="e93482bb-cc62-4797-8e65-c405b8abc2db" class="bulleted-list">
+            <li style="list-style-type: disc">人に会う頻度＝満ち欠け</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="44ebcb1e-2c9e-481f-9d58-9917fd3d4eb0" class="bulleted-list">
+            <li style="list-style-type: disc">
+              月は「みんなが同じものを見る存在」
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="4f2cf0ba-93a1-47ff-bc66-7cf5974371d6" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="e4ae68e0-dabd-4556-8aa2-0a1d0091c1f4" class="">
+            <strong>全体の核心（かなり重要）</strong>
+          </h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="8f6fdf58-4213-4846-bdeb-91a9ee198cb3" class="">
+            この議論の本質は：
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="ca0913f1-5330-4f59-82be-25babbd7df3b" class="">
+            👉 <strong
+              >「月」を物理ではなく“感覚・状態・関係性”として再設計している</strong
+            >
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="3374142f-899e-4286-844d-96c274317c34" class="">
+            特に強い軸は：
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="4b59e964-2990-4a11-b591-ad51979b500d" class="bulleted-list">
+            <li style="list-style-type: disc">満ち欠け（変化）</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="d9edb5af-b70a-433e-a9cc-b7619aaa3c4e" class="bulleted-list">
+            <li style="list-style-type: disc">ツキ（意味付け）</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="1e5fad60-82b1-4230-b666-1cd56e4df6cc" class="bulleted-list">
+            <li style="list-style-type: disc">共有（みんなの月）</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="91d57c1b-cd40-4584-8f61-c635c21b1be5" class="bulleted-list">
+            <li style="list-style-type: disc">焦らし（時間体験）</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="a15273fb-bf67-4397-8fd6-35b71819f878" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="e75f2acb-ed4f-4bce-a3d4-7d4d8509edf3" class="">
+            <strong>一言でまとめると</strong>
+          </h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="5116b44e-5fe9-4f87-b63b-d728aeb5a8e3" class="">
+            <strong
+              >「月の満ち欠けを、人の状態・時間・関係性として再構築するプロジェクト」</strong
+            >
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="0399583c-b1fe-4e04-bae8-9afd9e7ccc33" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="9c578857-9d73-43e7-b3ee-899f194c9bbe" class="">
+            もし次に進めるなら、
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="89bb106e-d0f8-4577-9022-9da603d1101a" class="bulleted-list">
+            <li style="list-style-type: disc">コンセプトを1つに絞る</li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="6845f151-42f2-4752-92f6-44cc0d9b7548" class="bulleted-list">
+            <li style="list-style-type: disc">
+              「体験シナリオ」を作るあたりをやると一気に形になります。
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <h1 id="345ba93b-d450-80ab-a318-fc443aa7b3c6" class="">2026/04/17</h1>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="349ba93b-d450-808a-8d6c-c17c93662ad5" class="">
+            報告書<br /><a
+              href="https://docs.google.com/spreadsheets/d/1Fmv4Ra3RAFJSzxySgBNNQ-UoVCqhYbFREFdzaAU86f8/edit?usp=sharing"
+              >https://docs.google.com/spreadsheets/d/1Fmv4Ra3RAFJSzxySgBNNQ-UoVCqhYbFREFdzaAU86f8/edit?usp=sharing</a
+            >
+          </p>
+        </div>
+        <div style="display: contents" dir="ltr">
+          <figure id="345ba93b-d450-8023-ae19-fdef7e1551dd" class="image">
+            <a
+              href="%E7%A0%94%E7%A9%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%BC%94%E7%BF%92%20michi/IMG_1059.heic"
+              ><img
+                style="width: 528px"
+                src="%E7%A0%94%E7%A9%B6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%BC%94%E7%BF%92%20michi/IMG_1059.heic"
+            /></a>
+          </figure>
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="345ba93b-d450-80f1-9b84-d9ecf2d272e3" class="">
+            2025年D班報告書「SORA PLEX」
+          </p>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="345ba93b-d450-8001-a268-c47cddaf8d37" class="bulleted-list">
+            <li style="list-style-type: disc">
+              目的
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="345ba93b-d450-808f-80fd-c05189d5510c"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    昨年度の報告書をレビュー・今年のPDCAサイクルを回すためのきっかけを作る
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="345ba93b-d450-80b1-ac32-f08007ed4902" class="bulleted-list">
+            <li style="list-style-type: disc">
+              時間
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="345ba93b-d450-8004-bf6b-d87a1e0492b0"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">発表4分・質疑応答3分</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <ul id="345ba93b-d450-802e-b1f7-ef9b1c9f57aa" class="bulleted-list">
+            <li style="list-style-type: disc">
+              やること
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="345ba93b-d450-80c5-be24-d0829a5d49ba"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">テーマの簡単な説明</li>
+                </ul>
+              </div>
+              <div style="display: contents" dir="auto">
+                <ul
+                  id="345ba93b-d450-808d-aeaf-fee4ede4efab"
+                  class="bulleted-list"
+                >
+                  <li style="list-style-type: circle">
+                    レビュー項目：各自1分くらい
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="345ba93b-d450-8067-a0e1-ef314cc05c40"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          <span class="user">@kana horie</span>
+                          ：論理的かつ実感を伴った問題点の抽出，課題の設定となっているか（ワクワク感があるか？）
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="348ba93b-d450-801b-ba1f-cc414c3f7d06"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                KJ法によって出された複数のアイデアを分類し、インサイトを丁寧に抽出していたため、論理的な内容になっていた。空に関するアクティビティを体験したことのない人に対して、それらを安価に提供するという視点も自然で、共感しやすかった
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-8006-a7da-e40cee4d1982"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                総括：課題の設定のプロセスは丁寧で納得できるものである
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <hr id="349ba93b-d450-801c-8ace-d03d33d0ff0f" />
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="345ba93b-d450-80cf-affa-e0a618328ef1"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          <span class="user">@Yuta Katsumata</span>
+                          ：解決策（提案技術）に新規性・進歩性があるか．
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="348ba93b-d450-8044-8b3a-efc0a730565f"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                新規性
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-80a4-b115-ebf3dc84e128"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      「空」に関するアクティビティの<strong
+                                        ><span
+                                          style="border-bottom: 0.05em solid"
+                                          >複合型施設</span
+                                        ></strong
+                                      >設計提案である．
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-80ab-92d2-f5d24dec2a7b"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      「空」の体験を促す施設でありながら屋内で完結している．
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-8078-80df-c0e165f78135"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      郊外ではなく，アクセスが容易な都市部に計画している．
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-80c1-a07d-ea93929a1370"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      本来高額になりがちでも金銭面を気にしすぎずに「空の体験」が可能．
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-805c-a78f-eb448dd84fae"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      いつでも気軽に「空の体験」ができる．
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-80ea-86a5-dbfde9e1081d"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      一方で，個々のアクティビティについては既存のものなので，そこに関して新規性はほとんどない．
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="348ba93b-d450-8085-9efb-e57aa9652581"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                進歩性
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-80a5-a4e2-c6331aab77e2"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      進歩的ではない．
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-805a-ab16-fdc352f03739"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      すべてを屋内に完結させることで，天候を気にする必要がなくなる．
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-80c2-a536-f25769b682bb"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                総括：既存のアクティビティを1箇所に集約させて体験ができる．
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <hr id="348ba93b-d450-8011-bd22-d407c7a7baf4" />
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="345ba93b-d450-806d-8228-efaa52bd776c"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          <span class="user">@田中聖司</span>
+                          ：提案技術に実現性はあるか．
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-8035-95a7-ef5d159028ba"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                空をテーマとしたアトラクションは実際に国内に存在している(ex.ディズニーランドのソアリン，ネスタリゾート神戸の「スカイ・イーグル」ジップライン、FlyStationのインドア・スカイダイビング<a
+                                  href="https://flystation.jp/"
+                                  >https://flystation.jp/</a
+                                >)
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-808c-82b2-ea7a3039002c"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                屋内のパラグライダーについては風洞で室外と同じ状況を作るのは難しい．実施例があるとしているが，離陸前練習のみであり，ここで表現されているような体験をするには屋内であると壁に激突するなどの危険性が存在する.
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-8019-a151-fb3a7265808d"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                パラグライダー以外の施設についてはすでに存在するため，実現可能である．パラグライダーも近くの室外で体験するなどの対策をとれば実現可能（豊洲では難しいかも？）．
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="5e1ac766-f0c3-4532-9cae-38163aace4c6"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                体験型アトラクションはトレンドであり，収益性も見込めるが，具体的な収益については検証されていない．
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-804c-a431-e73cec7d18be"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                総括：室内でのアトラクションには実現性に不安が残ると評価できる．
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <hr id="349ba93b-d450-80d8-9585-d818fc0e85bc" />
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="345ba93b-d450-8065-8e49-ee80ab4bcfd0"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          <span class="user">@大塚舜斗</span>
+                          ：提案技術の有用性（社会への波及）はどの程度か．
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-800b-bd7c-dd550bc7b4cc"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                提案技術の有用性は高い
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-80e9-bf99-ef4cd2e1ee83"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                特に、アクセスの容易さ、リーズナブルな価格、全天候型、年齢や性別を問わない利用を重視しており、利用者層を広げる効果が期待できる
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-8093-a027-dd0f75f5ada6"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                都市部に設置することで、これまで地方に偏っていた空のアクティビティを身近にし、都会の人や初心者、家族連れにも開かれた施設になる。そのため、娯楽施設としてだけでなく、体験機会の格差を小さくするという意味でも社会的意義があるが、↓
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-8064-b734-fbb0be6c58b6"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                そもそもとして，プロジェクトを進めるのであれば，ユーザーの好奇心をそそるものでなければ（特に大型の施設では）成立しえないと思う．「手軽に」「だれでも」というところに重きを置きすぎてこの施設を実際に利用して「楽しい」のかどうかは懐疑的であると思った．たとえば，ハンググライダーやパラグライダーは広々とした空間で長時間飛行ができるから楽しいと感じるが，それらをなくして，狭い空間でごくごく短い時間のみの飛行を何往復も繰り返すだけとなるとそれは楽しいのかどうかよくわからないのである．そのため，プロジェクトそのものの進捗としては破綻しているのではないかと思う．
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-800b-8f20-e1cfb3b24cec"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                総括：課題解決、実現できれば社会的波及効果を持つ提案と評価できる
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <hr id="349ba93b-d450-8021-b893-f5bbc17e9c5f" />
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="345ba93b-d450-8026-b99c-f524a926a974"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          <span class="user">@Kusuke Sakamura</span>
+                          ：客観的かつ定量的に実施されているか.
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="348ba93b-d450-80d3-b5e1-da841821d47a"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                客観的か
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-800a-bed2-f153c95940bd"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      デザイン思考のいち手法である「ダブルダイヤモンド」手法を利用し、アイデアを「発散」と「収束」の2つのフェーズによってテーマ選定の妥当性を担保している
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-8056-bf3d-de9f98702867"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      マインドマップやKJ法により、班員個人のアイデアとメンバーのアイデアを接続し、共通の潜在的な欲求を明らかにしている
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-80fe-8536-d090564bea2d"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      最終報告会・展示会におけるネガティブな意見をポジティブな意見と共に表記することで評価を正当に示している
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-805b-9bf8-f1b63e459a4c"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      マインクラフトを利用した施設のモックアップに関しては選定の理由が明確でなく、ツールが先行している印象を受ける
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="348ba93b-d450-80da-9e0b-c320b7c2edf5"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                定量的か
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-805c-8e38-fdb7732b0c29"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      作業進行において定量的な進行が見られる
+                                      <div style="display: contents" dir="auto">
+                                        <ul
+                                          id="348ba93b-d450-8051-9016-e86f62046f50"
+                                          class="bulleted-list"
+                                        >
+                                          <li style="list-style-type: square">
+                                            メンバー個人の作業時間を週単位で記載
+                                          </li>
+                                        </ul>
+                                      </div>
+                                      <div style="display: contents" dir="auto">
+                                        <ul
+                                          id="348ba93b-d450-80a6-b906-d14f0be98529"
+                                          class="bulleted-list"
+                                        >
+                                          <li style="list-style-type: square">
+                                            特定の個人・週に作業量が極端に増加している部分はある
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-80d8-89d8-ddcd46a5c294"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      既存事例の調査において、事例数や費用、体験時間等の複数の視点における実例が示されている
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div style="display: contents" dir="auto">
+                                  <ul
+                                    id="348ba93b-d450-8048-b713-d6eef6fcbc7d"
+                                    class="bulleted-list"
+                                  >
+                                    <li style="list-style-type: circle">
+                                      いくつかの提案には具体的な数値やフローが示されており、具体性がある
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-80f8-b3f9-ca64cc37634b"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                総括：プロジェクト進行・レポートとしては客観的かつ定量的に行われているが、個別のアイデアに関しては一部、主観での決定や十分な検証が行われていない。
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <hr id="349ba93b-d450-80e2-af6f-cc5513db03da" />
+                    </div>
+                    <div style="display: contents" dir="auto">
+                      <ul
+                        id="345ba93b-d450-8040-accb-db87f6221792"
+                        class="bulleted-list"
+                      >
+                        <li style="list-style-type: square">
+                          <span class="user">@kana horie</span>
+                          プロジェクトの進め方のレビュー
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="348ba93b-d450-807e-8c64-fce4d7b32026"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                課題やインサイトの抽出、アイデア出しに時間をかけている印象を受けた。一方で、提案している施設のターゲット層や、利用者の体験フローなどの解像度をさらに高めることにも時間を割けると、より良かったかもしれない。班員それぞれの実働時間については、ある程度バランスが取れている
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-8075-b4fa-c8aca3454125"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                思考方法は参考になるが、アイデアが抽出したインサイトを解決するものになっているかは疑問に残る
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-80df-b9df-f51e962f4945"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                デザイン手法によって練り上げられた計画でも，変にのめりこみすぎてユーザーの視点を考慮しきれていない状況に陥らないようにすべきと思った．
+                              </li>
+                            </ul>
+                          </div>
+                          <div style="display: contents" dir="auto">
+                            <ul
+                              id="349ba93b-d450-80f6-8a54-cbf7bf514c54"
+                              class="bulleted-list"
+                            >
+                              <li style="list-style-type: disc">
+                                総括：課題の検討は丁寧だった一方で、提案のユーザー視点や具体性には改善の余地がある
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="display: contents" dir="auto">
+          <hr id="f11172b0-9e87-4d39-aa32-7ca95b5f778b" />
+        </div>
+        <div style="display: contents" dir="auto">
+          <p id="35aba93b-d450-8002-996c-fc3345cdec38" class=""></p>
+        </div>
+      </div>
+    </article>
+    <span class="sans" style="font-size: 14px; padding-top: 2em"></span>
+  </body>
+</html>

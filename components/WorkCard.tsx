@@ -19,12 +19,6 @@ export const WorkCard: React.FC<WorkCardProps> = ({
       href={`/works/${id}`}
       className="group relative flex flex-col gap-3 hover:opacity-90 transition-opacity w-full bg-bg-secondary rounded-lg overflow-hidden"
     >
-      <img
-        src={imageUrl}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover blur-lg opacity-20 scale-110 pointer-events-none"
-        aria-hidden="true"
-      />
       <div className="relative z-10 w-full p-3 pb-0">
         <div className="relative aspect-4/3 flex items-center justify-center">
           {ViewTransition ? (
@@ -45,9 +39,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({
         </div>
       </div>
       <div className="relative z-10 flex flex-col gap-2 p-4 pt-2">
-        <h3 className="text-fg-primary font-medium group-hover:underline">
-          {title}
-        </h3>
+        <h3 className="text-fg-primary font-medium truncate">{title}</h3>
         <div className="flex flex-wrap gap-x-2">
           <span className="text-fg-secondary text-xs font-mono">
             {technologies.join(", ")}
