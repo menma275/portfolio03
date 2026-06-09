@@ -2,7 +2,9 @@
 marp: false
 paginate: false
 ---
+
 <!-- _class: accent -->
+
 # Kusuke Sakamura
 
 ### Portfolio 2025
@@ -10,6 +12,7 @@ paginate: false
 ---
 
 ![bg left](img/me.jpg)
+
 <h1></h1>
 <div class="children">
 <div>
@@ -144,16 +147,18 @@ paginate: false
 </div>
 </div>
 
-
 ---
+
 <!-- _class: accent -->
-# Solo  Projects
+
+# Solo Projects
 
 ### ひとりで制作した作品・プロジェクト
 
 ---
 
 <!-- _class: accent -->
+
 # Course Projects
 
 ### 東京都立大学 システムデザイン学部 インダストリアルアート学科にて実施された授業での制作課題
@@ -161,6 +166,7 @@ paginate: false
 ---
 
 <!-- _class: accent -->
+
 # Team Projects
 
 ### ハッカソン等でチームで制作した作品・プロジェクト

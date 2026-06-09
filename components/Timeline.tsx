@@ -1,6 +1,6 @@
-import React from 'react';
-import { timeline } from '@/data';
-import { ExternalLink } from './ExternalLink';
+import React from "react";
+import { timeline } from "@/data";
+import { ExternalLink } from "./ExternalLink";
 
 export const Timeline: React.FC = () => {
   return (

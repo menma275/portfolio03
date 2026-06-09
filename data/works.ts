@@ -190,7 +190,7 @@ export const works: Work[] = [
     title: "IMDb to Notion",
     category: "Web Content",
     description: "Chrome Extension for IMDb to Notion",
-    imageUrl: "/img/imdb_notion/01.png",
+    imageUrl: "/img/imdbtonotion/01.png",
     images: ["/img/imdbtonotion/01.png", "/img/imdbtonotion/02.png"],
     technologies: ["CRXJS", "Notion API"],
     link: "https://github.com/menma275/imdb_notion",

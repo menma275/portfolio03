@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Biography } from "@/components/Biography";
 import { Education } from "@/components/Education";
 import { Experience } from "@/components/Experience";
 import { Awards } from "@/components/Awards";
@@ -40,11 +39,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Tab Content */}
       <div className="transition-all duration-300">
         {activeTab === "profile" ? (
           <div className="flex flex-col gap-16">
-            <Biography />
             <Education />
             <Experience />
             <Awards />

@@ -9,12 +9,12 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'gateway.fxhash.xyz',
+        protocol: "https",
+        hostname: "gateway.fxhash.xyz",
       },
       {
-        protocol: 'https',
-        hostname: 'media.fxhash.xyz',
+        protocol: "https",
+        hostname: "media.fxhash.xyz",
       },
     ],
   },

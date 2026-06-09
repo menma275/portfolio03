@@ -26,7 +26,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
   }
 
   return (
-    <article className="max-w-2xl mx-auto flex flex-col gap-3 md:gap-6 p-0 md:pt-8">
+    <article className="max-w-2xl mx-auto flex flex-col gap-6 p-0 md:pt-8">
       <Link
         href="/"
         className="flex items-center gap-1 text-fg-secondary hover:text-fg-primary transition-colors w-fit -ml-1 text-xs font-mono"
@@ -35,11 +35,9 @@ export default async function WorkDetailPage({ params }: PageProps) {
         Back to Home
       </Link>
       <div className="flex flex-wrap gap-x-3 gap-y-1">
-        {work.technologies.map((tech) => (
-          <span key={tech} className="text-fg-secondary text-xs font-mono">
-            {tech}
-          </span>
-        ))}
+        <span className="text-fg-secondary text-xs font-mono">
+          {work.technologies.join(", ")}
+        </span>
       </div>
       <header className="flex flex-wrap w-full justify-between">
         <h1 className="font-bold text-fg-primary">{work.title}</h1>
@@ -53,7 +51,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
       {work.imageUrl && (
         <div className="relative rounded-lg overflow-hidden flex items-center justify-center aspect-4/3 p-3 sm:p-6 bg-bg-secondary">
           <div
-            className="absolute inset-0 bg-[url('/bg.png')] bg-cover bg-center opacity-100"
+            className="absolute inset-0 bg-[url('/bg.png')] bg-cover bg-center animate-fade-in opacity-0"
             aria-hidden="true"
           />
           <div className="relative z-10 w-full h-full flex items-center justify-center">

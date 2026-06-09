@@ -1,6 +1,6 @@
-import React from 'react';
-import { timeline } from '@/data';
-import { InfoSection } from './InfoSection';
+import React from "react";
+import { timeline } from "@/data";
+import { InfoSection } from "./InfoSection";
 
 export const Biography: React.FC = () => {
   const items = timeline.map((event) => ({
