@@ -10,12 +10,24 @@ export interface Award {
 
 export const awards: Award[] = [
   {
-    id: "4",
-    title: "CREATIVE HACK AWARD 2026",
-    organization: "雑誌Wiredによる次世代クリエイターを発掘・支援するアワード",
-    date: "2026/11",
+    id: "6",
+    title: "WIRED Creative Hack Award 2025",
+    organization:
+      "「なにを、なぜ、いかにハックしたのか？」を問う次世代クリエイターのためのアワード。過剰なデジタルコミュニケーションへのアンチテーゼとして、ハードウェアを通じて人間の繋がりを再定義した点が高く評価された。",
+    date: "2025/12",
     description: "ファイナリスト",
-    url: "https://hack.wired.jp/",
+    url: "https://wired.jp/article/creative-hack-award-2025-final/",
+    workId: "turnie",
+  },
+  {
+    id: "5",
+    title: "TMU EntreBloom ビジネスアイデアチャレンジ 2025",
+    organization:
+      "東京都立大学主催のコンテスト。シリコンバレーでのピッチを通じて、機能を引き算したアナログな体験が言語や文化の壁を越えて強い共感と評価を獲得した。",
+    date: "2025/12",
+    description: "最優秀賞",
+    url: "https://research-miyacology.tmu.ac.jp/news/27493/",
+    workId: "turnie",
   },
   {
     id: "3",
