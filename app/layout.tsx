@@ -50,8 +50,8 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="ja" className="min-h-dvh h-full antialiased">
-      <body className="h-full flex flex-col md:flex-row overflow-hidden">
+    <html lang="ja" className="h-full antialiased">
+      <body className="min-h-dvh h-full flex flex-col md:flex-row overflow-hidden">
         {gaId && <GoogleAnalytics gaId={gaId} />}
         <aside className="w-full md:w-80 h-auto md:h-full p-6 md:p-8 shrink-0 overflow-y-auto">
           <Header />
