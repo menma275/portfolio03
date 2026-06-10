@@ -32,13 +32,7 @@ export const works: Work[] = [
       "/img/michi/03.png",
       "/img/michi/04.png",
     ],
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "iTunes API",
-      "Google Books API",
-      "TMDB API",
-    ],
+    technologies: ["Next.js", "Tailwind CSS", "Firebase"],
     link: "https://michi-gallery.vercel.app/",
     details: {
       overview: {
@@ -158,7 +152,7 @@ export const works: Work[] = [
     description: "Hack1 Grand Prix",
     imageUrl: "/img/moss/01.png",
     images: ["/img/moss/01.png", "/img/moss/02.png"],
-    technologies: ["Electron"],
+    technologies: ["Electron", "Tailwind CSS"],
     link: "https://student.redesigner.jp/portfolios/PFbb658d2eafe707bfa803909676a33fa2",
     details: {
       overview: {
