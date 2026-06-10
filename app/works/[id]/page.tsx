@@ -47,16 +47,6 @@ export default async function WorkDetailPage({ params }: PageProps) {
 
   return (
     <article className="max-w-2xl mx-auto flex flex-col gap-6 p-0 md:pt-8">
-      <FadeIn delay={0.05}>
-        <Link
-          href="/"
-          className="flex items-center gap-1 text-fg-secondary hover:text-fg-primary transition-colors w-fit -ml-1 text-xs font-mono"
-        >
-          <HiChevronLeft size={20} />
-          Back to Home
-        </Link>
-      </FadeIn>
-
       <FadeIn delay={0.1}>
         <div className="flex flex-wrap gap-x-3 gap-y-1">
           <span className="text-fg-secondary text-xs font-mono">

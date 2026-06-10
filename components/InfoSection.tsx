@@ -38,7 +38,7 @@ export const InfoSection: React.FC<InfoSectionProps> = ({ title, items }) => {
               {item.url ? (
                 <ExternalLink
                   href={item.url}
-                  className="text-fg-primary! font-medium hover:opacity-70 transition-opacity"
+                  className="text-fg-primary font-medium"
                 >
                   {item.title}
                 </ExternalLink>

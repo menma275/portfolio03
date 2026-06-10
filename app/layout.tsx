@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { TabNavigation } from "@/components/TabNavigation";
 import { Footer } from "@/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -56,6 +57,7 @@ export default function RootLayout({
           <Header />
         </aside>
         <main className="flex-1 h-full overflow-y-auto  flex flex-col">
+          <TabNavigation />
           <div className="flex-1 p-6 md:p-8 md:pt-0 pt-0">{children}</div>
           <Footer />
         </main>
