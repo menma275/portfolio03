@@ -51,12 +51,12 @@ export default function RootLayout({
 
   return (
     <html lang="ja" className="h-full antialiased">
-      <body className="min-h-dvh h-full flex flex-col md:flex-row overflow-hidden">
+      <body className="h-dvh flex flex-col md:flex-row overflow-hidden">
         {gaId && <GoogleAnalytics gaId={gaId} />}
         <aside className="w-full md:w-80 h-auto md:h-full p-6 md:p-8 shrink-0 overflow-y-auto">
           <Header />
         </aside>
-        <main className="flex-1 h-full overflow-y-auto  flex flex-col">
+        <main className="flex-1 overflow-y-auto flex flex-col">
           <TabNavigation />
           <div className="flex-1 p-6 md:p-8 md:pt-0 pt-0">{children}</div>
           <Footer />
