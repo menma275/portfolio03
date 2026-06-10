@@ -56,7 +56,7 @@ export default function RootLayout({
         <aside className="w-full md:w-80 h-auto md:h-full p-6 md:p-8 shrink-0 overflow-y-auto">
           <Header />
         </aside>
-        <main className="flex-1 overflow-y-auto flex flex-col">
+        <main className="flex-1 h-full min-h-0 overflow-y-auto flex flex-col">
           <TabNavigation />
           <div className="flex-1 p-6 md:p-8 md:pt-0 pt-0">{children}</div>
           <Footer />
