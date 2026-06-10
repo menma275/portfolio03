@@ -66,8 +66,8 @@ export const works: Work[] = [
     link: "https://blog.lab.sugimototatsuo.com/entry/2026/03/28/123137",
     details: {
       overview: {
-        ja: "実行される環境の情報から、その場限り唯一のビジュアルを生成する装置。表示装置に電子ペーパーを採用し、実行時の「時刻・位置情報・ボタンの押下時間」という最小限のメタデータをシード値として、幾何学的なピクセルパターンを描き出す。最大の特徴は、生成されたビジュアルがマイコン内に画像データとして保存されず、電子ペーパー上にのみ物質化されて残る点にある。電子ペーパーを表示装置としてだけでなく、作品を保持する唯一のメモリとして機能させることで、デジタル作品に物理的な固有性を与えている。本作は東京都立大学の卒業制作として制作され、東京都美術館で開催された「東京都立大学システムデザイン学部・研究科　インダストリアルアート学科・学域 卒業・修了制作研究展2026」にて展示された。",
-        en: "This device generates a unique, one-time visual based on environmental data at the moment of execution. Using electronic paper (e-paper) as the display, it takes minimal metadata—such as time, location, and the duration of a button press—as seed values to create geometric pixel patterns. The core characteristic of this work is that the generated visual is never stored as image data within the microcontroller; instead, it exists solely as a physical manifestation on the e-paper. By utilizing e-paper not just as a display but as the only memory for the work, the project imbues digital art with a sense of physical uniqueness and permanence. This work was created as a graduation project for Tokyo Metropolitan University and exhibited at the 'Tokyo Metropolitan University Faculty of Systems Design Department of Industrial Art Showcase of Graduate and Undergraduate Student Works 2026' held at the Tokyo Metropolitan Art Museum.",
+        ja: "実行される環境の情報から、その場限り唯一のビジュアルを生成する装置。表示装置に電子ペーパーを採用し、実行時の「時刻・位置情報・ボタンの押下時間」という最小限のメタデータをシード値として、幾何学的なピクセルパターンを描き出す。最大の特徴は、生成されたビジュアルがマイコン内に画像データとして保存されず、電子ペーパー上にのみ物質化されて残る点にある。電子ペーパーを表示装置としてだけでなく、作品を保持する唯一のメモリとして機能させることで、デジタル作品に物理的な固有性を与えている。本作は東京都立大学の卒業制作として「電子ペーパーを用いた環境決定的変数による装置統合型ビジュアル生成手法の研究《createdAt:》制作を通して」として制作され、東京都美術館で開催された「東京都立大学システムデザイン学部・研究科　インダストリアルアート学科・学域 卒業・修了制作研究展2026」にて展示された。",
+        en: "This device generates a unique, one-time visual based on environmental data at the moment of execution. Using electronic paper (e-paper) as the display, it takes minimal metadata—such as time, location, and the duration of a button press—as seed values to create geometric pixel patterns. The core characteristic of this work is that the generated visual is never stored as image data within the microcontroller; instead, it exists solely as a physical manifestation on the e-paper. By utilizing e-paper not just as a display but as the only memory for the work, the project imbues digital art with a sense of physical uniqueness and permanence. This work 'A Study of Device-Integrated Visual Generation Using Environment-Determined Variables with Electronic Paper Display: Through the Production of \"createdAt:\"' was created as a graduation project for Tokyo Metropolitan University and exhibited at the 'Tokyo Metropolitan University Faculty of Systems Design Department of Industrial Art Showcase of Graduate and Undergraduate Student Works 2026' held at the Tokyo Metropolitan Art Museum.",
       },
       concept: {
         ja: "デジタルアートが抱える「無限に完璧な複製が可能である」という性質に対し、作品の固有性や唯一性をいかに取り戻すかという問いから出発した。本作では、デジタルデータ（メタデータ）から生成されながらも、特定の場所と時間でしか結実しない仕組みを構築している。あえて配線やコンポーネントを露出させた装置のデザインは、洗練されたデバイスを通じて均質に消費されるデジタル表現への対比であり、デジタルと物質性の境界における新しい作品の在り方を提示している。",
@@ -77,7 +77,7 @@ export const works: Work[] = [
   },
   {
     id: "turnie",
-    title: "turnie",
+    title: "turnie - StreetPass Device",
     category: "IoT Device",
     description: "StreetPass Device for Fleeting Connections",
     imageUrl: "/img/turnie/01.jpg",
