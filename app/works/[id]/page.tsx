@@ -5,9 +5,9 @@ import { ExternalLink } from "@/components/ExternalLink";
 import { WorkDetailSection } from "@/components/WorkDetailSection";
 import { Carousel } from "@/components/Carousel";
 import { ViewTransition } from "react";
-import Link from "next/link";
-import { HiChevronLeft } from "react-icons/hi";
 import { FadeIn } from "@/components/FadeIn";
+import { WorkCard } from "@/components/WorkCard";
+import relatedWorksData from "@/data/related-works.json";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -127,6 +127,27 @@ export default async function WorkDetailPage({ params }: PageProps) {
           </FadeIn>
         )}
       </div>
+
+      <section className="mt-20 flex flex-col gap-8 pb-20">
+        <FadeIn delay={0.4}>
+          <h2 className="text-xl font-bold text-fg-primary">Related Works</h2>
+        </FadeIn>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {((relatedWorksData as Record<string, string[]>)[id] || [])
+            .map((relatedId) => works.find((w) => w.id === relatedId))
+            .filter((w): w is (typeof works)[number] => !!w)
+            .map((relatedWork, index) => (
+              <FadeIn key={relatedWork.id} delay={0.45 + index * 0.05}>
+                <WorkCard
+                  id={relatedWork.id}
+                  title={relatedWork.title}
+                  imageUrl={relatedWork.imageUrl}
+                  technologies={relatedWork.technologies}
+                />
+              </FadeIn>
+            ))}
+        </div>
+      </section>
     </article>
   );
 }
