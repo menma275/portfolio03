@@ -56,8 +56,8 @@ export const TabNavigation: React.FC = () => {
             isActive("/")
               ? "text-fg-primary"
               : isWorkDetail
-              ? "text-fg-primary lg:text-fg-secondary hover:text-fg-primary"
-              : "text-fg-secondary hover:text-fg-primary"
+                ? "text-fg-primary lg:text-fg-secondary hover:text-fg-primary"
+                : "text-fg-secondary hover:text-fg-primary"
           }`}
         >
           <span className="inline-flex items-center gap-2 text-inherit">

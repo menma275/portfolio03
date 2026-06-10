@@ -75,14 +75,14 @@ export default async function WorkDetailPage({ params }: PageProps) {
                 <img
                   src={work.imageUrl}
                   alt={work.title}
-                  className="max-w-full max-h-full object-contain"
+                  className="max-w-full max-h-full object-contain rounded-lg"
                 />
               </ViewTransition>
             ) : (
               <img
                 src={work.imageUrl}
                 alt={work.title}
-                className="max-w-full max-h-full object-contain"
+                className="max-w-full max-h-full object-contain rounded-lg"
               />
             )}
           </div>
