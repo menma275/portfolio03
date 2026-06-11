@@ -130,7 +130,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
 
       <section className="mt-20 flex flex-col gap-8 pb-20">
         <FadeIn delay={0.4}>
-          <h1 className="font-bold text-fg-primary">Related Works</h1>
+          <h2 className="font-mono">Related Works</h2>
           <span className="text-fg-secondary text-xs font-mono">
             Generated via vector embeddings
           </span>
