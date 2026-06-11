@@ -62,7 +62,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
       </FadeIn>
 
       {work.imageUrl && (
-        <div className="relative rounded-lg overflow-hidden flex items-center justify-center aspect-4/3 p-3 sm:p-6 bg-bg-secondary">
+        <div className="relative rounded-lg overflow-hidden flex items-center justify-center aspect-4/3 bg-bg-secondary">
           <div
             className="absolute inset-0 bg-[url('/bg.png')] bg-cover bg-center animate-fade-in opacity-0"
             aria-hidden="true"
@@ -75,14 +75,14 @@ export default async function WorkDetailPage({ params }: PageProps) {
                 <img
                   src={work.imageUrl}
                   alt={work.title}
-                  className="max-w-full max-h-full object-contain rounded-lg"
+                  className="max-w-full max-h-full object-contain rounded-lg p-3 sm:p-6"
                 />
               </ViewTransition>
             ) : (
               <img
                 src={work.imageUrl}
                 alt={work.title}
-                className="max-w-full max-h-full object-contain rounded-lg"
+                className="max-w-full max-h-full object-contain rounded-lg p-3 sm:p-6"
               />
             )}
           </div>

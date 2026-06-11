@@ -70,9 +70,7 @@ export function Carousel({ images, title, id }: CarouselProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`w-full h-full flex-shrink-0 flex items-center justify-center transition-opacity duration-500 ease-out ${
-              currentIndex === index ? "opacity-100" : "opacity-0"
-            }`}
+            className="w-full h-full shrink-0 flex items-center justify-center p-3 sm:p-6"
           >
             {index === 0 && ViewTransition ? (
               <ViewTransition name={`img-${id}`}>
