@@ -32,6 +32,15 @@
   }
 }
 
+@supports (-webkit-touch-callout: none) {
+  html {
+    height: -webkit-fill-available;
+  }
+  body {
+    min-height: -webkit-fill-available;
+  }
+}
+
 ::selection {
   background-color: var(--color-accent-light);
   color: var(--color-accent);
