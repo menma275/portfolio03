@@ -2,11 +2,15 @@ import React from "react";
 import { exhibitions } from "@/data";
 import { InfoSection } from "./InfoSection";
 
-export const Exhibitions: React.FC = () => {
+interface ExhibitionsProps {
+  lang?: "ja" | "en";
+}
+
+export const Exhibitions: React.FC<ExhibitionsProps> = ({ lang = "ja" }) => {
   const items = exhibitions.map((ex) => ({
     label: ex.date,
-    title: ex.title,
-    description: `${ex.role}\n${ex.description}`,
+    title: ex.title[lang],
+    description: `${ex.role[lang]}\n${ex.description[lang]}`,
     url: ex.url,
   }));
 

@@ -2,12 +2,16 @@ import React from "react";
 import { awards } from "@/data";
 import { InfoSection } from "./InfoSection";
 
-export const Awards: React.FC = () => {
+interface AwardsProps {
+  lang?: "ja" | "en";
+}
+
+export const Awards: React.FC<AwardsProps> = ({ lang = "ja" }) => {
   const items = awards.map((award) => ({
     label: award.date,
-    title: award.title,
-    prize: award.prize,
-    description: award.description,
+    title: award.title[lang],
+    prize: award.prize ? award.prize[lang] : undefined,
+    description: award.description[lang],
     url: award.url,
     workId: award.workId,
   }));

@@ -130,7 +130,10 @@ export default async function WorkDetailPage({ params }: PageProps) {
 
       <section className="mt-20 flex flex-col gap-8 pb-20">
         <FadeIn delay={0.4}>
-          <h2 className="text-xl font-bold text-fg-primary">Related Works</h2>
+          <h1 className="font-bold text-fg-primary">Related Works</h1>
+          <span className="text-fg-secondary text-xs font-mono">
+            Generated via vector embeddings
+          </span>
         </FadeIn>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {((relatedWorksData as Record<string, string[]>)[id] || [])

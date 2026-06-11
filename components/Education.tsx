@@ -2,11 +2,15 @@ import React from "react";
 import { education } from "@/data";
 import { InfoSection } from "./InfoSection";
 
-export const Education: React.FC = () => {
+interface EducationProps {
+  lang?: "ja" | "en";
+}
+
+export const Education: React.FC<EducationProps> = ({ lang = "ja" }) => {
   const items = education.map((edu) => ({
-    label: edu.period,
-    title: edu.institution,
-    description: edu.degree,
+    label: edu.period[lang],
+    title: edu.institution[lang],
+    description: edu.degree[lang],
     url: edu.url,
   }));
 
