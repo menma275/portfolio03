@@ -43,9 +43,6 @@
 }
 
 @layer base {
-  body {
-    @apply bg-bg-primary text-fg-primary;
-  }
   html {
     font-family: var(--font-sans);
     background-color: var(--color-bg-primary);
