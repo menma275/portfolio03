@@ -15,3 +15,10 @@ This is the portfolio site of Kusuke SAKAMURA. It features his works and career 
 - **Animation:** [Motion (Framer Motion)](https://motion.dev/)
 - **Deployment:** [Vercel](https://vercel.com/)
 - **Others:** web-haptics, Google Analytics
+
+## Development
+
+### Prerequisites
+
+- **Node.js:** v26.0.0 or later
+- **Package Manager:** [pnpm](https://pnpm.io/) 11.1.1 (pinned via Corepack)
