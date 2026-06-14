@@ -58,17 +58,26 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="ja" className="h-dvh antialiased">
-      <body className="h-full flex flex-col md:flex-row">
+    <html lang="ja" className="antialiased">
+      <body className="min-h-screen bg-bg-primary">
         {gaId && <GoogleAnalytics gaId={gaId} />}
-        <aside className="w-full md:w-80 h-auto md:h-full p-6 md:p-8 shrink-0 overflow-y-auto">
-          <Header />
-        </aside>
-        <main className="flex-1 min-h-0 overflow-y-auto flex flex-col">
-          <TabNavigation />
-          <div className="flex-1 p-6 md:p-8 md:pt-0 pt-0">{children}</div>
-          <Footer />
-        </main>
+        <div className="flex flex-col md:flex-row min-h-screen">
+          <div className="sticky top-0 z-40 md:contents bg-bg-primary">
+            <aside className="w-full md:w-80 md:h-screen p-6 md:p-8 shrink-0 md:sticky md:top-0 md:overflow-y-auto bg-bg-primary z-40">
+              <Header />
+            </aside>
+            <div className="md:hidden">
+              <TabNavigation />
+            </div>
+          </div>
+          <main className="flex-1 flex flex-col min-w-0">
+            <div className="hidden md:block sticky top-0 z-50">
+              <TabNavigation />
+            </div>
+            <div className="flex-1 p-6 md:p-8 md:pt-0 pt-0">{children}</div>
+            <Footer />
+          </main>
+        </div>
       </body>
     </html>
   );

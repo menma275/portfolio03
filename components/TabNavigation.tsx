@@ -12,11 +12,8 @@ export const TabNavigation: React.FC = () => {
   const { trigger } = useWebHaptics();
 
   useEffect(() => {
-    // Reset scroll position of the main container when pathname changes
-    const main = document.querySelector("main");
-    if (main) {
-      main.scrollTo(0, 0);
-    }
+    // Reset scroll position when pathname changes
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   const handleHaptic = () => {
@@ -36,7 +33,7 @@ export const TabNavigation: React.FC = () => {
   const work = works.find((w) => w.id === workId);
 
   return (
-    <div className="sticky px-6 md:px-8 top-0 z-50 bg-bg-primary pt-3 pb-6 ">
+    <div className="px-6 md:px-8 bg-bg-primary pt-3 pb-6">
       <div className="flex gap-6 w-full md:w-fit p-0 md:pt-6">
         <Link
           href="/profile"
