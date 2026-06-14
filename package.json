@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm format && pnpm lint && next build",
     "start": "next start",
     "generate:related": "tsx scripts/generate-related.ts",
     "lint": "eslint .",

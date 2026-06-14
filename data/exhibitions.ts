@@ -33,7 +33,10 @@ export const exhibitions: Exhibition[] = [
       ja: "NFTプラットフォームによるGenerative Artキュレーションプログラム",
       en: "Generative Art curation program by NFT platform",
     },
-    role: { ja: "キュレーション採択・NFT販売", en: "Curation selection & NFT sales" },
+    role: {
+      ja: "キュレーション採択・NFT販売",
+      en: "Curation selection & NFT sales",
+    },
     url: "https://docs.kumaleon.com/colorful/meetup",
   },
   {
@@ -61,7 +64,10 @@ export const exhibitions: Exhibition[] = [
       ja: "NFTやDAOなど新しい創作を探求する5日間の集中キャンプ",
       en: "A 5-day intensive camp exploring new creations such as NFTs and DAOs",
     },
-    role: { ja: "ハッカソン参加・作品展示", en: "Hackathon participation & Work Exhibition" },
+    role: {
+      ja: "ハッカソン参加・作品展示",
+      en: "Hackathon participation & Work Exhibition",
+    },
     url: "https://ccbt.rekibun.or.jp/events/future-ideations-camp02",
   },
   {
