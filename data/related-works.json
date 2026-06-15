@@ -1,64 +1,19 @@
 {
-  "michi": [
-    "flow-album",
-    "gundi",
-    "ge2026",
-    "archetype"
-  ],
-  "createdat": [
-    "ephemeral",
-    "moss",
-    "cell",
-    "michi"
-  ],
-  "turnie": [
-    "gundi",
-    "createdat",
-    "michi",
-    "moss"
-  ],
-  "ge2026": [
-    "proofofx_shibuya",
-    "nove2023",
-    "archetype",
-    "spotify_analyzer"
-  ],
-  "inpraiseofshadows": [
-    "enlightnment",
-    "flare",
-    "pack",
-    "ephemeral"
-  ],
-  "moss": [
-    "michi",
-    "proofofx_2023",
-    "gundi",
-    "createdat"
-  ],
-  "flow-album": [
-    "michi",
-    "spotify_analyzer",
-    "proofofx_shibuya",
-    "ge2026"
-  ],
+  "michi": ["flow-album", "gundi", "ge2026", "archetype"],
+  "createdat": ["ephemeral", "moss", "cell", "michi"],
+  "turnie": ["gundi", "createdat", "michi", "moss"],
+  "ge2026": ["proofofx_shibuya", "nove2023", "archetype", "spotify_analyzer"],
+  "inpraiseofshadows": ["enlightnment", "flare", "pack", "ephemeral"],
+  "moss": ["michi", "proofofx_2023", "gundi", "createdat"],
+  "flow-album": ["michi", "spotify_analyzer", "proofofx_shibuya", "ge2026"],
   "spotify_analyzer": [
     "proofofx_shibuya",
     "ge2026",
     "flow-album",
     "mojitoodoru"
   ],
-  "somokuto": [
-    "ge2026",
-    "mojitoodoru",
-    "proofofx_shibuya",
-    "spotify_analyzer"
-  ],
-  "imdb_notion": [
-    "michi",
-    "moss",
-    "ge2026",
-    "flow-album"
-  ],
+  "somokuto": ["ge2026", "mojitoodoru", "proofofx_shibuya", "spotify_analyzer"],
+  "imdb_notion": ["michi", "moss", "ge2026", "flow-album"],
   "proofofx_shibuya": [
     "proofofx_2023",
     "spotify_analyzer",
@@ -71,142 +26,27 @@
     "spotify_analyzer",
     "proofofx_2023"
   ],
-  "gundi": [
-    "converse",
-    "michi",
-    "archetype",
-    "turnie"
-  ],
-  "converse": [
-    "gundi",
-    "archetype",
-    "proofofx_shibuya",
-    "ge2026"
-  ],
-  "nove2023": [
-    "archetype",
-    "ge2026",
-    "proofofx_shibuya",
-    "proofofx_2023"
-  ],
-  "proofofx_2023": [
-    "proofofx_shibuya",
-    "archetype",
-    "nove2023",
-    "ge2026"
-  ],
-  "archetype": [
-    "nove2023",
-    "ge2026",
-    "gundi",
-    "converse"
-  ],
-  "soundscape": [
-    "enlightnment",
-    "ge2026",
-    "createdat",
-    "michi"
-  ],
-  "enlightnment": [
-    "soundscape",
-    "michi",
-    "createdat",
-    "ge2026"
-  ],
-  "ephemeral": [
-    "quarter",
-    "flow",
-    "arc",
-    "frame"
-  ],
-  "cube": [
-    "quarter",
-    "melt",
-    "link",
-    "arc"
-  ],
-  "melt": [
-    "arc",
-    "flow",
-    "ephemeral",
-    "cube"
-  ],
-  "round": [
-    "quarter",
-    "arc",
-    "ephemeral",
-    "flow"
-  ],
-  "tile": [
-    "pack",
-    "melt",
-    "frame",
-    "arc"
-  ],
-  "pack": [
-    "tile",
-    "melt",
-    "quarter",
-    "pinch"
-  ],
-  "line": [
-    "flow",
-    "frame",
-    "arc",
-    "ephemeral"
-  ],
-  "quarter": [
-    "round",
-    "ephemeral",
-    "cube",
-    "arc"
-  ],
-  "overlap": [
-    "link",
-    "frame",
-    "ephemeral",
-    "arc"
-  ],
-  "arc": [
-    "round",
-    "frame",
-    "flow",
-    "ephemeral"
-  ],
-  "cell": [
-    "ephemeral",
-    "arc",
-    "cube",
-    "quarter"
-  ],
-  "link": [
-    "overlap",
-    "frame",
-    "flow",
-    "arc"
-  ],
-  "frame": [
-    "flow",
-    "arc",
-    "link",
-    "ephemeral"
-  ],
-  "pinch": [
-    "pack",
-    "arc",
-    "flow",
-    "round"
-  ],
-  "flow": [
-    "frame",
-    "ephemeral",
-    "arc",
-    "line"
-  ],
-  "flare": [
-    "arc",
-    "melt",
-    "flow",
-    "frame"
-  ]
+  "gundi": ["converse", "michi", "archetype", "turnie"],
+  "converse": ["gundi", "archetype", "proofofx_shibuya", "ge2026"],
+  "nove2023": ["archetype", "ge2026", "proofofx_shibuya", "proofofx_2023"],
+  "proofofx_2023": ["proofofx_shibuya", "archetype", "nove2023", "ge2026"],
+  "archetype": ["nove2023", "ge2026", "gundi", "converse"],
+  "soundscape": ["enlightnment", "ge2026", "createdat", "michi"],
+  "enlightnment": ["soundscape", "michi", "createdat", "ge2026"],
+  "ephemeral": ["quarter", "flow", "arc", "frame"],
+  "cube": ["quarter", "melt", "link", "arc"],
+  "melt": ["arc", "flow", "ephemeral", "cube"],
+  "round": ["quarter", "arc", "ephemeral", "flow"],
+  "tile": ["pack", "melt", "frame", "arc"],
+  "pack": ["tile", "melt", "quarter", "pinch"],
+  "line": ["flow", "frame", "arc", "ephemeral"],
+  "quarter": ["round", "ephemeral", "cube", "arc"],
+  "overlap": ["link", "frame", "ephemeral", "arc"],
+  "arc": ["round", "frame", "flow", "ephemeral"],
+  "cell": ["ephemeral", "arc", "cube", "quarter"],
+  "link": ["overlap", "frame", "flow", "arc"],
+  "frame": ["flow", "arc", "link", "ephemeral"],
+  "pinch": ["pack", "arc", "flow", "round"],
+  "flow": ["frame", "ephemeral", "arc", "line"],
+  "flare": ["arc", "melt", "flow", "frame"]
 }

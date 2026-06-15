@@ -3,13 +3,11 @@ import { works } from "@/data";
 import { Metadata } from "next";
 import { ExternalLink } from "@/components/ExternalLink";
 import { WorkDetailSection } from "@/components/WorkDetailSection";
-import { Carousel } from "@/components/Carousel";
-import { ViewTransition } from "react";
 import { FadeIn } from "@/components/FadeIn";
 import { WorkCard } from "@/components/WorkCard";
 import relatedWorksData from "@/data/related-works.json";
 import { getLikes } from "@/actions/likes";
-import { LikeButton } from "@/components/LikeButton";
+import { WorkDetailClient } from "@/components/WorkDetailClient";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -51,7 +49,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
 
   return (
     <article className="max-w-2xl mx-auto flex flex-col gap-6 p-0 md:pt-8">
-      <LikeButton workId={id} initialLikes={initialLikes} />
+      <WorkDetailClient work={work} initialLikes={initialLikes} />
       <FadeIn delay={0.1}>
         <div className="flex flex-wrap gap-x-3 gap-y-1">
           <span className="text-fg-secondary text-xs font-mono">
@@ -65,34 +63,6 @@ export default async function WorkDetailPage({ params }: PageProps) {
           <h1 className="font-bold text-fg-primary">{work.title}</h1>
         </header>
       </FadeIn>
-
-      {work.imageUrl && (
-        <div className="relative rounded-lg overflow-hidden flex items-center justify-center aspect-4/3 bg-bg-secondary">
-          <div
-            className="absolute inset-0 bg-[url('/bg.png')] bg-cover bg-center animate-fade-in opacity-0"
-            aria-hidden="true"
-          />
-          <div className="relative z-10 w-full h-full flex items-center justify-center">
-            {work.images && work.images.length > 1 ? (
-              <Carousel images={work.images} title={work.title} id={id} />
-            ) : ViewTransition ? (
-              <ViewTransition name={`img-${id}`}>
-                <img
-                  src={work.imageUrl}
-                  alt={work.title}
-                  className="max-w-full max-h-full object-contain rounded-lg p-3 sm:p-6"
-                />
-              </ViewTransition>
-            ) : (
-              <img
-                src={work.imageUrl}
-                alt={work.title}
-                className="max-w-full max-h-full object-contain rounded-lg p-3 sm:p-6"
-              />
-            )}
-          </div>
-        </div>
-      )}
 
       {work.link && (
         <FadeIn delay={0.2}>

@@ -9,9 +9,10 @@ import { useWebHaptics } from "web-haptics/react";
 interface LikeButtonProps {
   workId: string;
   initialLikes: number;
+  onLike?: (newLikes: number) => void;
 }
 
-export function LikeButton({ workId, initialLikes }: LikeButtonProps) {
+export function LikeButton({ workId, initialLikes, onLike }: LikeButtonProps) {
   const [likes, setLikes] = useState(initialLikes);
   const [hasLiked, setHasLiked] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -33,14 +34,17 @@ export function LikeButton({ workId, initialLikes }: LikeButtonProps) {
     trigger([5]);
 
     // Optimistic update
-    setLikes((prev) => prev + 1);
+    const newLikes = likes + 1;
+    setLikes(newLikes);
     setHasLiked(true);
     setIsAnimating(true);
     localStorage.setItem(`liked_${workId}`, "true");
+    onLike?.(newLikes);
 
     try {
       const updatedLikes = await incrementLike(workId);
       setLikes(updatedLikes);
+      onLike?.(updatedLikes);
     } catch (error) {
       console.error("Failed to sync like:", error);
       // Fallback if needed, but for simplicity we keep the optimistic state
