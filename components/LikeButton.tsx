@@ -2,7 +2,7 @@
 
 import { useState, useEffect, startTransition } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { incrementLike } from "@/actions/likes";
 import { useWebHaptics } from "web-haptics/react";
 
