@@ -58,7 +58,7 @@ async function main() {
       // 類似度が高い順にソート
       .sort((a, b) => b.score - a.score)
       // 上位3つを抽出
-      .slice(0, 3)
+      .slice(0, 4)
       .map((item) => item.id);
 
     relatedMap[workA.id] = similarities;
