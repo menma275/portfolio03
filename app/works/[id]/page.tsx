@@ -8,6 +8,8 @@ import { ViewTransition } from "react";
 import { FadeIn } from "@/components/FadeIn";
 import { WorkCard } from "@/components/WorkCard";
 import relatedWorksData from "@/data/related-works.json";
+import { getLikes } from "@/actions/likes";
+import { LikeButton } from "@/components/LikeButton";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -45,8 +47,11 @@ export default async function WorkDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const initialLikes = await getLikes(id);
+
   return (
     <article className="max-w-2xl mx-auto flex flex-col gap-6 p-0 md:pt-8">
+      <LikeButton workId={id} initialLikes={initialLikes} />
       <FadeIn delay={0.1}>
         <div className="flex flex-wrap gap-x-3 gap-y-1">
           <span className="text-fg-secondary text-xs font-mono">
