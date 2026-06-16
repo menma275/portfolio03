@@ -24,7 +24,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
             {work.images && work.images.length > 1 ? (
               <Carousel images={work.images} title={work.title} id={work.id} />
             ) : ViewTransition ? (
-              <div className="w-full h-full flex items-center justify-center p-8 md:p-12">
+              <div className="w-full h-full flex items-center justify-center p-4 md:p-12">
                 <ViewTransition name={`img-${work.id}`}>
                   <img
                     src={work.imageUrl}
@@ -34,7 +34,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
                 </ViewTransition>
               </div>
             ) : (
-              <div className="w-full h-full flex items-center justify-center p-8 md:p-12">
+              <div className="w-full h-full flex items-center justify-center p-4 md:p-12">
                 <img
                   src={work.imageUrl}
                   alt={work.title}

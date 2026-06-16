@@ -70,7 +70,7 @@ export function Carousel({ images, title, id }: CarouselProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className="w-full h-full shrink-0 flex items-center justify-center p-8 md:p-12"
+            className="w-full h-full shrink-0 flex items-center justify-center p-4 md:p-12"
           >
             {index === 0 && ViewTransition ? (
               <ViewTransition name={`img-${id}`}>
@@ -110,7 +110,7 @@ export function Carousel({ images, title, id }: CarouselProps) {
       </button>
 
       {/* Indicators */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 py-4">
+      <div className="absolute bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 py-4">
         {images.map((_, slideIndex) => (
           <button
             key={slideIndex}
