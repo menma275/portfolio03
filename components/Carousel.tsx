@@ -110,13 +110,13 @@ export function Carousel({ images, title, id }: CarouselProps) {
       </button>
 
       {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 py-4">
         {images.map((_, slideIndex) => (
           <button
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              currentIndex === slideIndex ? "bg-white w-4" : "bg-white/50"
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+              currentIndex === slideIndex ? "bg-white w-3" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${slideIndex + 1}`}
           />
