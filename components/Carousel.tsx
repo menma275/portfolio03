@@ -77,14 +77,14 @@ export function Carousel({ images, title, id }: CarouselProps) {
                 <img
                   src={image}
                   alt={`${title} - image ${index + 1}`}
-                  className="max-w-full max-h-full object-contain rounded-lg border border-border"
+                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border"
                 />
               </ViewTransition>
             ) : (
               <img
                 src={image}
                 alt={`${title} - image ${index + 1}`}
-                className="max-w-full max-h-full object-contain rounded-lg border border-border"
+                className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border"
               />
             )}
           </div>

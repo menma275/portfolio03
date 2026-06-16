@@ -29,7 +29,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
                   <img
                     src={work.imageUrl}
                     alt={work.title}
-                    className="max-w-full max-h-full object-contain rounded-lg border border-border"
+                    className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border"
                   />
                 </ViewTransition>
               </div>
@@ -38,7 +38,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
                 <img
                   src={work.imageUrl}
                   alt={work.title}
-                  className="max-w-full max-h-full object-contain rounded-lg border border-border"
+                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border"
                 />
               </div>
             )}
