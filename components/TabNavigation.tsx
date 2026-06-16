@@ -16,8 +16,11 @@ export const TabNavigation: React.FC = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const handleHaptic = () => {
+  const handleClick = (path: string) => {
     trigger([5]);
+    if (pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const isActive = (path: string) => {
@@ -37,7 +40,7 @@ export const TabNavigation: React.FC = () => {
       <div className="flex gap-6 w-full md:w-fit p-0 md:pt-6">
         <Link
           href="/profile"
-          onClick={handleHaptic}
+          onClick={() => handleClick("/profile")}
           className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
             isActive("/profile")
               ? "text-fg-primary"
@@ -48,7 +51,7 @@ export const TabNavigation: React.FC = () => {
         </Link>
         <Link
           href="/"
-          onClick={handleHaptic}
+          onClick={() => handleClick("/")}
           className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
             isActive("/")
               ? "text-fg-primary"
