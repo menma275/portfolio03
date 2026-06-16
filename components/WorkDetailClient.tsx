@@ -8,16 +8,12 @@ import { Work } from "../data/works";
 
 interface WorkDetailClientProps {
   work: Work;
-  initialLikes: number;
 }
 
-export function WorkDetailClient({
-  work,
-  initialLikes,
-}: WorkDetailClientProps) {
+export function WorkDetailClient({ work }: WorkDetailClientProps) {
   return (
     <>
-      <LikeButton workId={work.id} initialLikes={initialLikes} />
+      <LikeButton workId={work.id} />
 
       {work.imageUrl && (
         <div className="relative rounded-lg overflow-hidden flex items-center justify-center aspect-4/3 bg-bg-secondary">

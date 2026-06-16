@@ -3,22 +3,32 @@
 import { useState, useEffect, startTransition } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { motion, AnimatePresence } from "motion/react";
-import { incrementLike } from "@/actions/likes";
+import { incrementLike, getLikes } from "@/actions/likes";
 import { useWebHaptics } from "web-haptics/react";
 
 interface LikeButtonProps {
   workId: string;
-  initialLikes: number;
   onLike?: (newLikes: number) => void;
 }
 
-export function LikeButton({ workId, initialLikes, onLike }: LikeButtonProps) {
-  const [likes, setLikes] = useState(initialLikes);
+export function LikeButton({ workId, onLike }: LikeButtonProps) {
+  const [likes, setLikes] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const { trigger } = useWebHaptics();
 
   useEffect(() => {
+    const fetchLikes = async () => {
+      try {
+        const count = await getLikes(workId);
+        setLikes(count);
+      } catch (error) {
+        console.error("Failed to fetch likes:", error);
+      }
+    };
+
+    fetchLikes();
+
     const liked = localStorage.getItem(`liked_${workId}`);
     if (liked) {
       startTransition(() => {
