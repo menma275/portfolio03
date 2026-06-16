@@ -16,11 +16,11 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
       <LikeButton workId={work.id} />
 
       {work.imageUrl && (
-        <div className="relative -mx-6 md:mx-0 md:rounded-lg overflow-hidden flex items-center justify-center aspect-4/3 bg-bg-secondary">
+        <div className="relative w-auto -mx-6 md:mx-0 md:rounded-lg overflow-hidden aspect-[4/3] bg-bg-secondary">
           <div className="absolute inset-0 opacity-75">
             <HazeBackground />
           </div>
-          <div className="relative z-10 w-full h-full flex items-center justify-center">
+          <div className="absolute inset-0 z-10 flex items-center justify-center">
             {work.images && work.images.length > 1 ? (
               <Carousel images={work.images} title={work.title} id={work.id} />
             ) : ViewTransition ? (
