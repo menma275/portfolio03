@@ -85,7 +85,7 @@ export function LikeButton({ workId, onLike }: LikeButtonProps) {
           ${
             hasLiked
               ? "bg-bg-secondary/40 text-fg-primary cursor-default"
-              : "bg-bg-primary/40 text-fg-primary hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
+              : "bg-bg-primary/40 text-fg-primary hover:scale-105 active:scale-95 cursor-pointer"
           }
         `}
       >

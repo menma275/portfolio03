@@ -70,21 +70,21 @@ export function Carousel({ images, title, id }: CarouselProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className="w-full h-full shrink-0 flex items-center justify-center p-3 sm:p-6"
+            className="w-full h-full shrink-0 flex items-center justify-center p-8 md:p-12"
           >
             {index === 0 && ViewTransition ? (
               <ViewTransition name={`img-${id}`}>
                 <img
                   src={image}
                   alt={`${title} - image ${index + 1}`}
-                  className="max-w-full max-h-full object-contain rounded-lg"
+                  className="max-w-full max-h-full object-contain rounded-lg border border-border"
                 />
               </ViewTransition>
             ) : (
               <img
                 src={image}
                 alt={`${title} - image ${index + 1}`}
-                className="max-w-full max-h-full object-contain rounded-lg"
+                className="max-w-full max-h-full object-contain rounded-lg border border-border"
               />
             )}
           </div>
@@ -94,7 +94,7 @@ export function Carousel({ images, title, id }: CarouselProps) {
       {/* Left Arrow */}
       <button
         onClick={goToPrevious}
-        className="absolute top-1/2 -translate-y-1/2 left-2 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/40 transition-colors z-20"
+        className="absolute top-1/2 -translate-y-1/2 left-1 text-2xl rounded-full p-2 text-white cursor-pointer hover:bg-black/20 transition-colors duration-300 z-20"
         aria-label="Previous slide"
       >
         <HiChevronLeft size={24} />
@@ -103,7 +103,7 @@ export function Carousel({ images, title, id }: CarouselProps) {
       {/* Right Arrow */}
       <button
         onClick={goToNext}
-        className="absolute top-1/2 -translate-y-1/2 right-2 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hover:bg-black/40 transition-colors z-20"
+        className="absolute top-1/2 -translate-y-1/2 right-1 text-2xl rounded-full p-2 text-white cursor-pointer hover:bg-black/20 transition-colors duration-300 z-20"
         aria-label="Next slide"
       >
         <HiChevronRight size={24} />

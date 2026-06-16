@@ -29,10 +29,6 @@ export const HazeBackground = ({ className }: HazeBackgroundProps) => {
       uniform vec2 uResolution;
       uniform float uTime;
 
-      float noise(vec2 uv) {
-        return fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453);
-      }
-
       void main() {
         vec2 uv = gl_FragCoord.xy / uResolution.xy;
         float ratio = uResolution.x / uResolution.y;
@@ -70,10 +66,9 @@ export const HazeBackground = ({ className }: HazeBackgroundProps) => {
 
         vec3 color = (c1 * w1 + c2 * w2 + c3 * w3 + c4 * w4 + c5 * w5) / (w1 + w2 + w3 + w4 + w5);
 
-        // High frequency noise for grain texture - much faster update
-        float grain = noise(uv * 1200.0 + uTime * 2.0);
-        // Apply grain more subtly on color to avoid washing out
-        color *= (0.9 + grain * 0.15);
+        // Fade in from white over 1.5 seconds
+        float fade = smoothstep(0.0, 1.5, uTime);
+        color = mix(vec3(1.0, 1.0, 1.0), color, fade);
 
         gl_FragColor = vec4(color, 1.0);
       }
@@ -128,9 +123,13 @@ export const HazeBackground = ({ className }: HazeBackgroundProps) => {
     resize();
 
     let animationId: number;
+    let startTime: number | null = null;
     const render = (time: number) => {
+      if (startTime === null) startTime = time;
+      const elapsed = (time - startTime) * 0.001;
+
       gl.uniform2f(resolutionLoc, canvas.width, canvas.height);
-      gl.uniform1f(timeLoc, time * 0.001);
+      gl.uniform1f(timeLoc, elapsed);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       animationId = requestAnimationFrame(render);
     };
@@ -146,7 +145,7 @@ export const HazeBackground = ({ className }: HazeBackgroundProps) => {
     <canvas
       ref={canvasRef}
       className={`w-full h-full ${className}`}
-      style={{ display: "block" }}
+      style={{ display: "block", backgroundColor: "white" }}
     />
   );
 };

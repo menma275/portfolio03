@@ -18,7 +18,7 @@
   --color-bg-secondary: #f8f9fa;
   --color-fg-primary: #252525;
   --color-fg-secondary: #999999;
-  --color-border: #e0e0e0;
+  --color-border: rgba(255, 255, 255, 0.25);
 
   --animate-fade-in: fade-in 1.5s ease-out forwards;
 
