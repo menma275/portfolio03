@@ -7,6 +7,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { WorkCard } from "@/components/WorkCard";
 import relatedWorksData from "@/data/related-works.json";
 import { WorkDetailClient } from "@/components/WorkDetailClient";
+import { LikeButton } from "@/components/LikeButton";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -99,6 +100,8 @@ export default async function WorkDetailPage({ params }: PageProps) {
           </FadeIn>
         )}
       </div>
+
+      <LikeButton workId={work.id} />
 
       <section className="mt-20 flex flex-col gap-8 pb-20">
         <FadeIn delay={0.4}>

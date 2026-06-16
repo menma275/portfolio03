@@ -62,7 +62,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-bg-primary">
         {gaId && <GoogleAnalytics gaId={gaId} />}
         <div className="flex flex-col md:flex-row min-h-screen">
-          <div className="sticky top-0 z-40 md:contents bg-bg-primary">
+          <div className="sticky top-0 z-50 md:contents bg-bg-primary">
             <aside className="w-full md:w-80 md:h-screen p-6 md:p-8 shrink-0 md:sticky md:top-0 md:overflow-y-auto bg-bg-primary z-40">
               <Header />
             </aside>

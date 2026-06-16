@@ -1,6 +1,5 @@
 "use client";
 
-import { LikeButton } from "./LikeButton";
 import { HazeBackground } from "./HazeBackground";
 import { Carousel } from "./Carousel";
 import { ViewTransition } from "react";
@@ -13,8 +12,6 @@ interface WorkDetailClientProps {
 export function WorkDetailClient({ work }: WorkDetailClientProps) {
   return (
     <>
-      <LikeButton workId={work.id} />
-
       {work.imageUrl && (
         <div className="relative w-auto -mx-6 md:mx-0 md:rounded-lg overflow-hidden aspect-[4/3] bg-bg-secondary">
           <div className="absolute inset-0 opacity-75">

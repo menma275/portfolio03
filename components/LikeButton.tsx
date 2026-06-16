@@ -64,7 +64,7 @@ export function LikeButton({ workId, onLike }: LikeButtonProps) {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 flex flex-col items-center gap-2">
+    <div className="sticky bottom-8 z-10 flex flex-col items-center gap-2 w-fit ml-auto mr-0">
       <AnimatePresence>
         {isAnimating && (
           <motion.div
