@@ -21,32 +21,6 @@ export interface Work {
 
 export const works: Work[] = [
   {
-    id: "plotchat",
-    title: "plotchat",
-    category: "Interactive Art",
-    description: "AI Chatbot using Pen Plotter and Paper",
-    imageUrl: "/img/plotchat/01.jpg",
-    images: [
-      "/img/plotchat/01.jpg",
-      "/img/plotchat/02.jpg",
-      "/img/plotchat/03.jpg",
-      "/img/plotchat/04.jpg",
-      "/img/plotchat/05.jpg",
-    ],
-    technologies: ["Python", "ESP32", "Pen Plotter"],
-    link: "https://blog.lab.sugimototatsuo.com/entry/2025/09/07/115358",
-    details: {
-      overview: {
-        ja: "AIチャットボットを画一化されたインターフェースから解き放つためのプロジェクト。インプットとアウトプットは紙とペンで行われ、ユーザは手書きのプロンプトを書く。AIは手書き文字を読み解き、ペンプロッタを介して応答をする。本システムは、メッセージを解釈して返答を生成する「脳」としてのAI、紙を読み取る「目」としてのカメラ、そして物理的に文字を書く「手」としてのペンプロッタという3つの主要な要素で構成されている。これらすべてがPythonを使用して統合され、現代の高速なチャットインターフェースとは異なる、物理的に1文字ずつ描画される情緒的な体験を提供する。",
-        en: "A project designed to liberate AI chatbots from standardized interfaces. Interaction occurs entirely through paper and pen; users write handwritten prompts, which the AI interprets to respond via a physical pen plotter. The system comprises three main components: an AI 'brain' for language processing, a camera acting as 'eyes' to read the handwriting, and a pen plotter as a 'hand' to physically write the response. Integrated using Python, PlotChat offers a deliberate, 'analog' experience where characters are drawn one by one, creating an emotional quality distinct from typical high-speed digital interactions.",
-      },
-      concept: {
-        ja: "現在多くのAIチャットボットが開発されているが、その多くが見分けのつかない画一的なUIや音声によって提供されている。本プロジェクトでは紙とペンによるインターフェースを使うことでAIとのコミュニケーションをとる。流通する他のインターフェースと比較して対応速度は遅くなるが、ペンプロッタによって1字ずつ応答する様は、利便性とは異なる情緒を与える。ローカルLLM（Gemma 3）を使用することで、プライバシーを確保しつつオフラインで動作し、洗練されたデバイスを通じて均質に消費されるデジタル表現への対比として、デジタルと物質性の境界における新しいコミュニケーションの在り方を提示している。",
-        en: "While most modern AI chatbots are delivered through indistinguishable, standardized UIs, this project explores a paper-and-pen interface to foster a more tangible connection. Although slower than digital alternatives, the physical act of a pen plotter responding character by character imbues the interaction with a unique charm. By utilizing a local LLM (Gemma 3), the system operates entirely offline, serving as a contrast to the homogeneous consumption of digital content and proposing a new mode of communication at the intersection of data and materiality.",
-      },
-    },
-  },
-  {
     id: "michi",
     title: "michi - Moon Media Gallery",
     category: "Web Content",
@@ -149,6 +123,32 @@ export const works: Work[] = [
       concept: {
         ja: "メインビジュアルのトーンを継承しつつ、実装と並行してデザインのブラッシュアップを行った。独自実装への切り替えにより、作品同士のレコメンド機能、会場地図との動的な連携、高度なソーティングやフィルター機能など、鑑賞体験を向上させる挑戦的な機能を多数盛り込んでいる。情報提供に留まらず、Webサイト自体が展示の質感を伝える一つのインターフェースとなることを目指した。",
         en: "While maintaining the tone of the main visual, the design was refined in parallel with implementation. By shifting to a custom implementation, we integrated various challenging features to enhance the viewing experience, such as a work recommendation system, dynamic venue map integration, and advanced sorting and filtering functions. The goal was for the website itself to serve as an interface that conveys the tangible quality of the exhibition.",
+      },
+    },
+  },
+  {
+    id: "plotchat",
+    title: "plotchat",
+    category: "Interactive Art",
+    description: "AI Chatbot using Pen Plotter and Paper",
+    imageUrl: "/img/plotchat/01.jpg",
+    images: [
+      "/img/plotchat/01.jpg",
+      "/img/plotchat/02.jpg",
+      "/img/plotchat/03.jpg",
+      "/img/plotchat/04.jpg",
+      "/img/plotchat/05.jpg",
+    ],
+    technologies: ["Python", "ESP32", "Pen Plotter"],
+    link: "https://blog.lab.sugimototatsuo.com/entry/2025/09/07/115358",
+    details: {
+      overview: {
+        ja: "AIチャットボットを画一化されたインターフェースから解き放つためのプロジェクト。インプットとアウトプットは紙とペンで行われ、ユーザは手書きのプロンプトを書く。AIは手書き文字を読み解き、ペンプロッタを介して応答をする。本システムは、メッセージを解釈して返答を生成する「脳」としてのAI、紙を読み取る「目」としてのカメラ、そして物理的に文字を書く「手」としてのペンプロッタという3つの主要な要素で構成されている。これらすべてがPythonを使用して統合され、現代の高速なチャットインターフェースとは異なる、物理的に1文字ずつ描画される情緒的な体験を提供する。",
+        en: "A project designed to liberate AI chatbots from standardized interfaces. Interaction occurs entirely through paper and pen; users write handwritten prompts, which the AI interprets to respond via a physical pen plotter. The system comprises three main components: an AI 'brain' for language processing, a camera acting as 'eyes' to read the handwriting, and a pen plotter as a 'hand' to physically write the response. Integrated using Python, PlotChat offers a deliberate, 'analog' experience where characters are drawn one by one, creating an emotional quality distinct from typical high-speed digital interactions.",
+      },
+      concept: {
+        ja: "現在多くのAIチャットボットが開発されているが、その多くが見分けのつかない画一的なUIや音声によって提供されている。本プロジェクトでは紙とペンによるインターフェースを使うことでAIとのコミュニケーションをとる。流通する他のインターフェースと比較して対応速度は遅くなるが、ペンプロッタによって1字ずつ応答する様は、利便性とは異なる情緒を与える。ローカルLLM（Gemma 3）を使用することで、プライバシーを確保しつつオフラインで動作し、洗練されたデバイスを通じて均質に消費されるデジタル表現への対比として、デジタルと物質性の境界における新しいコミュニケーションの在り方を提示している。",
+        en: "While most modern AI chatbots are delivered through indistinguishable, standardized UIs, this project explores a paper-and-pen interface to foster a more tangible connection. Although slower than digital alternatives, the physical act of a pen plotter responding character by character imbues the interaction with a unique charm. By utilizing a local LLM (Gemma 3), the system operates entirely offline, serving as a contrast to the homogeneous consumption of digital content and proposing a new mode of communication at the intersection of data and materiality.",
       },
     },
   },
