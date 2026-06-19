@@ -1,10 +1,4 @@
 {
-  "plotchat": [
-    "createdat",
-    "gundi",
-    "turnie",
-    "converse"
-  ],
   "michi": [
     "flow-album",
     "gundi",
@@ -13,8 +7,8 @@
   ],
   "createdat": [
     "plotchat",
-    "ephemeral",
     "moss",
+    "ephemeral",
     "cell"
   ],
   "turnie": [
@@ -29,6 +23,12 @@
     "archetype",
     "spotify_analyzer"
   ],
+  "plotchat": [
+    "gundi",
+    "createdat",
+    "turnie",
+    "converse"
+  ],
   "inpraiseofshadows": [
     "enlightnment",
     "flare",
@@ -37,9 +37,9 @@
   ],
   "moss": [
     "michi",
-    "proofofx_2023",
-    "gundi",
-    "createdat"
+    "plotchat",
+    "createdat",
+    "proofofx_2023"
   ],
   "flow-album": [
     "michi",
@@ -80,8 +80,8 @@
   "gundi": [
     "converse",
     "michi",
-    "archetype",
-    "plotchat"
+    "plotchat",
+    "archetype"
   ],
   "converse": [
     "gundi",

@@ -139,7 +139,7 @@ export const works: Work[] = [
       "/img/plotchat/04.jpg",
       "/img/plotchat/05.jpg",
     ],
-    technologies: ["Python", "ESP32", "Pen Plotter"],
+    technologies: ["Local LLM", "Python", "ESP32", "Pen Plotter"],
     link: "https://blog.lab.sugimototatsuo.com/entry/2025/09/07/115358",
     details: {
       overview: {
@@ -178,7 +178,7 @@ export const works: Work[] = [
     description: "Hack1 Grand Prix",
     imageUrl: "/img/moss/01.png",
     images: ["/img/moss/01.png", "/img/moss/02.png"],
-    technologies: ["Electron", "Tailwind CSS"],
+    technologies: ["Local LLM", "Electron", "Tailwind CSS"],
     link: "https://student.redesigner.jp/portfolios/PFbb658d2eafe707bfa803909676a33fa2",
     details: {
       overview: {
