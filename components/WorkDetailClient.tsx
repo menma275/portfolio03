@@ -13,17 +13,19 @@ interface WorkDetailClientProps {
 }
 
 export function WorkDetailClient({ work }: WorkDetailClientProps) {
-  const [modalIndex, setModalIndex] = useState<number | null>(null);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = (index: number) => {
     startTransition(() => {
-      setModalIndex(index);
+      setCarouselIndex(index);
+      setIsModalOpen(true);
     });
   };
 
   const handleCloseModal = () => {
     startTransition(() => {
-      setModalIndex(null);
+      setIsModalOpen(false);
     });
   };
 
@@ -48,9 +50,11 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
                 title={work.title}
                 id={work.id}
                 onImageClick={handleOpenModal}
-                isModalOpen={modalIndex !== null}
+                isModalOpen={isModalOpen}
+                currentIndex={carouselIndex}
+                onChangeIndex={setCarouselIndex}
               />
-            ) : typeof ViewTransition !== "undefined" && modalIndex === null ? (
+            ) : typeof ViewTransition !== "undefined" && !isModalOpen ? (
               <div className="w-full h-full flex items-center justify-center p-4 md:p-12">
                 <ViewTransition name={`img-${work.id}`}>
                   <img
@@ -76,11 +80,12 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
       )}
 
       <AnimatePresence>
-        {modalIndex !== null && images.length > 0 && (
+        {isModalOpen && images.length > 0 && (
           <ImageModal
             onClose={handleCloseModal}
             images={images}
-            initialIndex={modalIndex}
+            currentIndex={carouselIndex}
+            onChangeIndex={setCarouselIndex}
             title={work.title}
             workId={work.id}
           />

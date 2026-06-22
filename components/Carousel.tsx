@@ -10,6 +10,8 @@ interface CarouselProps {
   id: string;
   onImageClick?: (index: number) => void;
   isModalOpen?: boolean;
+  currentIndex?: number;
+  onChangeIndex?: (index: number) => void;
 }
 
 export function Carousel({
@@ -18,8 +20,23 @@ export function Carousel({
   id,
   onImageClick,
   isModalOpen,
+  currentIndex: propCurrentIndex,
+  onChangeIndex,
 }: CarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [localCurrentIndex, setLocalCurrentIndex] = useState(0);
+
+  const isControlled =
+    propCurrentIndex !== undefined && onChangeIndex !== undefined;
+  const currentIndex = isControlled ? propCurrentIndex : localCurrentIndex;
+
+  const setCurrentIndexState = (next: number) => {
+    if (isControlled) {
+      onChangeIndex(next);
+    } else {
+      setLocalCurrentIndex(next);
+    }
+  };
+
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -51,17 +68,17 @@ export function Carousel({
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndexState(newIndex);
   };
 
   const goToNext = () => {
     const isLastSlide = currentIndex === images.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndexState(newIndex);
   };
 
   const goToSlide = (slideIndex: number) => {
-    setCurrentIndex(slideIndex);
+    setCurrentIndexState(slideIndex);
   };
 
   return (

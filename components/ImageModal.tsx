@@ -8,7 +8,8 @@ import { useWebHaptics } from "web-haptics/react";
 interface ImageModalProps {
   onClose: () => void;
   images: string[];
-  initialIndex: number;
+  currentIndex: number;
+  onChangeIndex: (index: number) => void;
   title: string;
   workId?: string;
 }
@@ -16,24 +17,24 @@ interface ImageModalProps {
 export function ImageModal({
   onClose,
   images,
-  initialIndex,
+  currentIndex,
+  onChangeIndex,
   title,
   workId,
 }: ImageModalProps) {
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const { trigger } = useWebHaptics();
   const isPresent = useIsPresent();
   const [isFirstRender, setIsFirstRender] = useState(true);
 
   const handlePrev = useCallback(() => {
     trigger([5]);
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  }, [images.length, trigger]);
+    onChangeIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+  }, [images.length, trigger, currentIndex, onChangeIndex]);
 
   const handleNext = useCallback(() => {
     trigger([5]);
-    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  }, [images.length, trigger]);
+    onChangeIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+  }, [images.length, trigger, currentIndex, onChangeIndex]);
 
   const handleClose = useCallback(() => {
     trigger([5]);
