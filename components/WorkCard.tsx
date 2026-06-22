@@ -22,23 +22,25 @@ export const WorkCard: React.FC<WorkCardProps> = ({
       className="group relative flex flex-col gap-3 hover:opacity-90 transition-opacity w-full h-full bg-bg-secondary rounded-lg overflow-hidden"
     >
       <div className="relative z-10 w-full p-3 pb-0">
-        <div className="relative aspect-4/3 flex items-center justify-center">
-          {ViewTransition ? (
-            <ViewTransition name={`img-${id}`}>
+        <div className="relative aspect-[4/3] w-full">
+          <div className="absolute inset-0 flex items-center justify-center">
+            {ViewTransition ? (
+              <ViewTransition name={`img-${id}`}>
+                <img
+                  src={imageUrl}
+                  alt={title}
+                  className="max-w-full max-h-full object-contain rounded-sm"
+                />
+              </ViewTransition>
+            ) : (
               <img
                 src={imageUrl}
                 alt={title}
                 className="max-w-full max-h-full object-contain rounded-sm"
+                loading="lazy"
               />
-            </ViewTransition>
-          ) : (
-            <img
-              src={imageUrl}
-              alt={title}
-              className="max-w-full max-h-full object-contain rounded-sm"
-              loading="lazy"
-            />
-          )}
+            )}
+          </div>
         </div>
       </div>
       <div className="relative z-10 flex flex-col gap-1.5 p-4 pt-2">

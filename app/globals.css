@@ -124,3 +124,8 @@
 @utility z-modal-content {
   z-index: var(--z-modal-content);
 }
+
+/* Ensure React 19's experimental ViewTransition custom element does not break layouts */
+react-view-transition {
+  display: contents;
+}
