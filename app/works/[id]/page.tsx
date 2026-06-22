@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { works } from "@/data";
+import { works, awards } from "@/data";
 import { Metadata } from "next";
 import { ExternalLink } from "@/components/ExternalLink";
 import { WorkDetailSection } from "@/components/WorkDetailSection";
@@ -44,6 +44,8 @@ export default async function WorkDetailPage({ params }: PageProps) {
   if (!work) {
     notFound();
   }
+
+  const workAwards = awards.filter((a) => a.workId === id);
 
   return (
     <article className="max-w-2xl mx-auto flex flex-col gap-6 p-0 md:pt-8">
@@ -97,6 +99,82 @@ export default async function WorkDetailPage({ params }: PageProps) {
               ja={work.details.concept.ja}
               en={work.details.concept.en}
             />
+          </FadeIn>
+        )}
+
+        {workAwards.length > 0 && (
+          <FadeIn delay={0.35}>
+            <section className="flex flex-col gap-4">
+              <h2 className="font-mono">Awards</h2>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-left">
+                  <tbody>
+                    {workAwards.map((award) => (
+                      <tr
+                        key={award.id}
+                        className="border-b border-fg-secondary/10 last:border-0 align-top"
+                      >
+                        {/* Date Column */}
+                        <td className="py-4 pr-4 w-20 text-fg-secondary font-mono text-xs whitespace-nowrap">
+                          {award.date}
+                        </td>
+                        {/* Content Column */}
+                        <td className="py-4">
+                          <div className="flex flex-col gap-3">
+                            {/* Title & Prize */}
+                            <div className="flex flex-col gap-1">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                {award.url ? (
+                                  <ExternalLink
+                                    href={award.url}
+                                    className="text-fg-primary font-semibold"
+                                  >
+                                    {award.title.ja}
+                                  </ExternalLink>
+                                ) : (
+                                  <span className="text-fg-primary font-semibold">
+                                    {award.title.ja}
+                                  </span>
+                                )}
+                                {award.prize && (
+                                  <span className="bg-accent-light px-2 py-0.5 rounded-full text-accent font-medium text-2xs w-fit shrink-0">
+                                    {award.prize.ja}
+                                  </span>
+                                )}
+                              </div>
+
+                              {/* English translation for Title / Prize if they are different from Japanese */}
+                              {(award.title.en !== award.title.ja ||
+                                (award.prize &&
+                                  award.prize.en !== award.prize.ja)) && (
+                                <div className="flex items-center gap-2 text-fg-secondary italic text-xs flex-wrap">
+                                  <span>{award.title.en}</span>
+                                  {award.prize && (
+                                    <span className="text-2xs opacity-80">
+                                      ({award.prize.en})
+                                    </span>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Descriptions */}
+                            <div className="flex flex-col gap-1">
+                              <p className="text-fg-primary leading-relaxed whitespace-pre-wrap">
+                                {award.description.ja}
+                              </p>
+                              <p className="text-fg-secondary leading-relaxed whitespace-pre-wrap italic">
+                                {award.description.en}
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
           </FadeIn>
         )}
       </div>
