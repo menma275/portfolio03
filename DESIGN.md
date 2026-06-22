@@ -26,17 +26,18 @@ The system uses Tailwind CSS v4 `@theme` variables (configured in [globals.css](
 
 ### Base Palette
 
-| Variable | HEX / RGBA | Purpose |
-| :--- | :--- | :--- |
-| `--color-bg-primary` | `#ffffff` | Main background color (clean, crisp white) |
-| `--color-bg-secondary` | `#f8f9fa` | Container boxes, carousel panels, and secondary backgrounds (soft light gray) |
-| `--color-fg-primary` | `#252525` | Primary body text and headings (rich dark charcoal) |
-| `--color-fg-secondary` | `#999999` | Secondary text, captions, metadata, and monospace labels |
-| `--color-border` | `rgba(255, 255, 255, 0.25)` | Semi-transparent white border (used to elevate images over the WebGL background) |
-| `--color-accent` | `#f5b111` | Primary accent color (gold / warm orange) |
-| `--color-accent-light` | `#fff4d9` | Highlight background color for text selection |
+| Variable               | HEX / RGBA                  | Purpose                                                                          |
+| :--------------------- | :-------------------------- | :------------------------------------------------------------------------------- |
+| `--color-bg-primary`   | `#ffffff`                   | Main background color (clean, crisp white)                                       |
+| `--color-bg-secondary` | `#f8f9fa`                   | Container boxes, carousel panels, and secondary backgrounds (soft light gray)    |
+| `--color-fg-primary`   | `#252525`                   | Primary body text and headings (rich dark charcoal)                              |
+| `--color-fg-secondary` | `#999999`                   | Secondary text, captions, metadata, and monospace labels                         |
+| `--color-border`       | `rgba(255, 255, 255, 0.25)` | Semi-transparent white border (used to elevate images over the WebGL background) |
+| `--color-accent`       | `#f5b111`                   | Primary accent color (gold / warm orange)                                        |
+| `--color-accent-light` | `#fff4d9`                   | Highlight background color for text selection                                    |
 
 ### Haze Gradient (WebGL Background)
+
 The header card background in the work detail page ([HazeBackground.tsx](file:///Users/k.sakamura/Downloads/work/web/portfolio03/components/HazeBackground.tsx)) dynamically blends these 5 colors using custom WebGL shaders to simulate an organic haze:
 
 - `c1` : `#BFBDB8` (Grayish / Haze)
@@ -52,6 +53,7 @@ The header card background in the work detail page ([HazeBackground.tsx](file://
 Information hierarchy is built using small, understated font sizes and clean spacing, contrasting different font families rather than large font sizes.
 
 ### Fonts
+
 The following Google Fonts are imported via [globals.css](file:///Users/k.sakamura/Downloads/work/web/portfolio03/app/globals.css):
 
 1. **Sans-serif (`var(--font-sans)`)**: `Inter`
@@ -78,6 +80,7 @@ The following Google Fonts are imported via [globals.css](file:///Users/k.sakamu
 The layout is fully responsive, transitioning between a two-column structure and a single-column layout depending on the screen size (defined in [layout.tsx](file:///Users/k.sakamura/Downloads/work/web/portfolio03/app/layout.tsx)).
 
 ### Desktop Layout (md and above)
+
 A dual-column split-screen layout with sticky elements.
 
 ```mermaid
@@ -96,6 +99,7 @@ graph TD
   - Tab navigation sits sticky at the top, followed by the scrollable main content area and footer.
 
 ### Mobile Layout (below md)
+
 A single-column vertical flow.
 
 - **Header Block**: Placed at the top (`HeroVideo` is automatically hidden).
@@ -107,24 +111,30 @@ A single-column vertical flow.
 ## 5. Interaction Patterns
 
 ### 1. View Transitions API
+
 When navigating from the work list page ([WorkCard.tsx](file:///Users/k.sakamura/Downloads/work/web/portfolio03/components/WorkCard.tsx)) to the detail page ([WorkDetailClient.tsx](file:///Users/k.sakamura/Downloads/work/web/portfolio03/components/WorkDetailClient.tsx)), the work image animates smoothly across pages.
 
 - This is managed via the `ViewTransition` component matching the transition name: `name={`img-${id}`}`.
 
 ### 2. Web Haptics (Tactile Feedback)
+
 Provides subtle, physical vibration feedback on touch devices.
+
 - **Applied to**:
   - Tab switches in `TabNavigation` (`trigger([5])`)
   - Likes submitted via `LikeButton` (`trigger([5])`)
 
 ### 3. Motion (Framer Motion)
+
 `motion/react` is used to implement smooth fades and pop effects.
+
 - **`FadeIn` Wrapper**:
   - Animates from `opacity: 0, y: 10` to `opacity: 1, y: 0` using a staggered delay (`delay={index * 0.05}`) for lists.
 - **`LikeButton`**:
   - Heart icon flies out upward when liked, controlled using `AnimatePresence` and `motion.div`.
 
 ### 4. Interactive Components
+
 - **`Carousel`**:
   - Detects touch events (`onTouchStart`, `onTouchMove`, `onTouchEnd`) to enable horizontal swipe transitions on mobile devices.
 
@@ -147,11 +157,14 @@ The site supports both Japanese (`ja`) and English (`en`) to reach a global audi
 
 Use the following checklist to maintain consistency:
 
-1. **Avoid Introducing New Raw Colors**
+1. **No Hardcoded Colors or Sizes**
+   - **Do not hardcode raw hex, RGB, or HSL color codes** in markup or component files (e.g., using Tailwind arbitrary properties like `text-[#f5b111]`). Always use design tokens like `text-fg-primary` or custom CSS classes.
+   - **Do not hardcode arbitrary sizes** in layout/typography (e.g., `text-[10px]`, `w-[342px]`). If a new layout size or typography size is needed, define it as a CSS variable or theme token inside [globals.css](file:///Users/k.sakamura/Downloads/work/web/portfolio03/app/globals.css) (such as `--text-2xs`) and use the corresponding class (e.g., `text-2xs`).
+2. **Avoid Introducing New Raw Colors**
    - Keep design monochrome. Rely on `var(--color-bg-secondary)` and `var(--color-fg-secondary)` for structural visual hierarchy, reserving `var(--color-accent)` only for call-to-actions or highlights.
-2. **Adhere to Typography Bounds**
+3. **Adhere to Typography Bounds**
    - Headings must not exceed `1rem` (16px). Body and secondary elements should hover around `0.85rem` (13.6px). Structure hierarchy using padding and gap margins instead of size scaling.
-3. **Verify Interactive Experiences**
+4. **Verify Interactive Experiences**
    - When modifying components, test mobile gestures (swiping), transition performance (View Transitions), and tactile responses (haptics) on actual target devices or simulators.
-4. **Ensure Symmetric Translations**
+5. **Ensure Symmetric Translations**
    - When adding new data objects in `data/*.ts`, always provide matching keys for both `ja` and `en` to prevent runtime layout breaks.

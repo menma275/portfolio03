@@ -23,7 +23,7 @@ export const works: Work[] = [
   {
     id: "michi",
     title: "michi - Moon Media Gallery",
-    category: "Web Content",
+    category: "Web Application",
     description: "Digital Media Gallery based on Moon Phases",
     imageUrl: "/img/michi/01.png",
     images: [
@@ -48,7 +48,7 @@ export const works: Work[] = [
   {
     id: "createdat",
     title: "createdAt: ",
-    category: "IoT Device",
+    category: "Hardware & Electronics",
     description: "Generative Art Device using E-paper",
     imageUrl: "/img/createdat/01.jpg",
     images: [
@@ -78,7 +78,7 @@ export const works: Work[] = [
   {
     id: "turnie",
     title: "turnie - StreetPass Device",
-    category: "IoT Device",
+    category: "Hardware & Electronics",
     description: "StreetPass Device for Fleeting Connections",
     imageUrl: "/img/turnie/01.jpg",
     images: [
@@ -104,7 +104,7 @@ export const works: Work[] = [
     id: "ge2026",
     title:
       "インダストリアルアート学科・学域 卒業・修了制作研究展2026 Webサイト",
-    category: "Web Content",
+    category: "Web Site",
     description: "Official website for the Graduation Exhibition 2026",
     imageUrl: "/img/ge2026/01.jpeg",
     images: [
@@ -155,7 +155,7 @@ export const works: Work[] = [
   {
     id: "inpraiseofshadows",
     title: "In Praise of Shadows - Book Cover",
-    category: "Class Assignment",
+    category: "Graphic Design",
     description: "Book Cover Design",
     imageUrl: "/img/inpraiseofshadows/01.png",
     images: ["/img/inpraiseofshadows/01.png", "/img/inpraiseofshadows/02.png"],
@@ -174,7 +174,7 @@ export const works: Work[] = [
   {
     id: "moss",
     title: "Moss",
-    category: "Team Project",
+    category: "Web Application",
     description: "Hack1 Grand Prix",
     imageUrl: "/img/moss/01.png",
     images: ["/img/moss/01.png", "/img/moss/02.png"],
@@ -194,7 +194,7 @@ export const works: Work[] = [
   {
     id: "flow-album",
     title: "Flow Album",
-    category: "Web Content",
+    category: "Web Application",
     description: "Photo album using 3D space",
     imageUrl: "/img/flow-album/01.png",
     images: [
@@ -218,7 +218,7 @@ export const works: Work[] = [
   {
     id: "spotify_analyzer",
     title: "Spotify Analyzer",
-    category: "Web Content",
+    category: "Web Application",
     description: "Analyzer for Spotify",
     imageUrl: "/img/spotify_analyzer/01.png",
     images: ["/img/spotify_analyzer/01.png", "/img/spotify_analyzer/02.png"],
@@ -238,7 +238,7 @@ export const works: Work[] = [
   {
     id: "somokuto",
     title: "草木塔",
-    category: "Web Content",
+    category: "Web Application",
     description: "Website for read 草木塔",
     imageUrl: "/img/somokuto/01.png",
     images: ["/img/somokuto/01.png", "/img/somokuto/02.png"],
@@ -258,7 +258,7 @@ export const works: Work[] = [
   {
     id: "imdb_notion",
     title: "IMDb to Notion",
-    category: "Web Content",
+    category: "Web Application",
     description: "Chrome Extension for IMDb to Notion",
     imageUrl: "/img/imdbtonotion/01.png",
     images: ["/img/imdbtonotion/01.png", "/img/imdbtonotion/02.png"],
@@ -278,7 +278,7 @@ export const works: Work[] = [
   {
     id: "proofofx_shibuya",
     title: "Proof of X in DIG SHIBUYA",
-    category: "Web Content",
+    category: "Web Site",
     description: "Website for Blockchain event",
     imageUrl: "/img/proofofx_shibuya/01.png",
     images: ["/img/proofofx_shibuya/01.png", "/img/proofofx_shibuya/02.png"],
@@ -298,7 +298,7 @@ export const works: Work[] = [
   {
     id: "mojitoodoru",
     title: "もじとおどる",
-    category: "Web Content",
+    category: "Web Site",
     description: "Website for our own ZINE",
     imageUrl: "/img/mojitoodoru/01.png",
     images: [
@@ -322,7 +322,7 @@ export const works: Work[] = [
   {
     id: "gundi",
     title: "Gundi",
-    category: "Web Content",
+    category: "Web Application",
     description: "Decentralized Chat Space",
     imageUrl: "/img/gundi/01.png",
     technologies: ["Next.js", "Tailwind CSS", "MongoDB"],
@@ -341,7 +341,7 @@ export const works: Work[] = [
   {
     id: "converse",
     title: "conVerse",
-    category: "Web Content",
+    category: "Web Application",
     description: "The project that preceded Gundi",
     imageUrl: "/img/converse/01.png",
     technologies: ["HTML", "CSS", "JavaScript", "MongoDB"],
@@ -360,7 +360,7 @@ export const works: Work[] = [
   {
     id: "nove2023",
     title: "有機的、無機的。",
-    category: "Web Content",
+    category: "Web Site",
     description: "Website for our own exhibition",
     imageUrl: "/img/nove2023/01.png",
     images: [
@@ -384,7 +384,7 @@ export const works: Work[] = [
   {
     id: "proofofx_2023",
     title: "Proof of X 2023",
-    category: "Web Content",
+    category: "Web Site",
     description: "Website for Blockchain event",
     imageUrl: "/img/proofofx_2023/01.png",
     images: ["/img/proofofx_2023/01.png", "/img/proofofx_2023/02.png"],

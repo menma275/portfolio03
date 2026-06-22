@@ -20,6 +20,8 @@
   --color-fg-secondary: #999999;
   --color-border: rgba(255, 255, 255, 0.25);
 
+  --text-2xs: 0.625rem;
+
   --animate-fade-in: fade-in 1.5s ease-out forwards;
 
   @keyframes fade-in {

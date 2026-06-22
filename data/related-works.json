@@ -1,218 +1,53 @@
 {
-  "michi": [
-    "flow-album",
-    "gundi",
-    "ge2026",
-    "archetype"
-  ],
-  "createdat": [
-    "plotchat",
-    "moss",
-    "ephemeral",
-    "cell"
-  ],
-  "turnie": [
-    "plotchat",
-    "gundi",
-    "createdat",
-    "michi"
-  ],
-  "ge2026": [
-    "proofofx_shibuya",
-    "nove2023",
-    "archetype",
-    "spotify_analyzer"
-  ],
-  "plotchat": [
-    "gundi",
-    "createdat",
-    "turnie",
-    "converse"
-  ],
-  "inpraiseofshadows": [
-    "enlightnment",
-    "flare",
-    "pack",
-    "ephemeral"
-  ],
-  "moss": [
-    "michi",
-    "plotchat",
-    "createdat",
-    "proofofx_2023"
-  ],
-  "flow-album": [
-    "michi",
-    "spotify_analyzer",
-    "proofofx_shibuya",
-    "ge2026"
-  ],
+  "michi": ["flow-album", "gundi", "ge2026", "moss"],
+  "createdat": ["plotchat", "ephemeral", "cell", "michi"],
+  "turnie": ["plotchat", "gundi", "michi", "createdat"],
+  "ge2026": ["proofofx_shibuya", "nove2023", "archetype", "michi"],
+  "plotchat": ["gundi", "turnie", "createdat", "converse"],
+  "inpraiseofshadows": ["enlightnment", "flare", "pack", "ephemeral"],
+  "moss": ["michi", "archetype", "somokuto", "proofofx_2023"],
+  "flow-album": ["michi", "spotify_analyzer", "ge2026", "proofofx_shibuya"],
   "spotify_analyzer": [
     "proofofx_shibuya",
     "ge2026",
     "flow-album",
     "mojitoodoru"
   ],
-  "somokuto": [
-    "ge2026",
-    "mojitoodoru",
-    "proofofx_shibuya",
-    "spotify_analyzer"
-  ],
-  "imdb_notion": [
-    "michi",
-    "moss",
-    "ge2026",
-    "flow-album"
-  ],
+  "somokuto": ["ge2026", "mojitoodoru", "proofofx_shibuya", "moss"],
+  "imdb_notion": ["michi", "moss", "ge2026", "spotify_analyzer"],
   "proofofx_shibuya": [
     "proofofx_2023",
-    "spotify_analyzer",
     "ge2026",
+    "spotify_analyzer",
     "mojitoodoru"
   ],
   "mojitoodoru": [
     "proofofx_shibuya",
     "ge2026",
-    "spotify_analyzer",
-    "proofofx_2023"
+    "proofofx_2023",
+    "spotify_analyzer"
   ],
-  "gundi": [
-    "converse",
-    "michi",
-    "plotchat",
-    "archetype"
-  ],
-  "converse": [
-    "gundi",
-    "archetype",
-    "plotchat",
-    "proofofx_shibuya"
-  ],
-  "nove2023": [
-    "archetype",
-    "ge2026",
-    "proofofx_shibuya",
-    "proofofx_2023"
-  ],
-  "proofofx_2023": [
-    "proofofx_shibuya",
-    "archetype",
-    "nove2023",
-    "ge2026"
-  ],
-  "archetype": [
-    "nove2023",
-    "ge2026",
-    "gundi",
-    "converse"
-  ],
-  "soundscape": [
-    "enlightnment",
-    "ge2026",
-    "createdat",
-    "michi"
-  ],
-  "enlightnment": [
-    "soundscape",
-    "michi",
-    "createdat",
-    "ge2026"
-  ],
-  "ephemeral": [
-    "quarter",
-    "flow",
-    "arc",
-    "frame"
-  ],
-  "cube": [
-    "quarter",
-    "melt",
-    "link",
-    "arc"
-  ],
-  "melt": [
-    "arc",
-    "flow",
-    "ephemeral",
-    "cube"
-  ],
-  "round": [
-    "quarter",
-    "arc",
-    "ephemeral",
-    "flow"
-  ],
-  "tile": [
-    "pack",
-    "melt",
-    "frame",
-    "arc"
-  ],
-  "pack": [
-    "tile",
-    "melt",
-    "quarter",
-    "pinch"
-  ],
-  "line": [
-    "flow",
-    "frame",
-    "arc",
-    "ephemeral"
-  ],
-  "quarter": [
-    "round",
-    "ephemeral",
-    "cube",
-    "arc"
-  ],
-  "overlap": [
-    "link",
-    "frame",
-    "ephemeral",
-    "arc"
-  ],
-  "arc": [
-    "round",
-    "frame",
-    "flow",
-    "ephemeral"
-  ],
-  "cell": [
-    "ephemeral",
-    "arc",
-    "cube",
-    "quarter"
-  ],
-  "link": [
-    "overlap",
-    "frame",
-    "flow",
-    "arc"
-  ],
-  "frame": [
-    "flow",
-    "arc",
-    "link",
-    "ephemeral"
-  ],
-  "pinch": [
-    "pack",
-    "arc",
-    "flow",
-    "round"
-  ],
-  "flow": [
-    "frame",
-    "ephemeral",
-    "arc",
-    "line"
-  ],
-  "flare": [
-    "arc",
-    "melt",
-    "flow",
-    "frame"
-  ]
+  "gundi": ["converse", "michi", "plotchat", "archetype"],
+  "converse": ["gundi", "archetype", "plotchat", "proofofx_shibuya"],
+  "nove2023": ["archetype", "ge2026", "proofofx_shibuya", "proofofx_2023"],
+  "proofofx_2023": ["proofofx_shibuya", "nove2023", "archetype", "ge2026"],
+  "archetype": ["nove2023", "ge2026", "gundi", "proofofx_shibuya"],
+  "soundscape": ["enlightnment", "ge2026", "michi", "createdat"],
+  "enlightnment": ["soundscape", "michi", "ge2026", "createdat"],
+  "ephemeral": ["quarter", "flow", "arc", "frame"],
+  "cube": ["quarter", "melt", "link", "arc"],
+  "melt": ["arc", "flow", "ephemeral", "cube"],
+  "round": ["quarter", "arc", "ephemeral", "flow"],
+  "tile": ["pack", "melt", "frame", "arc"],
+  "pack": ["tile", "melt", "quarter", "pinch"],
+  "line": ["flow", "frame", "arc", "ephemeral"],
+  "quarter": ["round", "ephemeral", "cube", "arc"],
+  "overlap": ["link", "frame", "ephemeral", "arc"],
+  "arc": ["round", "frame", "flow", "ephemeral"],
+  "cell": ["ephemeral", "arc", "cube", "quarter"],
+  "link": ["overlap", "frame", "flow", "arc"],
+  "frame": ["flow", "arc", "link", "ephemeral"],
+  "pinch": ["pack", "arc", "flow", "round"],
+  "flow": ["frame", "ephemeral", "arc", "line"],
+  "flare": ["arc", "melt", "flow", "frame"]
 }

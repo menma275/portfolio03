@@ -115,10 +115,15 @@ export default async function WorkDetailPage({ params }: PageProps) {
             .map((relatedId) => works.find((w) => w.id === relatedId))
             .filter((w): w is (typeof works)[number] => !!w)
             .map((relatedWork, index) => (
-              <FadeIn key={relatedWork.id} delay={0.45 + index * 0.05}>
+              <FadeIn
+                key={relatedWork.id}
+                delay={0.45 + index * 0.05}
+                className="h-full"
+              >
                 <WorkCard
                   id={relatedWork.id}
                   title={relatedWork.title}
+                  category={relatedWork.category}
                   imageUrl={relatedWork.imageUrl}
                   technologies={relatedWork.technologies}
                 />
