@@ -8,9 +8,17 @@ interface CarouselProps {
   images: string[];
   title: string;
   id: string;
+  onImageClick?: (index: number) => void;
+  isModalOpen?: boolean;
 }
 
-export function Carousel({ images, title, id }: CarouselProps) {
+export function Carousel({
+  images,
+  title,
+  id,
+  onImageClick,
+  isModalOpen,
+}: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -72,19 +80,23 @@ export function Carousel({ images, title, id }: CarouselProps) {
             key={index}
             className="w-full h-full shrink-0 flex items-center justify-center p-4 md:p-12"
           >
-            {index === 0 && ViewTransition ? (
+            {index === currentIndex &&
+            typeof ViewTransition !== "undefined" &&
+            !isModalOpen ? (
               <ViewTransition name={`img-${id}`}>
                 <img
                   src={image}
                   alt={`${title} - image ${index + 1}`}
-                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border"
+                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                  onClick={() => onImageClick?.(index)}
                 />
               </ViewTransition>
             ) : (
               <img
                 src={image}
                 alt={`${title} - image ${index + 1}`}
-                className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border"
+                className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                onClick={() => onImageClick?.(index)}
               />
             )}
           </div>

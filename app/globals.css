@@ -24,6 +24,9 @@
 
   --animate-fade-in: fade-in 1.5s ease-out forwards;
 
+  --z-modal: 100;
+  --z-modal-content: 110;
+
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -101,4 +104,23 @@
   *::-webkit-scrollbar-thumb:hover {
     background: var(--color-fg-secondary);
   }
+}
+
+/* Modal Image constraints */
+.modal-image {
+  max-width: 90vw;
+  max-height: 70vh;
+}
+@media (min-width: 768px) {
+  .modal-image {
+    max-height: 75vh;
+  }
+}
+
+@utility z-modal {
+  z-index: var(--z-modal);
+}
+
+@utility z-modal-content {
+  z-index: var(--z-modal-content);
 }
