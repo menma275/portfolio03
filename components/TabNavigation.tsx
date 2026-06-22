@@ -7,6 +7,21 @@ import { useWebHaptics } from "web-haptics/react";
 import { works } from "@/data/works";
 import { motion } from "motion/react";
 
+const CATEGORY_MAP: Record<string, string> = {
+  "Web Application": "webapp",
+  "Hardware & Electronics": "hardware",
+  "Web Site": "website",
+  "Interactive Art": "interactive",
+  "Graphic Design": "graphic",
+  "Generative Art": "generative",
+};
+
+const getQueryParamFromCategory = (category: string): string => {
+  return (
+    CATEGORY_MAP[category] || category.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+  );
+};
+
 export const TabNavigation: React.FC = () => {
   const pathname = usePathname();
   const { trigger } = useWebHaptics();
@@ -49,35 +64,47 @@ export const TabNavigation: React.FC = () => {
         >
           Profile
         </Link>
-        <Link
-          href="/"
-          onClick={() => handleClick("/")}
-          className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
-            isActive("/")
-              ? "text-fg-primary"
-              : isWorkDetail
-                ? "text-fg-primary lg:text-fg-secondary hover:text-fg-primary"
-                : "text-fg-secondary hover:text-fg-primary"
-          }`}
-        >
-          <span className="inline-flex items-center gap-2 text-inherit">
-            <span className="text-inherit">Works</span>
-            {isWorkDetail && work && (
-              <>
-                <span className="hidden lg:inline text-fg-secondary">/</span>
-                <motion.span
-                  key={work.id}
-                  initial={{ opacity: 0, x: -4 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="hidden lg:inline text-fg-primary"
-                >
-                  {work.title}
-                </motion.span>
-              </>
-            )}
+        {isWorkDetail && work ? (
+          <span className="flex-1 md:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center md:justify-start">
+            <Link
+              href="/"
+              onClick={() => handleClick("/")}
+              className="cursor-pointer text-fg-primary lg:text-fg-secondary lg:hover:text-fg-primary transition-all relative"
+            >
+              Works
+            </Link>
+            <span className="hidden lg:inline text-fg-secondary">/</span>
+            <Link
+              href={`/?category=${getQueryParamFromCategory(work.category)}`}
+              onClick={() => trigger([5])}
+              className="hidden lg:inline cursor-pointer text-fg-secondary hover:text-fg-primary transition-all relative"
+            >
+              {work.category}
+            </Link>
+            <span className="hidden lg:inline text-fg-secondary">/</span>
+            <motion.span
+              key={work.id}
+              initial={{ opacity: 0, x: -4 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="hidden lg:inline text-fg-primary relative"
+            >
+              {work.title}
+            </motion.span>
           </span>
-        </Link>
+        ) : (
+          <Link
+            href="/"
+            onClick={() => handleClick("/")}
+            className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
+              isActive("/")
+                ? "text-fg-primary"
+                : "text-fg-secondary hover:text-fg-primary"
+            }`}
+          >
+            Works
+          </Link>
+        )}
       </div>
     </div>
   );

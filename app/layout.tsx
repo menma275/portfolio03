@@ -74,7 +74,7 @@ export default function RootLayout({
             <div className="hidden md:block sticky top-0 z-50">
               <TabNavigation />
             </div>
-            <div className="flex-1 p-6 md:p-8 pt-0">{children}</div>
+            <div className="flex-1 p-6 md:p-8 md:pt-0 pt-0">{children}</div>
             <Footer />
           </main>
         </div>
