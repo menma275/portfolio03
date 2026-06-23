@@ -19,7 +19,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({
   return (
     <Link
       href={`/works/${id}`}
-      className="group relative flex flex-col gap-3 hover:bg-bg-secondary hover:opacity-90 transition-all duration-300 w-full h-full rounded-lg overflow-hidden"
+      className="group relative flex flex-col gap-3 bg-bg-secondary hover:opacity-90 border border-transparent hover:border-border transition-all duration-300 w-full h-full rounded-lg overflow-hidden"
     >
       <div className="relative z-10 w-full p-3 pb-0">
         <div className="relative aspect-[4/3] w-full">
