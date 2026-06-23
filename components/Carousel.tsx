@@ -30,6 +30,11 @@ export function Carousel({
   const currentIndex = isControlled ? propCurrentIndex : localCurrentIndex;
 
   const setCurrentIndexState = (next: number) => {
+    if (next !== currentIndex) {
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("carousel-navigate"));
+      }
+    }
     if (isControlled) {
       onChangeIndex(next);
     } else {

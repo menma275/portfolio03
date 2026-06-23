@@ -122,14 +122,41 @@ export const HazeBackground = ({ className }: HazeBackgroundProps) => {
     window.addEventListener("resize", resize);
     resize();
 
+    let currentSpeed = 1.0;
+    const targetSpeed = 1.0;
+    const boostSpeed = 8.0;
+    const decayRate = 3.0;
+
+    const handleNavigate = () => {
+      currentSpeed = boostSpeed;
+    };
+
+    window.addEventListener("carousel-navigate", handleNavigate);
+
     let animationId: number;
-    let startTime: number | null = null;
+    let lastTime: number | null = null;
+    let t = 0;
     const render = (time: number) => {
-      if (startTime === null) startTime = time;
-      const elapsed = (time - startTime) * 0.001;
+      if (lastTime === null) {
+        lastTime = time;
+      }
+      const deltaTime = (time - lastTime) * 0.001;
+      lastTime = time;
+
+      // Exponential decay towards target speed
+      if (currentSpeed > targetSpeed) {
+        currentSpeed =
+          currentSpeed +
+          (targetSpeed - currentSpeed) *
+            (1.0 - Math.exp(-deltaTime * decayRate));
+      } else {
+        currentSpeed = targetSpeed;
+      }
+
+      t += deltaTime * currentSpeed;
 
       gl.uniform2f(resolutionLoc, canvas.width, canvas.height);
-      gl.uniform1f(timeLoc, elapsed);
+      gl.uniform1f(timeLoc, t);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       animationId = requestAnimationFrame(render);
     };
@@ -137,6 +164,7 @@ export const HazeBackground = ({ className }: HazeBackgroundProps) => {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("carousel-navigate", handleNavigate);
       cancelAnimationFrame(animationId);
     };
   }, []);
