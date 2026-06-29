@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const postsDirectory = path.join(process.cwd(), "content/blog");
+const postsDirectory = path.join(process.cwd(), "content/logs");
 
 export interface PostMetadata {
   slug: string;
@@ -23,7 +23,7 @@ function resolveImagePath(slug: string, imagePath?: string): string | null {
     return imagePath;
   }
   const cleanPath = imagePath.replace(/^\.\//, "");
-  return `/img/blog/${slug}/${cleanPath}`;
+  return `/img/logs/${slug}/${cleanPath}`;
 }
 
 export function getSortedPostsData(): PostMetadata[] {

@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-import { getPostData, getAllPostSlugs } from "@/lib/blog";
+import { getPostData, getAllPostSlugs } from "@/lib/logs";
 import { FadeIn } from "@/components/FadeIn";
 import { ViewTransition } from "react";
 
-interface BlogPostProps {
+interface LogPostProps {
   params: Promise<{
     slug: string;
   }>;
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: BlogPostProps): Promise<Metadata> {
+}: LogPostProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostData(slug);
 
@@ -41,7 +41,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({ params }: BlogPostProps) {
+export default async function LogPostPage({ params }: LogPostProps) {
   const { slug } = await params;
   const post = getPostData(slug);
 
@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
       const resolvedSrc =
         typeof src === "string" &&
         (src.startsWith("./") || !src.startsWith("/"))
-          ? `/img/blog/${slug}/${src.replace(/^\.\//, "")}`
+          ? `/img/logs/${slug}/${src.replace(/^\.\//, "")}`
           : src;
       return (
         <span className="block my-8">
@@ -194,7 +194,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
         {post.thumbnail ? (
           <div className="w-[calc(100%+3rem)] -mx-6 md:w-auto md:mx-0 aspect-[16/9] relative overflow-hidden bg-bg-secondary rounded-none md:rounded-xl">
             {ViewTransition ? (
-              <ViewTransition name={`blog-img-${slug}`}>
+              <ViewTransition name={`log-img-${slug}`}>
                 <img
                   src={post.thumbnail}
                   alt={post.title}

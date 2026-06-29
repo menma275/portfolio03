@@ -1,6 +1,6 @@
 "use server";
 
-import { getPostData } from "@/lib/blog";
+import { getPostData } from "@/lib/logs";
 
 export async function getPostTitle(slug: string): Promise<string | null> {
   try {

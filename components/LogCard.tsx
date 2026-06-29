@@ -1,22 +1,22 @@
 import React from "react";
 import Link from "next/link";
 import { ViewTransition } from "react";
-import { PostMetadata } from "@/lib/blog";
+import { PostMetadata } from "@/lib/logs";
 
-interface BlogCardProps {
+interface LogCardProps {
   post: PostMetadata;
 }
 
-export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
+export const LogCard: React.FC<LogCardProps> = ({ post }) => {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/logs/${post.slug}`}
       className="group flex flex-col gap-3 bg-bg-secondary hover:opacity-90 border border-transparent hover:border-border transition-all duration-300 rounded-lg overflow-hidden h-full"
     >
       {post.thumbnail && (
         <div className="w-full aspect-[16/9] relative overflow-hidden bg-bg-primary">
           {ViewTransition ? (
-            <ViewTransition name={`blog-img-${post.slug}`}>
+            <ViewTransition name={`log-img-${post.slug}`}>
               <img
                 src={post.thumbnail}
                 alt={post.title}

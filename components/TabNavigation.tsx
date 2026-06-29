@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useWebHaptics } from "web-haptics/react";
 import { works } from "@/data/works";
 import { motion } from "motion/react";
-import { getPostTitle } from "@/actions/blog";
+import { getPostTitle } from "@/actions/logs";
 
 const CATEGORY_MAP: Record<string, string> = {
   "Web Application": "webapp",
@@ -23,12 +23,12 @@ const getQueryParamFromCategory = (category: string): string => {
   );
 };
 
-const blogTitleCache: Record<string, string> = {};
+const logTitleCache: Record<string, string> = {};
 
 export const TabNavigation: React.FC = () => {
   const pathname = usePathname();
   const { trigger } = useWebHaptics();
-  const [blogTitle, setBlogTitle] = useState<string | null>(null);
+  const [logTitle, setLogTitle] = useState<string | null>(null);
 
   useEffect(() => {
     // Reset scroll position when pathname changes
@@ -45,7 +45,7 @@ export const TabNavigation: React.FC = () => {
   const isActive = (path: string) => {
     if (path === "/" && pathname === "/") return true;
     if (path === "/profile" && pathname === "/profile") return true;
-    if (path === "/blog" && pathname.startsWith("/blog")) return true;
+    if (path === "/logs" && pathname.startsWith("/logs")) return true;
     return false;
   };
 
@@ -55,30 +55,30 @@ export const TabNavigation: React.FC = () => {
     : null;
   const work = works.find((w) => w.id === workId);
 
-  const isBlogDetail = pathname.startsWith("/blog/") && pathname !== "/blog";
-  const blogSlug = isBlogDetail
+  const isLogDetail = pathname.startsWith("/logs/") && pathname !== "/logs";
+  const logSlug = isLogDetail
     ? pathname.split("/").filter(Boolean).pop()
     : null;
 
   useEffect(() => {
-    if (!blogSlug) {
-      Promise.resolve().then(() => setBlogTitle(null));
+    if (!logSlug) {
+      Promise.resolve().then(() => setLogTitle(null));
       return;
     }
 
-    if (blogTitleCache[blogSlug]) {
-      const cached = blogTitleCache[blogSlug];
-      Promise.resolve().then(() => setBlogTitle(cached));
+    if (logTitleCache[logSlug]) {
+      const cached = logTitleCache[logSlug];
+      Promise.resolve().then(() => setLogTitle(cached));
       return;
     }
 
-    getPostTitle(blogSlug).then((title) => {
+    getPostTitle(logSlug).then((title) => {
       if (title) {
-        blogTitleCache[blogSlug] = title;
-        setBlogTitle(title);
+        logTitleCache[logSlug] = title;
+        setLogTitle(title);
       }
     });
-  }, [blogSlug]);
+  }, [logSlug]);
 
   return (
     <div className="px-6 md:px-8 bg-bg-primary pt-3 pb-6">
@@ -135,37 +135,37 @@ export const TabNavigation: React.FC = () => {
             Works
           </Link>
         )}
-        {isBlogDetail ? (
+        {isLogDetail ? (
           <span className="flex-1 md:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center md:justify-start">
             <Link
-              href="/blog"
-              onClick={() => handleClick("/blog")}
+              href="/logs"
+              onClick={() => handleClick("/logs")}
               className="cursor-pointer text-fg-primary lg:text-fg-secondary lg:hover:text-fg-primary transition-all relative"
             >
-              Blog
+              Logs
             </Link>
             <span className="hidden lg:inline text-fg-secondary">/</span>
             <motion.span
-              key={blogSlug || ""}
+              key={logSlug || ""}
               initial={{ opacity: 0, x: -4 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="hidden lg:inline text-fg-primary relative"
             >
-              {blogTitle || blogSlug}
+              {logTitle || logSlug}
             </motion.span>
           </span>
         ) : (
           <Link
-            href="/blog"
-            onClick={() => handleClick("/blog")}
+            href="/logs"
+            onClick={() => handleClick("/logs")}
             className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
-              isActive("/blog")
+              isActive("/logs")
                 ? "text-fg-primary"
                 : "text-fg-secondary hover:text-fg-primary"
             }`}
           >
-            Blog
+            Logs
           </Link>
         )}
       </div>
