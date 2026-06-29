@@ -201,7 +201,7 @@ export default async function LogPostPage({ params }: LogPostProps) {
             )}
             {/* Blur overlay (from bottom to center: blur to sharp) */}
             <div
-              className="absolute inset-0 backdrop-blur-md bg-black/10 pointer-events-none"
+              className="absolute inset-0 backdrop-blur-md bg-black/40 pointer-events-none"
               style={{
                 maskImage: "linear-gradient(to top, black 0%, transparent 50%)",
                 WebkitMaskImage:
@@ -214,7 +214,7 @@ export default async function LogPostPage({ params }: LogPostProps) {
               <span className="text-white/80 text-xs font-mono">
                 {post.date}
               </span>
-              <h1 className="font-bold text-white leading-tight drop-shadow-sm">
+              <h1 className="text-lg font-bold text-white leading-tight drop-shadow-sm">
                 {post.title}
               </h1>
             </header>
