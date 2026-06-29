@@ -192,7 +192,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     <FadeIn>
       <article className="max-w-2xl mx-auto flex flex-col gap-6 pt-4 pb-16">
         {post.thumbnail ? (
-          <div className="w-auto -mx-6 md:mx-0 aspect-[16/9] relative overflow-hidden bg-bg-secondary rounded-none md:rounded-xl">
+          <div className="w-[calc(100%+3rem)] -mx-6 md:w-auto md:mx-0 aspect-[16/9] relative overflow-hidden bg-bg-secondary rounded-none md:rounded-xl">
             {ViewTransition ? (
               <ViewTransition name={`blog-img-${slug}`}>
                 <img
