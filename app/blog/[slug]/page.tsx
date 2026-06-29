@@ -191,8 +191,8 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
   return (
     <FadeIn>
       <article className="max-w-2xl mx-auto flex flex-col gap-6 pt-4 pb-16">
-        {post.thumbnail && (
-          <div className="w-full aspect-[16/9] relative overflow-hidden bg-bg-secondary rounded-xl mb-4">
+        {post.thumbnail ? (
+          <div className="w-auto -mx-6 md:mx-0 aspect-[16/9] relative overflow-hidden bg-bg-secondary rounded-none md:rounded-xl">
             {ViewTransition ? (
               <ViewTransition name={`blog-img-${slug}`}>
                 <img
@@ -208,15 +208,37 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                 className="object-cover object-center w-full h-full"
               />
             )}
+            {/* Blur overlay (from bottom to center: blur to sharp) */}
+            <div
+              className="absolute inset-0 backdrop-blur-md bg-black/10 pointer-events-none"
+              style={{
+                maskImage: "linear-gradient(to top, black 0%, transparent 50%)",
+                WebkitMaskImage:
+                  "linear-gradient(to top, black 0%, transparent 50%)",
+              }}
+            />
+
+            {/* Header (date & title) placed over the blur overlay */}
+            <header className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 flex flex-col gap-2 z-10">
+              <span className="text-white/80 text-xs font-mono">
+                {post.date}
+              </span>
+              <h1 className="font-bold text-white leading-tight drop-shadow-sm">
+                {post.title}
+              </h1>
+            </header>
           </div>
+        ) : (
+          <header className="flex flex-col gap-2">
+            <span className="text-fg-secondary text-xs font-mono">
+              {post.date}
+            </span>
+            <h1 className="font-bold text-fg-primary leading-tight">
+              {post.title}
+            </h1>
+          </header>
         )}
-        <header className="flex flex-col gap-2">
-          <span className="text-fg-secondary text-xs font-mono">
-            {post.date}
-          </span>
-          <h1 className="font-bold text-fg-primary">{post.title}</h1>
-        </header>
-        <div className="border-t border-border mt-4">
+        <div>
           <ReactMarkdown components={components}>{post.content}</ReactMarkdown>
         </div>
       </article>
