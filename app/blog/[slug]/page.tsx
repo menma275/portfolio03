@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { getPostData, getAllPostSlugs } from "@/lib/blog";
 import { FadeIn } from "@/components/FadeIn";
+import { ViewTransition } from "react";
 
 interface BlogPostProps {
   params: Promise<{
@@ -192,11 +193,21 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
       <article className="max-w-2xl mx-auto flex flex-col gap-6 pt-4 pb-16">
         {post.thumbnail && (
           <div className="w-full aspect-[16/9] relative overflow-hidden bg-bg-secondary rounded-xl mb-4">
-            <img
-              src={post.thumbnail}
-              alt={post.title}
-              className="object-cover w-full h-full"
-            />
+            {ViewTransition ? (
+              <ViewTransition name={`blog-img-${slug}`}>
+                <img
+                  src={post.thumbnail}
+                  alt={post.title}
+                  className="object-cover w-full h-full"
+                />
+              </ViewTransition>
+            ) : (
+              <img
+                src={post.thumbnail}
+                alt={post.title}
+                className="object-cover w-full h-full"
+              />
+            )}
           </div>
         )}
         <header className="flex flex-col gap-2">

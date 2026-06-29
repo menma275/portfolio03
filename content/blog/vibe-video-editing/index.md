@@ -1,7 +1,7 @@
 ---
 title: "Vibe Video Editingをやりたかった"
 date: "2026-06-27"
-thumbnail: "./image-1.jpg"
+thumbnail: "./desk.jpg"
 excerpt: "インタビュー映像を編集している。手元には10名ほどのインタビュイーによる1時間程度の素材。これを再構成して物語を作り出さなければならない。映像編集とVibe Codingが繋がって見えてしまった実験の記録。"
 ---
 
