@@ -20,14 +20,14 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
               <img
                 src={post.thumbnail}
                 alt={post.title}
-                className="object-cover w-full h-full group-hover:scale-[1.02] transition-transform duration-500"
+                className="object-cover object-center w-full h-full group-hover:scale-[1.02] transition-transform duration-500"
               />
             </ViewTransition>
           ) : (
             <img
               src={post.thumbnail}
               alt={post.title}
-              className="object-cover w-full h-full group-hover:scale-[1.02] transition-transform duration-500"
+              className="object-cover object-center w-full h-full group-hover:scale-[1.02] transition-transform duration-500"
               loading="lazy"
             />
           )}

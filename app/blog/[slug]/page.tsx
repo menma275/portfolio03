@@ -198,14 +198,14 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                 <img
                   src={post.thumbnail}
                   alt={post.title}
-                  className="object-cover w-full h-full"
+                  className="object-cover object-center w-full h-full"
                 />
               </ViewTransition>
             ) : (
               <img
                 src={post.thumbnail}
                 alt={post.title}
-                className="object-cover w-full h-full"
+                className="object-cover object-center w-full h-full"
               />
             )}
           </div>
@@ -214,9 +214,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
           <span className="text-fg-secondary text-xs font-mono">
             {post.date}
           </span>
-          <h1 className="font-sans text-2xl md:text-3xl font-bold tracking-tight text-fg-primary leading-tight">
-            {post.title}
-          </h1>
+          <h1 className="font-bold text-fg-primary">{post.title}</h1>
         </header>
         <div className="border-t border-border mt-4">
           <ReactMarkdown components={components}>{post.content}</ReactMarkdown>
