@@ -11,6 +11,10 @@
 }
 
 @theme {
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-serif: "Noto Serif JP", serif;
+
   --color-accent: #f5b111;
   --color-accent-light: #fff4d9;
 

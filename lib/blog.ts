@@ -10,6 +10,7 @@ export interface PostMetadata {
   date: string;
   thumbnail: string | null;
   excerpt: string;
+  lang?: string;
 }
 
 export interface PostData extends PostMetadata {
@@ -32,7 +33,7 @@ export function getSortedPostsData(): PostMetadata[] {
 
   const folderNames = fs.readdirSync(postsDirectory);
   const allPostsData = folderNames
-    .map((slug) => {
+    .map((slug): PostMetadata | null => {
       const folderPath = path.join(postsDirectory, slug);
       if (!fs.statSync(folderPath).isDirectory()) {
         return null;
@@ -52,6 +53,7 @@ export function getSortedPostsData(): PostMetadata[] {
         date: data.date || "",
         thumbnail: resolveImagePath(slug, data.thumbnail),
         excerpt: data.excerpt || "",
+        lang: data.lang,
       };
     })
     .filter((post): post is PostMetadata => post !== null);
@@ -77,6 +79,7 @@ export function getPostData(slug: string): PostData | null {
     date: data.date || "",
     thumbnail: resolveImagePath(slug, data.thumbnail),
     excerpt: data.excerpt || "",
+    lang: data.lang,
   };
 }
 export function getAllPostSlugs(): { slug: string }[] {

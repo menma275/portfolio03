@@ -48,6 +48,13 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     notFound();
   }
 
+  const isJa =
+    post.lang === "ja" ||
+    (!post.lang &&
+      /[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\uFF00-\uFFEF\u4E00-\u9FAF]/.test(
+        post.title + post.content,
+      ));
+
   const components = {
     img: ({
       src,
@@ -78,19 +85,27 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     },
     h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h1
-        className="text-xl font-bold mt-10 mb-4 border-b border-border pb-2 text-fg-primary"
+        className="font-sans text-xl font-bold mt-10 mb-4 border-b border-border pb-2 text-fg-primary"
         {...props}
       >
         {children}
       </h1>
     ),
     h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h2 className="text-lg font-bold mt-8 mb-3 text-fg-primary" {...props}>
+      <h2
+        className={`${
+          isJa ? "font-sans" : "font-mono"
+        } text-lg font-bold mt-8 mb-3 text-fg-primary`}
+        {...props}
+      >
         {children}
       </h2>
     ),
     h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h3 className="text-base font-bold mt-6 mb-2 text-fg-primary" {...props}>
+      <h3
+        className="font-sans text-base font-bold mt-6 mb-2 text-fg-primary"
+        {...props}
+      >
         {children}
       </h3>
     ),
@@ -188,7 +203,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
           <span className="text-fg-secondary text-xs font-mono">
             {post.date}
           </span>
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-fg-primary leading-tight">
+          <h1 className="font-sans text-2xl md:text-3xl font-bold tracking-tight text-fg-primary leading-tight">
             {post.title}
           </h1>
         </header>
