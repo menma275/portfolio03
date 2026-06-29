@@ -49,13 +49,6 @@ export default async function LogPostPage({ params }: LogPostProps) {
     notFound();
   }
 
-  const isJa =
-    post.lang === "ja" ||
-    (!post.lang &&
-      /[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\uFF00-\uFFEF\u4E00-\u9FAF]/.test(
-        post.title + post.content,
-      ));
-
   const components = {
     img: ({
       src,
@@ -94,9 +87,7 @@ export default async function LogPostPage({ params }: LogPostProps) {
     ),
     h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h2
-        className={`${
-          isJa ? "font-sans" : "font-mono"
-        } text-lg font-bold mt-8 mb-3 text-fg-primary`}
+        className="font-sans text-lg font-bold mt-8 mb-3 text-fg-primary"
         {...props}
       >
         {children}
