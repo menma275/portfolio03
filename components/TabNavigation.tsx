@@ -81,7 +81,7 @@ export const TabNavigation: React.FC = () => {
   }, [logSlug]);
 
   return (
-    <div className="px-6 md:px-8 bg-bg-primary pt-3 pb-6">
+    <div className="px-6 md:px-8 bg-bg-primary pt-0 md:pt-3 pb-6">
       <div className="flex gap-6 w-full md:w-fit p-0 md:pt-6">
         <Link
           href="/profile"
