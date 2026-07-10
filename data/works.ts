@@ -7,6 +7,7 @@ export interface Work {
   images?: string[];
   technologies: string[];
   link?: string;
+  youtube?: string;
   details?: {
     overview: {
       ja: string;
@@ -64,6 +65,7 @@ export const works: Work[] = [
     ],
     technologies: ["Raspberry Pi", "E-paper", "Generative Art"],
     link: "https://blog.lab.sugimototatsuo.com/entry/2026/03/28/123137",
+    youtube: "https://youtu.be/LiCj6QO6mtM",
     details: {
       overview: {
         ja: "実行される環境の情報から、その場限り唯一のビジュアルを生成する装置。表示装置に電子ペーパーを採用し、実行時の「時刻・位置情報・ボタンの押下時間」という最小限のメタデータをシード値として、幾何学的なピクセルパターンを描き出す。最大の特徴は、生成されたビジュアルがマイコン内に画像データとして保存されず、電子ペーパー上にのみ物質化されて残る点にある。電子ペーパーを表示装置としてだけでなく、作品を保持する唯一のメモリとして機能させることで、デジタル作品に物理的な固有性を与えている。本作は東京都立大学の卒業制作として「電子ペーパーを用いた環境決定的変数による装置統合型ビジュアル生成手法の研究《createdAt:》制作を通して」として制作され、東京都美術館で開催された「東京都立大学システムデザイン学部・研究科　インダストリアルアート学科・学域 卒業・修了制作研究展2026」にて展示された。",
@@ -141,6 +143,7 @@ export const works: Work[] = [
     ],
     technologies: ["Local LLM", "Python", "ESP32", "Pen Plotter"],
     link: "https://blog.lab.sugimototatsuo.com/entry/2025/09/07/115358",
+    youtube: "https://www.youtube.com/watch?v=2ROfLVS0118",
     details: {
       overview: {
         ja: "AIチャットボットを画一化されたインターフェースから解き放つためのプロジェクト。インプットとアウトプットは紙とペンで行われ、ユーザは手書きのプロンプトを書く。AIは手書き文字を読み解き、ペンプロッタを介して応答をする。本システムは、メッセージを解釈して返答を生成する「脳」としてのAI、紙を読み取る「目」としてのカメラ、そして物理的に文字を書く「手」としてのペンプロッタという3つの主要な要素で構成されている。これらすべてがPythonを使用して統合され、現代の高速なチャットインターフェースとは異なる、物理的に1文字ずつ描画される情緒的な体験を提供する。",

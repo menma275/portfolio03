@@ -37,6 +37,17 @@ export async function generateStaticParams() {
   }));
 }
 
+function getYouTubeEmbedUrl(url: string | undefined): string | null {
+  if (!url) return null;
+  const regExp =
+    /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  if (match && match[2].length === 11) {
+    return `https://www.youtube.com/embed/${match[2]}`;
+  }
+  return null;
+}
+
 export default async function WorkDetailPage({ params }: PageProps) {
   const { id } = await params;
   const work = works.find((w) => w.id === id);
@@ -46,6 +57,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
   }
 
   const workAwards = awards.filter((a) => a.workId === id);
+  const embedUrl = getYouTubeEmbedUrl(work.youtube);
 
   return (
     <article className="max-w-2xl mx-auto flex flex-col gap-6 p-0 md:pt-8">
@@ -89,6 +101,23 @@ export default async function WorkDetailPage({ params }: PageProps) {
               ja={work.details.overview.ja}
               en={work.details.overview.en}
             />
+          </FadeIn>
+        )}
+
+        {embedUrl && (
+          <FadeIn delay={0.28}>
+            <section className="flex flex-col gap-2">
+              <h2 className="font-mono">Video</h2>
+              <div className="relative w-full md:max-w-lg mx-auto aspect-video rounded-lg overflow-hidden border border-fg-secondary/10 bg-bg-secondary">
+                <iframe
+                  src={embedUrl}
+                  title={`${work.title} video`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full border-0"
+                />
+              </div>
+            </section>
           </FadeIn>
         )}
 
