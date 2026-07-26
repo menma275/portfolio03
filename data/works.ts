@@ -471,8 +471,7 @@ export const works: Work[] = [
     title: "ephemeral",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://gateway.fxhash.xyz/ipfs/QmaNXC4zJTo9DgH3qQx1wTkkuJBaJt7q8o1EgCXUF99ZMA",
+    imageUrl: "/img/ephemeral/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/slug/ephemeral-2",
   },
@@ -481,8 +480,7 @@ export const works: Work[] = [
     title: "cube",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmeSPebTJpN8pJCPzWHvMNK7cTKJadx6uki8BpST8xpt9E",
+    imageUrl: "/img/cube/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/27656",
   },
@@ -491,8 +489,7 @@ export const works: Work[] = [
     title: "melt",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmenHA7u62bYAd7GePMp84S4tkM734YFT8tvs5aUa1Nkjd",
+    imageUrl: "/img/melt/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/25883",
   },
@@ -501,8 +498,7 @@ export const works: Work[] = [
     title: "round",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmQuqvBA9DfkpS7PzZL3PjsqqCNJYcRbrbCAvSpo3Fwh3a",
+    imageUrl: "/img/round/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/23320",
   },
@@ -511,8 +507,7 @@ export const works: Work[] = [
     title: "tile",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmWpg81PBaamo3VVLkgBtvqDv6s8joxaxNi2arjTC3HbTf",
+    imageUrl: "/img/tile/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/21355",
   },
@@ -521,8 +516,7 @@ export const works: Work[] = [
     title: "pack",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmNqSVqNCTcKAVkmhC9DkNhy5bWzz4PeUk1SCuqowxWnTA",
+    imageUrl: "/img/pack/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/20035",
   },
@@ -531,8 +525,7 @@ export const works: Work[] = [
     title: "line",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmXxjhgxuFRQ4KpnCC5Fr9vaxG3M3npkUSxKNyizwmMZn9",
+    imageUrl: "/img/line/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/18944",
   },
@@ -541,8 +534,7 @@ export const works: Work[] = [
     title: "quarter",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmY5ZvPjb6Yd7cWWbD6CsXMMC6cD9WeLTak3HXhnfspA6q",
+    imageUrl: "/img/quarter/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/18681",
   },
@@ -551,8 +543,7 @@ export const works: Work[] = [
     title: "overlap",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmSUZUy33xz7wBUndDFbJ6YcfRdKf8itzDJrHNydkJ34pa",
+    imageUrl: "/img/overlap/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/18146",
   },
@@ -561,8 +552,7 @@ export const works: Work[] = [
     title: "arc",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmYJMVazWy3UGg7VkmCsUGHT4RonSS948bWkxM55FqVdHY",
+    imageUrl: "/img/arc/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/18032",
   },
@@ -571,8 +561,7 @@ export const works: Work[] = [
     title: "cell",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmW3Eszjptm33ZfG7cDRD1x3gV2WoucZuWpECm1Zzp1dgh",
+    imageUrl: "/img/cell/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/17341",
   },
@@ -581,8 +570,7 @@ export const works: Work[] = [
     title: "link",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmWGJeWVSx13mbfW3eS3PfyYdpi56tgWSzcBVF3U7QBRAH",
+    imageUrl: "/img/link/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/15955",
   },
@@ -591,8 +579,7 @@ export const works: Work[] = [
     title: "frame",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmXmnbr429NX2siEJPkdHkLNpDi74YXt85V4PDXGPipuhY",
+    imageUrl: "/img/frame/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/15002",
   },
@@ -601,8 +588,7 @@ export const works: Work[] = [
     title: "pinch",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmXAm8FjPTLUEM4g4rqBoMJiZVJw6bVxSwDiCuJypjiQQp",
+    imageUrl: "/img/pinch/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/14889",
   },
@@ -611,8 +597,7 @@ export const works: Work[] = [
     title: "flow",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/QmQAJoyBbbvX3xaAWxAcAgtwmPGJJPH9arp8CkofD4mwFj",
+    imageUrl: "/img/flow/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/13865",
   },
@@ -621,8 +606,7 @@ export const works: Work[] = [
     title: "flare",
     category: "Generative Art",
     description: "Generative Art published on fxhash",
-    imageUrl:
-      "https://media.fxhash.xyz/w_768/Qmbe6nRktdenHpfMUcYE4ZheBPcx4Pwu3H2yp34TVTXRPw",
+    imageUrl: "/img/flare/01.png",
     technologies: ["Generative Art", "fxhash"],
     link: "https://www.fxhash.xyz/generative/13318",
   },
