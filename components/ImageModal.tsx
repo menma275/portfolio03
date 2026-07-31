@@ -110,7 +110,7 @@ export function ImageModal({
                 <img
                   src={images[currentIndex]}
                   alt={`${title} - modal image ${currentIndex + 1}`}
-                  className="modal-image object-contain rounded-lg border border-border"
+                  className="modal-image object-contain rounded-lg border border-border/50"
                   onClick={(e) => e.stopPropagation()}
                 />
               </ViewTransition>
@@ -118,7 +118,7 @@ export function ImageModal({
               <img
                 src={images[currentIndex]}
                 alt={`${title} - modal image ${currentIndex + 1}`}
-                className="modal-image object-contain rounded-lg border border-border"
+                className="modal-image object-contain rounded-lg border border-border/50"
                 onClick={(e) => e.stopPropagation()}
               />
             )}
