@@ -69,7 +69,7 @@ const WorkListContent: React.FC = () => {
   return (
     <div className="flex flex-col gap-6">
       {/* Category Filter Tabs */}
-      <div className="hidden sm:flex flex-wrap gap-x-6 gap-y-3 sticky top-[188px] md:top-[80px] bg-bg-primary z-30 pb-2">
+      <div className="hidden sm:flex flex-wrap gap-x-6 gap-y-3 sticky top-47 md:top-20 bg-bg-primary z-30 pb-2">
         {categories.map((category) => {
           const isActive = selectedCategory === category;
           return (
@@ -120,7 +120,7 @@ const WorkCardSkeleton: React.FC = () => {
   return (
     <div className="flex flex-col gap-3 bg-bg-secondary border border-transparent rounded-lg overflow-hidden w-full h-full">
       <div className="w-full p-3 pb-0">
-        <div className="aspect-[4/3] w-full bg-bg-primary rounded-sm" />
+        <div className="aspect-4/3 w-full bg-bg-primary rounded-sm" />
       </div>
       <div className="flex flex-col gap-2 p-4 pt-2">
         <div className="h-3 w-16 bg-bg-primary rounded-xs" />
@@ -137,7 +137,7 @@ export const WorkList: React.FC = () => {
       fallback={
         <div className="flex flex-col gap-6">
           {/* Category Filter Tabs Skeleton */}
-          <div className="hidden sm:flex flex-wrap gap-x-6 gap-y-3 sticky top-[188px] md:top-[80px] bg-bg-primary z-30 pb-2">
+          <div className="hidden sm:flex flex-wrap gap-x-6 gap-y-3 sticky top-47 md:top-20 bg-bg-primary z-30 pb-2">
             <div className="h-4 w-10 bg-bg-secondary rounded-xs" />
             <div className="h-4 w-24 bg-bg-secondary rounded-xs" />
             <div className="h-4 w-32 bg-bg-secondary rounded-xs" />
