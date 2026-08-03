@@ -39,7 +39,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
   return (
     <>
       {work.imageUrl && (
-        <div className="relative w-auto -mx-6 md:mx-0 md:rounded-lg overflow-hidden aspect-[4/3] bg-bg-secondary">
+        <div className="relative w-auto -mx-6 md:-mx-8 md:rounded-lg overflow-hidden aspect-[4/3] bg-bg-secondary">
           <div className="absolute inset-0 opacity-75">
             <HazeBackground />
           </div>
@@ -60,7 +60,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
                   <img
                     src={work.imageUrl}
                     alt={work.title}
-                    className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                    className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-[3px] border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
                     onClick={() => handleOpenModal(0)}
                   />
                 </ViewTransition>
@@ -70,7 +70,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
                 <img
                   src={work.imageUrl}
                   alt={work.title}
-                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-[3px] border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
                   onClick={() => handleOpenModal(0)}
                 />
               </div>

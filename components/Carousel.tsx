@@ -109,7 +109,7 @@ export function Carousel({
                 <img
                   src={image}
                   alt={`${title} - image ${index + 1}`}
-                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-[3px] border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
                   onClick={() => onImageClick?.(index)}
                 />
               </ViewTransition>
@@ -117,7 +117,7 @@ export function Carousel({
               <img
                 src={image}
                 alt={`${title} - image ${index + 1}`}
-                className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-[3px] border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
                 onClick={() => onImageClick?.(index)}
               />
             )}
