@@ -42,9 +42,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({
     >
       <div className="relative z-10 w-full p-3 pb-0">
         <div className="relative aspect-[4/3] w-full bg-bg-primary rounded-sm overflow-hidden">
-          {!isLoaded && (
-            <div className="absolute inset-0 bg-bg-primary" />
-          )}
+          {!isLoaded && <div className="absolute inset-0 bg-bg-primary" />}
           <div className="absolute inset-0 flex items-center justify-center">
             {ViewTransition ? (
               <ViewTransition name={`img-${id}`}>
