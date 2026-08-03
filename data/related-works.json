@@ -1,6 +1,12 @@
 {
+  "specimens-of-daily-actions": [
+    "soundscape",
+    "enlightnment",
+    "michi",
+    "createdat"
+  ],
   "michi": ["flow-album", "gundi", "ge2026", "moss"],
-  "createdat": ["plotchat", "ephemeral", "cell", "michi"],
+  "createdat": ["plotchat", "ephemeral", "cell", "specimens-of-daily-actions"],
   "turnie": ["plotchat", "gundi", "michi", "createdat"],
   "ge2026": ["proofofx_shibuya", "nove2023", "archetype", "michi"],
   "plotchat": ["gundi", "turnie", "createdat", "converse"],
@@ -32,8 +38,18 @@
   "nove2023": ["archetype", "ge2026", "proofofx_shibuya", "proofofx_2023"],
   "proofofx_2023": ["proofofx_shibuya", "nove2023", "archetype", "ge2026"],
   "archetype": ["nove2023", "ge2026", "gundi", "proofofx_shibuya"],
-  "soundscape": ["enlightnment", "ge2026", "michi", "createdat"],
-  "enlightnment": ["soundscape", "michi", "ge2026", "createdat"],
+  "soundscape": [
+    "enlightnment",
+    "specimens-of-daily-actions",
+    "ge2026",
+    "michi"
+  ],
+  "enlightnment": [
+    "soundscape",
+    "specimens-of-daily-actions",
+    "michi",
+    "ge2026"
+  ],
   "ephemeral": ["quarter", "flow", "arc", "frame"],
   "cube": ["quarter", "melt", "link", "arc"],
   "melt": ["arc", "flow", "ephemeral", "cube"],

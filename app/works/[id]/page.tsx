@@ -8,6 +8,7 @@ import { WorkCard } from "@/components/WorkCard";
 import relatedWorksData from "@/data/related-works.json";
 import { WorkDetailClient } from "@/components/WorkDetailClient";
 import { LikeButton } from "@/components/LikeButton";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -109,12 +110,9 @@ export default async function WorkDetailPage({ params }: PageProps) {
             <section className="flex flex-col gap-2">
               <h2 className="font-mono">Video</h2>
               <div className="relative w-full md:max-w-lg mx-auto aspect-video rounded-lg overflow-hidden border border-fg-secondary/10 bg-bg-secondary">
-                <iframe
-                  src={embedUrl}
+                <YouTubeEmbed
+                  embedUrl={embedUrl}
                   title={`${work.title} video`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full border-0"
                 />
               </div>
             </section>

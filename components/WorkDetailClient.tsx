@@ -60,7 +60,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
                   <img
                     src={work.imageUrl}
                     alt={work.title}
-                    className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                    className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
                     onClick={() => handleOpenModal(0)}
                   />
                 </ViewTransition>
@@ -70,7 +70,7 @@ export function WorkDetailClient({ work }: WorkDetailClientProps) {
                 <img
                   src={work.imageUrl}
                   alt={work.title}
-                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                  className="max-w-full max-h-full object-contain rounded-lg border-2 md:border-4 border-border/50 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
                   onClick={() => handleOpenModal(0)}
                 />
               </div>
