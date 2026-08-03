@@ -116,17 +116,40 @@ const WorkListContent: React.FC = () => {
   );
 };
 
+const WorkCardSkeleton: React.FC = () => {
+  return (
+    <div className="flex flex-col gap-3 bg-bg-secondary border border-transparent rounded-lg overflow-hidden w-full h-full">
+      <div className="w-full p-3 pb-0">
+        <div className="aspect-[4/3] w-full bg-bg-primary rounded-sm" />
+      </div>
+      <div className="flex flex-col gap-2 p-4 pt-2">
+        <div className="h-3 w-16 bg-bg-primary rounded-xs" />
+        <div className="h-5 w-3/4 bg-bg-primary rounded-xs" />
+        <div className="h-3 w-1/2 bg-bg-primary rounded-xs mt-1" />
+      </div>
+    </div>
+  );
+};
+
 export const WorkList: React.FC = () => {
   return (
     <Suspense
       fallback={
         <div className="flex flex-col gap-6">
-          <div className="hidden sm:flex flex-wrap gap-x-6 gap-y-3 sticky top-[188px] md:top-[80px] bg-bg-primary z-30 py-4 -my-4">
-            <span className="text-xs font-mono text-fg-secondary pb-2 border-b-2 border-transparent">
-              Loading...
-            </span>
+          {/* Category Filter Tabs Skeleton */}
+          <div className="hidden sm:flex flex-wrap gap-x-6 gap-y-3 sticky top-[188px] md:top-[80px] bg-bg-primary z-30 pb-2">
+            <div className="h-4 w-10 bg-bg-secondary rounded-xs" />
+            <div className="h-4 w-24 bg-bg-secondary rounded-xs" />
+            <div className="h-4 w-32 bg-bg-secondary rounded-xs" />
+            <div className="h-4 w-20 bg-bg-secondary rounded-xs" />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 min-h-[300px]" />
+
+          {/* Work Cards Grid Skeleton */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <WorkCardSkeleton key={index} />
+            ))}
+          </div>
         </div>
       }
     >
