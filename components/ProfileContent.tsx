@@ -1,11 +1,9 @@
 "use client";
 
-import { Education } from "@/components/Education";
-import { Experience } from "@/components/Experience";
-import { Awards } from "@/components/Awards";
-import { Exhibitions } from "@/components/Exhibitions";
+import { InfoSection } from "@/components/InfoSection";
 import { FadeIn } from "@/components/FadeIn";
 import { useState } from "react";
+import { education, experiences, awards, exhibitions } from "@/data";
 
 export default function ProfileContent() {
   const [lang, setLang] = useState<"ja" | "en">("ja");
@@ -49,6 +47,36 @@ export default function ProfileContent() {
     ),
   };
 
+  const educationItems = education.map((edu) => ({
+    label: edu.period[lang],
+    title: edu.institution[lang],
+    description: edu.degree[lang],
+    url: edu.url,
+  }));
+
+  const experienceItems = experiences.map((exp) => ({
+    label: exp.period[lang],
+    title: exp.company,
+    description: `${exp.position[lang]}\n${exp.description[lang]}`,
+    url: exp.url,
+  }));
+
+  const awardItems = awards.map((award) => ({
+    label: award.date,
+    title: award.title[lang],
+    prize: award.prize ? award.prize[lang] : undefined,
+    description: award.description[lang],
+    url: award.url,
+    workId: award.workId,
+  }));
+
+  const exhibitionItems = exhibitions.map((ex) => ({
+    label: ex.date,
+    title: ex.title[lang],
+    description: `${ex.role[lang]}\n${ex.description[lang]}`,
+    url: ex.url,
+  }));
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-start">
@@ -85,16 +113,16 @@ export default function ProfileContent() {
             <p className="leading-relaxed">{profileContent[lang]}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <Education lang={lang} />
+            <InfoSection title="Education" items={educationItems} />
           </FadeIn>
           <FadeIn delay={0.2}>
-            <Experience lang={lang} />
+            <InfoSection title="Work Experience" items={experienceItems} />
           </FadeIn>
           <FadeIn delay={0.3}>
-            <Awards lang={lang} />
+            <InfoSection title="Awards" items={awardItems} />
           </FadeIn>
           <FadeIn delay={0.4}>
-            <Exhibitions lang={lang} />
+            <InfoSection title="Exhibitions" items={exhibitionItems} />
           </FadeIn>
         </div>
       </div>

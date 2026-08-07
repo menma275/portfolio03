@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { useWebHaptics } from "web-haptics/react";
 import { works } from "@/data/works";
 import { motion } from "motion/react";
 import { getPostTitle } from "@/actions/logs";
@@ -27,7 +26,6 @@ const logTitleCache: Record<string, string> = {};
 
 export const TabNavigation: React.FC = () => {
   const pathname = usePathname();
-  const { trigger } = useWebHaptics();
   const [logTitle, setLogTitle] = useState<string | null>(null);
 
   useEffect(() => {
@@ -36,7 +34,7 @@ export const TabNavigation: React.FC = () => {
   }, [pathname]);
 
   const handleClick = (path: string) => {
-    trigger([5]);
+    navigator?.vibrate?.(5);
     if (pathname === path) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -106,7 +104,7 @@ export const TabNavigation: React.FC = () => {
             <span className="hidden lg:inline text-fg-secondary">/</span>
             <Link
               href={`/?category=${getQueryParamFromCategory(work.category)}`}
-              onClick={() => trigger([5])}
+              onClick={() => navigator?.vibrate?.(5)}
               className="hidden lg:inline cursor-pointer text-fg-secondary hover:text-fg-primary transition-all relative"
             >
               {work.category}

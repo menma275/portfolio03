@@ -4,7 +4,6 @@ import { useState, useEffect, startTransition } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { motion, AnimatePresence } from "motion/react";
 import { incrementLike, getLikes } from "@/actions/likes";
-import { useWebHaptics } from "web-haptics/react";
 
 interface LikeButtonProps {
   workId: string;
@@ -15,7 +14,6 @@ export function LikeButton({ workId, onLike }: LikeButtonProps) {
   const [likes, setLikes] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const { trigger } = useWebHaptics();
 
   useEffect(() => {
     const fetchLikes = async () => {
@@ -41,7 +39,7 @@ export function LikeButton({ workId, onLike }: LikeButtonProps) {
     if (hasLiked) return;
 
     // Haptic feedback
-    trigger([5]);
+    navigator?.vibrate?.(5);
 
     // Optimistic update
     const newLikes = likes + 1;

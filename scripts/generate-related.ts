@@ -1,51 +1,16 @@
 import { works } from "../data/works";
 import fs from "fs";
 import path from "path";
-import { pipeline } from "@huggingface/transformers";
 
-// コサイン類似度を計算する関数
-function cosineSimilarity(vecA: number[], vecB: number[]): number {
-  let dotProduct = 0;
-  let mA = 0;
-  let mB = 0;
-  for (let i = 0; i < vecA.length; i++) {
-    dotProduct += vecA[i] * vecB[i];
-    mA += vecA[i] * vecA[i];
-    mB += vecB[i] * vecB[i];
-  }
-  return dotProduct / (Math.sqrt(mA) * Math.sqrt(mB));
+function calculateScore(workA: (typeof works)[0], workB: (typeof works)[0]): number {
+  let score = 0;
+  if (workA.category === workB.category) score += 3;
+  const commonTech = workA.technologies.filter((t) => workB.technologies.includes(t));
+  score += commonTech.length;
+  return score;
 }
 
-async function main() {
-  console.log("Loading embedding pipeline...");
-  // 軽量なモデルを使用 (feature-extraction: 埋め込み抽出)
-  const extractor = await pipeline(
-    "feature-extraction",
-    "Xenova/all-MiniLM-L6-v2",
-  );
-
-  console.log("Generating embeddings for each work...");
-  const embeddings: { [id: string]: number[] } = {};
-
-  for (const work of works) {
-    // タイトル、カテゴリ、技術、概要、コンセプトを結合してテキストを作成
-    const text = [
-      work.title,
-      work.category,
-      work.technologies.join(" "),
-      work.details?.overview.en || "",
-      work.details?.concept?.en || "",
-    ]
-      .join(" ")
-      .replace(/\s+/g, " ")
-      .trim();
-
-    console.log(`Processing: ${work.id}`);
-    const output = await extractor(text, { pooling: "mean", normalize: true });
-    embeddings[work.id] = Array.from(output.data as Float32Array);
-  }
-
-  console.log("Calculating similarities...");
+function main() {
   const relatedMap: { [id: string]: string[] } = {};
 
   for (const workA of works) {
@@ -53,11 +18,9 @@ async function main() {
       .filter((workB) => workB.id !== workA.id)
       .map((workB) => ({
         id: workB.id,
-        score: cosineSimilarity(embeddings[workA.id], embeddings[workB.id]),
+        score: calculateScore(workA, workB),
       }))
-      // 類似度が高い順にソート
       .sort((a, b) => b.score - a.score)
-      // 上位3つを抽出
       .slice(0, 4)
       .map((item) => item.id);
 
@@ -69,4 +32,4 @@ async function main() {
   console.log(`Successfully saved to ${outputPath}`);
 }
 
-main().catch(console.error);
+main();

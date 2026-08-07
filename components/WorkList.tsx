@@ -4,7 +4,6 @@ import React, { Suspense } from "react";
 import { works } from "@/data";
 import { WorkCard } from "./WorkCard";
 import { FadeIn } from "./FadeIn";
-import { useWebHaptics } from "web-haptics/react";
 import { motion } from "motion/react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
@@ -43,7 +42,6 @@ const WorkListContent: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { trigger } = useWebHaptics();
 
   const queryCategory = searchParams.get("category");
   const selectedCategory = getCategoryFromQueryParam(queryCategory);
@@ -55,7 +53,7 @@ const WorkListContent: React.FC = () => {
   ];
 
   const handleCategoryChange = (category: string) => {
-    trigger([5]); // Web Haptics tactile feedback
+    navigator?.vibrate?.(5);
     const queryVal = getQueryParamFromCategory(category);
     const query = category === "All" ? "" : `?category=${queryVal}`;
     router.push(`${pathname}${query}`, { scroll: false });

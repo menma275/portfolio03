@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback, ViewTransition } from "react";
 import { motion, useIsPresent } from "motion/react";
 import { HiChevronLeft, HiChevronRight, HiX } from "react-icons/hi";
-import { useWebHaptics } from "web-haptics/react";
 
 interface ImageModalProps {
   onClose: () => void;
@@ -22,24 +21,23 @@ export function ImageModal({
   title,
   workId,
 }: ImageModalProps) {
-  const { trigger } = useWebHaptics();
   const isPresent = useIsPresent();
   const [isFirstRender, setIsFirstRender] = useState(true);
 
   const handlePrev = useCallback(() => {
-    trigger([5]);
+    navigator?.vibrate?.(5);
     onChangeIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-  }, [images.length, trigger, currentIndex, onChangeIndex]);
+  }, [images.length, currentIndex, onChangeIndex]);
 
   const handleNext = useCallback(() => {
-    trigger([5]);
+    navigator?.vibrate?.(5);
     onChangeIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
-  }, [images.length, trigger, currentIndex, onChangeIndex]);
+  }, [images.length, currentIndex, onChangeIndex]);
 
   const handleClose = useCallback(() => {
-    trigger([5]);
+    navigator?.vibrate?.(5);
     onClose();
-  }, [onClose, trigger]);
+  }, [onClose]);
 
   // Set isFirstRender to false on mount
   useEffect(() => {
