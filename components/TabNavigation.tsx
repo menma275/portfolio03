@@ -133,38 +133,36 @@ export const TabNavigation: React.FC = () => {
             Works
           </Link>
         )}
-        {isLogDetail ? (
-          <span className="flex-1 md:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center md:justify-start">
+        {pathname.startsWith("/logs") && (
+          isLogDetail ? (
+            <span className="flex-1 md:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center md:justify-start">
+              <Link
+                href="/logs"
+                onClick={() => handleClick("/logs")}
+                className="cursor-pointer text-fg-primary lg:text-fg-secondary lg:hover:text-fg-primary transition-all relative"
+              >
+                Logs
+              </Link>
+              <span className="hidden lg:inline text-fg-secondary">/</span>
+              <motion.span
+                key={logSlug || ""}
+                initial={{ opacity: 0, x: -4 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="hidden lg:inline text-fg-primary relative"
+              >
+                {logTitle || logSlug}
+              </motion.span>
+            </span>
+          ) : (
             <Link
               href="/logs"
               onClick={() => handleClick("/logs")}
-              className="cursor-pointer text-fg-primary lg:text-fg-secondary lg:hover:text-fg-primary transition-all relative"
+              className="cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center text-fg-primary"
             >
               Logs
             </Link>
-            <span className="hidden lg:inline text-fg-secondary">/</span>
-            <motion.span
-              key={logSlug || ""}
-              initial={{ opacity: 0, x: -4 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="hidden lg:inline text-fg-primary relative"
-            >
-              {logTitle || logSlug}
-            </motion.span>
-          </span>
-        ) : (
-          <Link
-            href="/logs"
-            onClick={() => handleClick("/logs")}
-            className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
-              isActive("/logs")
-                ? "text-fg-primary"
-                : "text-fg-secondary hover:text-fg-primary"
-            }`}
-          >
-            Logs
-          </Link>
+          )
         )}
       </div>
     </div>
