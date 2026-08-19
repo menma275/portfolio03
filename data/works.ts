@@ -1,7 +1,18 @@
+export const categories = [
+  "Web Application",
+  "Web Site",
+  "Hardware & Electronics",
+  "Interactive Art",
+  "Generative Art",
+  "Graphic Design",
+] as const;
+
+export type WorkCategory = (typeof categories)[number];
+
 export interface Work {
   id: string;
   title: string;
-  category: string;
+  category: WorkCategory | string;
   description: string;
   imageUrl: string;
   images?: string[];

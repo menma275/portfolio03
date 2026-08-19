@@ -133,8 +133,8 @@ export const TabNavigation: React.FC = () => {
             Works
           </Link>
         )}
-        {pathname.startsWith("/logs") && (
-          isLogDetail ? (
+        {pathname.startsWith("/logs") &&
+          (isLogDetail ? (
             <span className="flex-1 md:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center md:justify-start">
               <Link
                 href="/logs"
@@ -162,8 +162,7 @@ export const TabNavigation: React.FC = () => {
             >
               Logs
             </Link>
-          )
-        )}
+          ))}
       </div>
     </div>
   );

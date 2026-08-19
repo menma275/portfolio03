@@ -1,8 +1,9 @@
 "use client";
 
 import React, { Suspense } from "react";
-import { works } from "@/data";
+import { works, categories as workCategories } from "@/data";
 import { WorkCard } from "./WorkCard";
+
 import { FadeIn } from "./FadeIn";
 import { motion } from "motion/react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
@@ -46,11 +47,7 @@ const WorkListContent: React.FC = () => {
   const queryCategory = searchParams.get("category");
   const selectedCategory = getCategoryFromQueryParam(queryCategory);
 
-  // Extract unique categories dynamically and add "All" at the beginning
-  const categories = [
-    "All",
-    ...Array.from(new Set(works.map((work) => work.category))),
-  ];
+  const categories = ["All", ...workCategories];
 
   const handleCategoryChange = (category: string) => {
     navigator?.vibrate?.(5);

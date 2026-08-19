@@ -2,10 +2,15 @@ import { works } from "../data/works";
 import fs from "fs";
 import path from "path";
 
-function calculateScore(workA: (typeof works)[0], workB: (typeof works)[0]): number {
+function calculateScore(
+  workA: (typeof works)[0],
+  workB: (typeof works)[0],
+): number {
   let score = 0;
   if (workA.category === workB.category) score += 3;
-  const commonTech = workA.technologies.filter((t) => workB.technologies.includes(t));
+  const commonTech = workA.technologies.filter((t) =>
+    workB.technologies.includes(t),
+  );
   score += commonTech.length;
   return score;
 }
