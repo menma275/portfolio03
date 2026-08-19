@@ -1,22 +1,22 @@
 import React from "react";
 import Link from "next/link";
 import { ViewTransition } from "react";
-import { PostMetadata } from "@/lib/logs";
+import { PostMetadata } from "@/lib/notes";
 
-interface LogCardProps {
+interface NoteCardProps {
   post: PostMetadata;
 }
 
-export const LogCard: React.FC<LogCardProps> = ({ post }) => {
+export const NoteCard: React.FC<NoteCardProps> = ({ post }) => {
   return (
     <Link
-      href={`/logs/${post.slug}`}
+      href={`/notes/${post.slug}`}
       className="group flex flex-col gap-3 bg-bg-secondary hover:opacity-90 border border-transparent hover:border-border transition-all duration-300 rounded-lg overflow-hidden h-full"
     >
       {post.thumbnail && (
         <div className="w-full aspect-[16/9] relative overflow-hidden bg-bg-primary">
           {ViewTransition ? (
-            <ViewTransition name={`log-img-${post.slug}`}>
+            <ViewTransition name={`note-img-${post.slug}`}>
               <img
                 src={post.thumbnail}
                 alt={post.title}

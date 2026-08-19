@@ -1,13 +1,13 @@
 import { Metadata } from "next";
-import { getSortedPostsData } from "@/lib/logs";
+import { getSortedPostsData } from "@/lib/notes";
 import { FadeIn } from "@/components/FadeIn";
-import { LogCard } from "@/components/LogCard";
+import { NoteCard } from "@/components/NoteCard";
 
 export const metadata: Metadata = {
-  title: "Logs",
+  title: "Notes",
 };
 
-export default function LogsPage() {
+export default function NotesPage() {
   const posts = getSortedPostsData();
 
   return (
@@ -17,7 +17,7 @@ export default function LogsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post, index) => (
               <FadeIn key={post.slug} delay={index * 0.05}>
-                <LogCard post={post} />
+                <NoteCard post={post} />
               </FadeIn>
             ))}
           </div>
