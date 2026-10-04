@@ -25,8 +25,8 @@ export const experiences: Experience[] = [
     position: { ja: "フロントエンドエンジニア", en: "Frontend Engineer" },
     period: { ja: "2024/06 - 2025/02", en: "2024/06 - 2025/02" },
     description: {
-      ja: "中欧スロバキア拠点のECサイト機能拡張サービス",
-      en: "E-commerce function expansion service based in Slovakia, Central Europe",
+      ja: "IAESTE (国際学生技術研修派遣協会) 派遣による海外インターンシップ。中欧スロバキア拠点のECサイト機能拡張サービス",
+      en: "Overseas internship via IAESTE. E-commerce function expansion service based in Slovakia, Central Europe",
     },
     url: "https://www.luigisbox.com/",
   },
