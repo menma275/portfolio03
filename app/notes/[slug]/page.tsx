@@ -1,11 +1,14 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-import { getPostData, getAllPostSlugs } from "@/lib/logs";
+import remarkGfm from "remark-gfm";
+import { getPostData, getAllPostSlugs } from "@/lib/notes";
+import { fetchOGP, OGPData } from "@/lib/ogp";
+import { OGPCard } from "@/components/OGPCard";
 import { FadeIn } from "@/components/FadeIn";
 import { ViewTransition } from "react";
 
-interface LogPostProps {
+interface NotePostProps {
   params: Promise<{
     slug: string;
   }>;
@@ -20,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: LogPostProps): Promise<Metadata> {
+}: NotePostProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostData(slug);
 
@@ -41,13 +44,22 @@ export async function generateMetadata({
   };
 }
 
-export default async function LogPostPage({ params }: LogPostProps) {
+export default async function NotePostPage({ params }: NotePostProps) {
   const { slug } = await params;
   const post = getPostData(slug);
 
   if (!post) {
     notFound();
   }
+
+  const urls = Array.from(
+    new Set(post.content.match(/https?:\/\/[^\s\)\>\]]+/g) || []),
+  );
+  const ogpDataList = await Promise.all(urls.map((u) => fetchOGP(u)));
+  const ogpMap: Record<string, OGPData> = {};
+  urls.forEach((u, i) => {
+    ogpMap[u] = ogpDataList[i];
+  });
 
   const components = {
     img: ({
@@ -58,7 +70,7 @@ export default async function LogPostPage({ params }: LogPostProps) {
       const resolvedSrc =
         typeof src === "string" &&
         (src.startsWith("./") || !src.startsWith("/"))
-          ? `/img/logs/${slug}/${src.replace(/^\.\//, "")}`
+          ? `/img/notes/${slug}/${src.replace(/^\.\//, "")}`
           : src;
       return (
         <span className="block my-8">
@@ -102,9 +114,9 @@ export default async function LogPostPage({ params }: LogPostProps) {
       </h3>
     ),
     p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-      <p className="leading-relaxed text-sm text-fg-primary my-4" {...props}>
+      <div className="leading-relaxed text-sm text-fg-primary my-4" {...props}>
         {children}
-      </p>
+      </div>
     ),
     ul: ({ children, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
       <ul
@@ -166,17 +178,35 @@ export default async function LogPostPage({ params }: LogPostProps) {
       children,
       href,
       ...props
-    }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-      <a
-        href={href}
-        className="text-accent hover:underline"
-        target="_blank"
-        rel="noopener noreferrer"
-        {...props}
-      >
-        {children}
-      </a>
-    ),
+    }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+      if (href && ogpMap[href]) {
+        const textStr = Array.isArray(children)
+          ? children.join("")
+          : String(children || "");
+        const cleanText = textStr.trim();
+        const cleanHref = href.trim();
+
+        const isUrlText =
+          cleanText === cleanHref ||
+          cleanText.startsWith("http://") ||
+          cleanText.startsWith("https://");
+
+        if (isUrlText) {
+          return <OGPCard data={ogpMap[href]} />;
+        }
+      }
+      return (
+        <a
+          href={href}
+          className="text-accent hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+          {...props}
+        >
+          {children}
+        </a>
+      );
+    },
   };
 
   return (
@@ -185,7 +215,7 @@ export default async function LogPostPage({ params }: LogPostProps) {
         {post.thumbnail ? (
           <div className="w-[calc(100%+3rem)] -mx-6 md:w-auto md:mx-0 aspect-[16/9] relative overflow-hidden bg-bg-secondary rounded-none md:rounded-xl">
             {ViewTransition ? (
-              <ViewTransition name={`log-img-${slug}`}>
+              <ViewTransition name={`note-img-${slug}`}>
                 <img
                   src={post.thumbnail}
                   alt={post.title}
@@ -230,7 +260,9 @@ export default async function LogPostPage({ params }: LogPostProps) {
           </header>
         )}
         <div>
-          <ReactMarkdown components={components}>{post.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+            {post.content}
+          </ReactMarkdown>
         </div>
       </article>
     </FadeIn>
