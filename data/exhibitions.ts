@@ -26,6 +26,23 @@ export const exhibitions: Exhibition[] = [
     url: "https://www.hs-duesseldorf.de/studium/internationales/profil/hsdjapangateway/summer-school",
   },
   {
+    id: "8",
+    date: "2026/03",
+    title: {
+      ja: "東京都立大学 卒展 2026 - インダストリアルアート学科 卒業・修了制作研究展",
+      en: "Tokyo Metropolitan University Graduation Exhibition 2026 - Department of Industrial Art",
+    },
+    description: {
+      ja: "東京都立大学システムデザイン学部インダストリアルアート学科・学域の卒業・修了制作研究展",
+      en: "Graduation Exhibition of the Department of Industrial Art, Tokyo Metropolitan University",
+    },
+    role: {
+      ja: "作品展示",
+      en: "Work Exhibition",
+    },
+    url: "https://industrial-art.sd.tmu.ac.jp/ge2026/ja/",
+  },
+  {
     id: "6",
     date: "2024/03",
     title: {
