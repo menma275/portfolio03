@@ -9,6 +9,23 @@ export interface Exhibition {
 
 export const exhibitions: Exhibition[] = [
   {
+    id: "7",
+    date: "2026/09",
+    title: {
+      ja: "HSD-Japan Gateway Summer School 2026 - Mixed Media and Human Data Interaction",
+      en: "HSD-Japan Gateway Summer School 2026 - Mixed Media and Human Data Interaction",
+    },
+    description: {
+      ja: "デュッセルドルフ応用科学大学（HSD）主催の国際連携サマースクール・ワークショップ",
+      en: "International collaborative summer school and workshop organized by Hochschule Düsseldorf (HSD)",
+    },
+    role: {
+      ja: "サマースクール参加・作品展示",
+      en: "Summer School Participation & Work Exhibition",
+    },
+    url: "https://www.hs-duesseldorf.de/studium/internationales/profil/hsdjapangateway/summer-school",
+  },
+  {
     id: "6",
     date: "2024/03",
     title: {
