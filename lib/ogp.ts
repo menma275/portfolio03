@@ -31,6 +31,7 @@ export async function fetchOGP(url: string): Promise<OGPData> {
     const { result, error } = await ogs({
       url,
       timeout: 5000,
+      onlyGetOpenGraphInfo: true,
       fetchOptions: {
         headers: {
           "user-agent":
@@ -58,8 +59,8 @@ export async function fetchOGP(url: string): Promise<OGPData> {
     return {
       url: result.ogUrl || url,
       domain,
-      title: result.ogTitle || null,
-      description: result.ogDescription || null,
+      title: result.ogTitle || result.dcTitle || null,
+      description: result.ogDescription || result.dcDescription || null,
       imageUrl,
       siteName: result.ogSiteName || null,
     };
