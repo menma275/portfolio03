@@ -77,7 +77,7 @@ export default async function NotePostPage({ params }: NotePostProps) {
           <img
             src={resolvedSrc}
             alt={alt}
-            className="rounded-lg max-w-full h-auto mx-auto object-contain"
+            className="rounded-lg max-w-full h-auto mx-auto object-contain max-h-[min(100vw-3rem,42rem)]"
             loading="lazy"
             {...props}
           />
