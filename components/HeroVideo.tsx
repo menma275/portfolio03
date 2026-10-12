@@ -7,7 +7,7 @@ interface HeroVideoProps {
 
 export const HeroVideo: React.FC<HeroVideoProps> = ({ videoSrc, imageSrc }) => {
   return (
-    <div className="relative w-full aspect-video overflow-hidden">
+    <div className="relative w-full max-h-48 aspect-video overflow-hidden">
       <video
         src={videoSrc}
         poster={imageSrc}
