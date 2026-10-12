@@ -64,7 +64,7 @@ const WorkListContent: React.FC = () => {
   return (
     <div className="flex flex-col gap-6">
       {/* Category Filter Tabs */}
-      <div className="hidden sm:flex flex-wrap gap-x-6 gap-y-3 sticky top-47 md:top-20 bg-bg-primary z-30 pb-2">
+      <div className="hidden lg:flex flex-wrap gap-x-6 gap-y-3 sticky top-47 lg:top-20 bg-bg-primary z-30 pb-2">
         {categories.map((category) => {
           const isActive = selectedCategory === category;
           return (

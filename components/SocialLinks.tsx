@@ -6,7 +6,7 @@ import { ExternalLink } from "./ExternalLink";
 
 export const SocialLinks: React.FC = () => {
   return (
-    <div className="flex flex-wrap md:flex-col gap-2">
+    <div className="flex flex-wrap lg:flex-col gap-2">
       {socials.map((social) => (
         <ExternalLink key={social.label} href={social.href}>
           {social.label}

@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export const Header: React.FC = () => {
   return (
-    <div className="flex flex-col gap-6 md:h-full md:justify-between">
+    <div className="flex flex-col gap-6 lg:h-full lg:justify-between">
       <div className="flex flex-col gap-6">
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <HeroVideo videoSrc="/river.mp4" imageSrc="/river.jpg" />
         </div>
         <div className="flex flex-col gap-2">

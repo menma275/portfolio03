@@ -81,12 +81,12 @@ export const TabNavigation: React.FC = () => {
   }, [noteSlug]);
 
   return (
-    <div className="px-6 md:px-8 bg-bg-primary pt-0 md:pt-3 pb-6">
-      <div className="flex gap-6 w-full md:w-fit p-0 md:pt-6">
+    <div className="px-6 lg:px-8 bg-bg-primary pt-0 lg:pt-3 pb-6">
+      <div className="flex gap-6 w-full lg:w-fit p-0 lg:pt-6">
         <Link
           href="/profile"
           onClick={() => handleClick("/profile")}
-          className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
+          className={`cursor-pointer flex-1 lg:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
             isActive("/profile")
               ? "text-fg-primary"
               : "text-fg-secondary hover:text-fg-primary"
@@ -95,7 +95,7 @@ export const TabNavigation: React.FC = () => {
           Profile
         </Link>
         {isWorkDetail && work ? (
-          <span className="flex-1 md:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center md:justify-start">
+          <span className="flex-1 lg:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center lg:justify-start">
             <Link
               href="/"
               onClick={() => handleClick("/")}
@@ -126,7 +126,7 @@ export const TabNavigation: React.FC = () => {
           <Link
             href="/"
             onClick={() => handleClick("/")}
-            className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
+            className={`cursor-pointer flex-1 lg:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
               isActive("/")
                 ? "text-fg-primary"
                 : "text-fg-secondary hover:text-fg-primary"
@@ -136,7 +136,7 @@ export const TabNavigation: React.FC = () => {
           </Link>
         )}
         {isNoteDetail ? (
-          <span className="flex-1 md:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center md:justify-start">
+          <span className="flex-1 lg:flex-none inline-flex items-center gap-2 text-sm font-medium text-center justify-center lg:justify-start">
             <Link
               href="/notes"
               onClick={() => handleClick("/notes")}
@@ -159,7 +159,7 @@ export const TabNavigation: React.FC = () => {
           <Link
             href="/notes"
             onClick={() => handleClick("/notes")}
-            className={`cursor-pointer flex-1 md:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
+            className={`cursor-pointer flex-1 lg:flex-none text-sm font-medium transition-all relative overflow-hidden text-center ${
               isActive("/notes")
                 ? "text-fg-primary"
                 : "text-fg-secondary hover:text-fg-primary"
