@@ -10,6 +10,10 @@
   animation-duration: 0.5s;
 }
 
+::view-transition-image-pair(*) {
+  overflow: clip;
+}
+
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
@@ -132,4 +136,18 @@
 /* Ensure React 19's experimental ViewTransition custom element does not break layouts */
 react-view-transition {
   display: contents;
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@utility animate-overlay-fade-in {
+  opacity: 0;
+  animation: overlay-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
 }
