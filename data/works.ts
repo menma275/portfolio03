@@ -87,7 +87,7 @@ export const works: Work[] = [
     },
   },
   {
-    id: "createdat",
+    id: "ctreatedat",
     title: "createdAt: ",
     category: "Hardware & Electronics",
     description: "Generative Art Device using E-paper",
@@ -104,7 +104,7 @@ export const works: Work[] = [
       "/img/createdat/09.jpg",
     ],
     technologies: ["Raspberry Pi", "E-paper", "Generative Art"],
-    link: "https://blog.lab.sugimototatsuo.com/entry/2026/03/28/123137",
+    link: "https://industrial-art.sd.tmu.ac.jp/ge2026/ja/works/B21/",
     youtube: "https://youtu.be/LiCj6QO6mtM",
     details: {
       overview: {
