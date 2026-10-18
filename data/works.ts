@@ -90,7 +90,7 @@ export const works: Work[] = [
     id: "createdat",
     title: "createdAt: ",
     category: "Hardware & Electronics",
-    description: "Generative Art Device using E-paper",
+    description: "Generative Art Device using e-paper",
     imageUrl: "/img/createdat/01.jpg",
     images: [
       "/img/createdat/01.jpg",
@@ -103,7 +103,7 @@ export const works: Work[] = [
       "/img/createdat/08.jpg",
       "/img/createdat/09.jpg",
     ],
-    technologies: ["Raspberry Pi", "E-paper", "Generative Art"],
+    technologies: ["Raspberry Pi", "e-paper", "Generative Art"],
     link: "https://industrial-art.sd.tmu.ac.jp/ge2026/ja/works/B21/",
     youtube: "https://youtu.be/LiCj6QO6mtM",
     details: {
@@ -129,7 +129,7 @@ export const works: Work[] = [
       "/img/turnie/03.jpg",
       "/img/turnie/04.jpg",
     ],
-    technologies: ["SwiftUI", "EPS32", "BLE"],
+    technologies: ["SwiftUI", "ESP32", "BLE"],
     link: "https://www.turnie.io/",
     details: {
       overview: {
