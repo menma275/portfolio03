@@ -10,6 +10,21 @@ export interface Award {
 
 export const awards: Award[] = [
   {
+    id: "7",
+    title: {
+      ja: "INTERNATIONAL STUDENTS CREATIVE AWARD 2026",
+      en: "INTERNATIONAL STUDENTS CREATIVE AWARD 2026",
+    },
+    description: {
+      ja: "ナレッジキャピタル主催の国際学生クリエイティブアワード（デジタルコンテンツ部門）",
+      en: "An international creative award for students organized by Knowledge Capital (Digital Content Category)",
+    },
+    date: "2026/10",
+    prize: { ja: "ノミネート", en: "Nominee" },
+    url: "https://kc-i.jp/activity/award/isca/2026/winner/",
+    workId: "createdat",
+  },
+  {
     id: "6",
     title: {
       ja: "WIRED Creative Hack Award 2025",
