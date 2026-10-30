@@ -2,10 +2,8 @@ import { notFound } from "next/navigation";
 import { works, awards } from "@/data";
 import { Metadata } from "next";
 import { ExternalLink } from "@/components/ExternalLink";
-import { WorkDetailSection } from "@/components/WorkDetailSection";
 import { FadeIn } from "@/components/FadeIn";
 import { WorkCard } from "@/components/WorkCard";
-import relatedWorksData from "@/data/related-works.json";
 import { WorkDetailClient } from "@/components/WorkDetailClient";
 import { LikeButton } from "@/components/LikeButton";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
@@ -47,6 +45,21 @@ function getYouTubeEmbedUrl(url: string | undefined): string | null {
     return `https://www.youtube.com/embed/${match[2]}`;
   }
   return null;
+}
+
+function getRelatedWorks(currentWork: (typeof works)[0]) {
+  return works
+    .filter((w) => w.id !== currentWork.id)
+    .map((w) => {
+      let score = w.category === currentWork.category ? 3 : 0;
+      score += w.technologies.filter((t) =>
+        currentWork.technologies.includes(t),
+      ).length;
+      return { work: w, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 4)
+    .map((item) => item.work);
 }
 
 export default async function WorkDetailPage({ params }: PageProps) {
@@ -97,11 +110,17 @@ export default async function WorkDetailPage({ params }: PageProps) {
       <div className="flex flex-col gap-12">
         {work.details?.overview && (
           <FadeIn delay={0.25}>
-            <WorkDetailSection
-              title="Overview"
-              ja={work.details.overview.ja}
-              en={work.details.overview.en}
-            />
+            <section className="flex flex-col gap-2">
+              <h2 className="font-mono">Overview</h2>
+              <div className="flex flex-col gap-4">
+                <p className="text-fg-primary leading-relaxed whitespace-pre-wrap">
+                  {work.details.overview.ja}
+                </p>
+                <p className="text-fg-secondary leading-relaxed whitespace-pre-wrap italic">
+                  {work.details.overview.en}
+                </p>
+              </div>
+            </section>
           </FadeIn>
         )}
 
@@ -121,11 +140,17 @@ export default async function WorkDetailPage({ params }: PageProps) {
 
         {work.details?.concept && (
           <FadeIn delay={0.3}>
-            <WorkDetailSection
-              title="Concept"
-              ja={work.details.concept.ja}
-              en={work.details.concept.en}
-            />
+            <section className="flex flex-col gap-2">
+              <h2 className="font-mono">Concept</h2>
+              <div className="flex flex-col gap-4">
+                <p className="text-fg-primary leading-relaxed whitespace-pre-wrap">
+                  {work.details.concept.ja}
+                </p>
+                <p className="text-fg-secondary leading-relaxed whitespace-pre-wrap italic">
+                  {work.details.concept.en}
+                </p>
+              </div>
+            </section>
           </FadeIn>
         )}
 
@@ -216,24 +241,21 @@ export default async function WorkDetailPage({ params }: PageProps) {
           </span>
         </FadeIn>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {((relatedWorksData as Record<string, string[]>)[id] || [])
-            .map((relatedId) => works.find((w) => w.id === relatedId))
-            .filter((w): w is (typeof works)[number] => !!w)
-            .map((relatedWork, index) => (
-              <FadeIn
-                key={relatedWork.id}
-                delay={0.45 + index * 0.05}
-                className="h-full"
-              >
-                <WorkCard
-                  id={relatedWork.id}
-                  title={relatedWork.title}
-                  category={relatedWork.category}
-                  imageUrl={relatedWork.imageUrl}
-                  technologies={relatedWork.technologies}
-                />
-              </FadeIn>
-            ))}
+          {getRelatedWorks(work).map((relatedWork, index) => (
+            <FadeIn
+              key={relatedWork.id}
+              delay={0.45 + index * 0.05}
+              className="h-full"
+            >
+              <WorkCard
+                id={relatedWork.id}
+                title={relatedWork.title}
+                category={relatedWork.category}
+                imageUrl={relatedWork.imageUrl}
+                technologies={relatedWork.technologies}
+              />
+            </FadeIn>
+          ))}
         </div>
       </section>
     </article>

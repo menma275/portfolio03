@@ -1,5 +1,3 @@
-import ogs from "open-graph-scraper";
-
 export interface OGPData {
   url: string;
   domain: string;
@@ -9,11 +7,23 @@ export interface OGPData {
   siteName: string | null;
 }
 
+function getMetaContent(html: string, property: string): string | null {
+  const pattern1 = new RegExp(
+    `<meta[^>]*(?:property|name)=["'](?:og:|twitter:)?${property}["'][^>]*content=["']([^"']*)["']`,
+    "i",
+  );
+  const pattern2 = new RegExp(
+    `<meta[^>]*content=["']([^"']*)["'][^>]*(?:property|name)=["'](?:og:|twitter:)?${property}["']`,
+    "i",
+  );
+  const match = html.match(pattern1) || html.match(pattern2);
+  return match ? match[1] : null;
+}
+
 export async function fetchOGP(url: string): Promise<OGPData> {
   let domain = "";
   try {
-    const parsedUrl = new URL(url);
-    domain = parsedUrl.hostname;
+    domain = new URL(url).hostname;
   } catch {
     domain = url;
   }
@@ -28,41 +38,38 @@ export async function fetchOGP(url: string): Promise<OGPData> {
   };
 
   try {
-    const { result, error } = await ogs({
-      url,
-      timeout: 5000,
-      onlyGetOpenGraphInfo: true,
-      fetchOptions: {
-        headers: {
-          "user-agent":
-            "mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/537.36 (khtml, like gecko) chrome/120.0.0.0 safari/537.36",
-        },
+    const res = await fetch(url, {
+      signal: AbortSignal.timeout(5000),
+      headers: {
+        "user-agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       },
     });
 
-    if (error || !result) {
-      return fallback;
-    }
+    if (!res.ok) return fallback;
+    const html = await res.text();
 
-    let imageUrl: string | null = null;
-    if (result.ogImage && result.ogImage.length > 0) {
-      const img = result.ogImage[0];
-      if (img.url) {
-        imageUrl = img.url;
-        if (imageUrl.startsWith("/")) {
-          const origin = new URL(url).origin;
-          imageUrl = `${origin}${imageUrl}`;
-        }
+    const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
+    const title =
+      getMetaContent(html, "title") || (titleMatch ? titleMatch[1] : null);
+    const description = getMetaContent(html, "description");
+    let imageUrl = getMetaContent(html, "image");
+    if (imageUrl && imageUrl.startsWith("/")) {
+      try {
+        imageUrl = `${new URL(url).origin}${imageUrl}`;
+      } catch {
+        // keep imageUrl as is
       }
     }
+    const siteName = getMetaContent(html, "site_name");
 
     return {
-      url: result.ogUrl || url,
+      url,
       domain,
-      title: result.ogTitle || result.dcTitle || null,
-      description: result.ogDescription || result.dcDescription || null,
+      title: title ? title.trim() : null,
+      description: description ? description.trim() : null,
       imageUrl,
-      siteName: result.ogSiteName || null,
+      siteName: siteName ? siteName.trim() : null,
     };
   } catch {
     return fallback;

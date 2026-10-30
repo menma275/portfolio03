@@ -1,16 +1,27 @@
 "use server";
 
-import { redis } from "@/lib/redis";
+const url = process.env.UPSTASH_REDIS_REST_URL;
+const token = process.env.UPSTASH_REDIS_REST_TOKEN;
 
 const getRedisKey = (workId: string) => `portfolio:likes:${workId}`;
 
+async function redisCommand<T>(
+  command: string,
+  key: string,
+): Promise<T | null> {
+  if (!url || !token) return null;
+  const res = await fetch(`${url}/${command}/${encodeURIComponent(key)}`, {
+    headers: { Authorization: `Bearer ${token}` },
+    cache: "no-store",
+  });
+  if (!res.ok) return null;
+  const data = (await res.json()) as { result: T };
+  return data.result;
+}
+
 export async function getLikes(workId: string): Promise<number> {
-  if (!redis) {
-    console.warn("Redis client not initialized. Returning 0 likes.");
-    return 0;
-  }
   try {
-    const likes = await redis.get<number>(getRedisKey(workId));
+    const likes = await redisCommand<number>("get", getRedisKey(workId));
     return likes ?? 0;
   } catch (error) {
     console.error("Error fetching likes:", error);
@@ -19,11 +30,14 @@ export async function getLikes(workId: string): Promise<number> {
 }
 
 export async function incrementLike(workId: string): Promise<number> {
-  if (!redis) {
-    throw new Error("Redis client not initialized");
-  }
   try {
-    const updatedLikes = await redis.incr(getRedisKey(workId));
+    const updatedLikes = await redisCommand<number>(
+      "incr",
+      getRedisKey(workId),
+    );
+    if (updatedLikes === null) {
+      throw new Error("Redis client not initialized or request failed");
+    }
     return updatedLikes;
   } catch (error) {
     console.error("Error incrementing like:", error);
