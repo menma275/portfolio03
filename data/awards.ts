@@ -10,6 +10,21 @@ export interface Award {
 
 export const awards: Award[] = [
   {
+    id: "8",
+    title: {
+      ja: "GOOD DESIGN NEW HOPE AWARD 2026",
+      en: "GOOD DESIGN NEW HOPE AWARD 2026",
+    },
+    description: {
+      ja: "公益財団法人日本デザイン振興会主催の新世代のデザイナーを対象としたデザイン賞（物のデザイン部門）",
+      en: "A design award organized by the Japan Institute of Design Promotion for next-generation designers (Objects Category)",
+    },
+    date: "2026/10",
+    prize: { ja: "入選", en: "Honorable Mention" },
+    url: "https://newhope.g-mark.org/award/2026/26NHA010023.html",
+    workId: "turnie",
+  },
+  {
     id: "7",
     title: {
       ja: "INTERNATIONAL STUDENTS CREATIVE AWARD 2026",
