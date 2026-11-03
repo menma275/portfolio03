@@ -14,7 +14,10 @@ export const education: Education[] = [
       ja: "東京都立大学 システムデザイン研究科 インダストリアルアート学域 ネットワークデザインスタジオ",
       en: "Tokyo Metropolitan University, Graduate School of System Design, Industrial Art Course, Network Design Studio",
     },
-    degree: { ja: "修士（芸術工学）", en: "Master of Art and Engineering" },
+    degree: {
+      ja: "修士（芸術工学）（取得見込み）",
+      en: "Master of Art and Engineering (Expected)",
+    },
     url: "https://lab.sugimototatsuo.com/",
   },
   {
